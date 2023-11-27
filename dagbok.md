@@ -10,3 +10,5 @@
 * Byrja á Github manual.
 
 -----
+# Dagur 2 - þriðjudagur 28. Nóv
+**Markmið dagsins:**
