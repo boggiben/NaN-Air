@@ -26,8 +26,8 @@ Gerðum plan um hvað ætti að gera út vikuna.
 * Klára klasarit.
 
 **Niðurstaða dagsins:**\
+Hófumst handa kl. 9:00, byrjuðum á kröfulista, use cases, happy-path og héldum áfram með klasaritið og github manualinn. Okkur tókst að klára happy-pathið og erum nánast búnir með kröfulista, use casein og klasaritið þegar kom að hádegismat. Spjölluðum við TA um aðferðir til þess að klára klasaritið.
 
-
-
+-----
 # Dagur 3 - miðvikudagur 29. Nóv
 **Markmið dagsins:**
