@@ -32,7 +32,7 @@ Hófumst handa kl. 9:00, byrjuðum á kröfulista, use cases, happy-path og hél
 
 -----
 # Dagur 3 - miðvikudagur 29. Nóv
-**Mæting:** Árni Snær, Borgar, Stígur, Sverrir, Viktor.
+**Mæting:** Árni Snær, Bjartur, Borgar, Stígur, Sverrir, Viktor.
 **Markmið dagsins:**
 
 * Klára Git manual
