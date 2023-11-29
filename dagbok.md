@@ -1,3 +1,5 @@
+Dagbók
+
 # Dagur 1 - mánudagur 27. nóv
 **Markmið dagsins:**
 * Finna hópinn. 
@@ -22,7 +24,7 @@ Gerðum plan um hvað ætti að gera út vikuna.
 * Mæta kl. 9.
 * Gera github Manual
 * Klára kröfulista, virknikröfur annars vegar & nytsemis- og upplifunar kröfur hins vegar.
-* Klára user cases.
+* Klára use cases.
 * Klára klasarit.
 
 **Niðurstaða dagsins:**\
@@ -30,4 +32,9 @@ Hófumst handa kl. 9:00, byrjuðum á kröfulista, use cases, happy-path og hél
 
 -----
 # Dagur 3 - miðvikudagur 29. Nóv
+**Mæting:** Árni Snær, Borgar, Stígur, Sverrir, Viktor.
 **Markmið dagsins:**
+
+* Klára Git manual
+* Klára klasarit
+* Færum fínpússun fyrir skil yfir á morgundaginn, 30. nóv.
