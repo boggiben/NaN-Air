@@ -2,7 +2,7 @@ Dagbók
 
 # Dagur 1 - mánudagur 27. nóv
 
-**Mæting:** Bjartur, Borgar, Stígur, Sverrir, Viktor.
+**Mæting:** Bjartur, Borgar, Stígur, Sverrir, Viktor.\
 **Markmið dagsins:**
 
 * Finna hópinn. 
@@ -24,7 +24,7 @@ Gerðum plan um hvað ætti að gera út vikuna.
 
 # Dagur 2 - þriðjudagur 28. Nóv
 
-**Mæting:** Árni Snær, Bjartur, Borgar, Stígur, Sverrir, Viktor.
+**Mæting:** Árni Snær, Bjartur, Borgar, Stígur, Sverrir, Viktor.\
 **Markmið dagsins:**
 
 * Mæta kl. 9.
@@ -40,7 +40,7 @@ Hófumst handa kl. 9:00, byrjuðum á kröfulista, use cases, happy-path og hél
 
 # Dagur 3 - miðvikudagur 29. Nóv
 
-**Mæting:** Árni Snær, Bjartur, Borgar, Stígur, Sverrir, Viktor.
+**Mæting:** Árni Snær, Bjartur, Borgar, Stígur, Sverrir, Viktor.\
 **Markmið dagsins:**
 
 * Mæta kl 9.
