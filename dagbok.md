@@ -1,6 +1,7 @@
 Dagbók
 
 # Dagur 1 - mánudagur 27. nóv
+**Mæting:** Bjartur, Borgar, Stígur, Sverrir, Viktor.
 **Markmið dagsins:**
 * Finna hópinn. 
 * Finna notendahópa.
@@ -19,6 +20,7 @@ Gerðum plan um hvað ætti að gera út vikuna.
 
 -----
 # Dagur 2 - þriðjudagur 28. Nóv
+**Mæting:** Árni Snær, Bjartur, Borgar, Stígur, Sverrir, Viktor.
 **Markmið dagsins:**
 
 * Mæta kl. 9.
@@ -35,6 +37,10 @@ Hófumst handa kl. 9:00, byrjuðum á kröfulista, use cases, happy-path og hél
 **Mæting:** Árni Snær, Bjartur, Borgar, Stígur, Sverrir, Viktor.
 **Markmið dagsins:**
 
-* Klára Git manual
-* Klára klasarit
-* Færum fínpússun fyrir skil yfir á morgundaginn, 30. nóv.
+* Mæta kl 9.
+* Klára Wireframe.
+* Klára github manual.
+* Klára klasarit.
+* Fínpussa
+
+**Niðurstaða dagsins:**\
