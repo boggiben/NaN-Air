@@ -5,7 +5,7 @@ Dagbók
 **Mæting:** Bjartur, Borgar, Stígur, Sverrir, Viktor.\
 **Markmið dagsins:**
 
-* Finna hópinn. 
+* Finna hópinn.
 * Finna notendahópa.
 * Gera notendahópa greiningu.
 * Setja upp Git repository.
@@ -15,9 +15,9 @@ Dagbók
 * Byrja á Github manual.
 
 **Niðurstaða dagsins:**\
-Hittumst á vinnustöð hópsins. Byrjuðum á að setja upp Git repository fyrir hópinn. 
-Fórum svo í sameiningu yfir verkefnalýsingu, 
-og ákváðum að það væri ágætt fyrsta skref að byrja á notendahópa greiningu á kerfinu okkar. 
+Hittumst á vinnustöð hópsins. Byrjuðum á að setja upp Git repository fyrir hópinn.
+Fórum svo í sameiningu yfir verkefnalýsingu,
+og ákváðum að það væri ágætt fyrsta skref að byrja á notendahópa greiningu á kerfinu okkar.
 Gerðum plan um hvað ætti að gera út vikuna.
 
 -----
@@ -50,3 +50,11 @@ Hófumst handa kl. 9:00, byrjuðum á kröfulista, use cases, happy-path og hél
 * Fínpussa
 
 **Niðurstaða dagsins:**\
+
+Mættum allir frá kl. 9 til 10, fórum á stuttan fyrirlestur sem var haldinn um class diagrams og hvernig maður bætir UI, Logic og Data layer inn í diagramið. Við mættum allir 6.
+Við betrumbættum class diagramið og fengum síðan álit TA á diagraminu okkar. Git handbókin er komin langt á leið. Wireframeið var gert ítarlegra og hver möguleiki kominn fyrir. 
+Bjó til fleiri use cases, til að fylgja kröfulistanum betur. 
+
+
+# Dagur 4 - fimmtudagur 30. Nóv
+
