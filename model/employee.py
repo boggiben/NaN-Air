@@ -4,7 +4,6 @@ class Employee:
         self.national_id = national_id
         self.address = address
         self.gsm = gsm
-        self.address = address
         self.email = email
         self.role = role
 
