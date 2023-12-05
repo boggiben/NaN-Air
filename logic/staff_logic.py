@@ -1,3 +1,5 @@
+from model.employee import Employee
+
 class Staff_Logic:
     def __init__(self):
         print("lalaa")
@@ -6,7 +8,7 @@ class Staff_Logic:
         pass
         
     def see_all_staff(self):
-        pass
+        return [Employee()]
 
     def add_new_flight(self, plane, employee):
         pass
