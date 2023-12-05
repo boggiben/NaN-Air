@@ -8,3 +8,4 @@ class DataWrapper:
         self.staff_data.create_staff(employee)
         
     def get_all_staff(self):
+        pass
