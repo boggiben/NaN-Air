@@ -1,5 +1,4 @@
-
-
+from data.data_wrapper import DataWrapper
 
 
 class LogicWrapper:
