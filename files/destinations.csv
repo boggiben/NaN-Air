@@ -1,6 +1,6 @@
-Land	Flugvöllur	Flugtími	Lengd	Tengiliður	Neyðarnúmer
-Grænland	Kulusuk	1:50			
-Grænland	Nuuk				
-Færeyjar	Þórshöfn				
-Hjaltlandseyjar	Tingwall				
-Svalbarði	Longyearbyen				
+Land,Flugvöllur,Flugtími(klst/min),Lengd(km),Tengiliður,Neyðarnúmer
+Grænland,Kulusuk,1:50,711,Malik Kristensen,+299 52 12345
+Grænland,Nuuk,3:55,1430,Naja Egede,+299 61 98765
+Færeyjar,Þórshöfn,0:45,383,Johan Hansen,+298 22 34567
+Hjaltlandseyjar,Tingwall,1:43,1087,Lorna Anderson,+44 1595 678901
+Svalbarði,Longyearbyen,2:35,2018,Erik Solberg,+47 22 876543
