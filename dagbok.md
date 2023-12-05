@@ -58,3 +58,10 @@ Bjó til fleiri use cases, til að fylgja kröfulistanum betur.
 
 # Dagur 4 - fimmtudagur 30. Nóv
 
+**Mæting:** Mættum allir 6.
+* Mættum allir frá kl. 9 til 10.
+* Fórum á stuttan fyrirlestur sem var haldinn um class diagrams og hvernig maður bætir UI, Logic og Data layer inn í diagramið. 
+* Betrumbættum class diagramið og fengum síðan álit TA á diagraminu okkar. 
+* Git handbókin er komin langt á leið. 
+* Wireframeið var gert ítarlegra og hver möguleiki kominn fyrir. 
+* Fleiri use case búin til, til að til að fylgja kröfulistanum betur. 
