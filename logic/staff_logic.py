@@ -2,7 +2,7 @@ from model.employee import Employee
 
 class Staff_Logic:
     def __init__(self, data_wrapper):
-        print("lalaa")
+        self.data_wrapper = data_wrapper
 
     def add_new_staff(self, employee):
         pass
