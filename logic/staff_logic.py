@@ -1,5 +1,5 @@
 class Staff_Logic:
-    def __init__(self):
+    def __init__(self, data_wrapper):
         print("lalaa")
 
     def create_employee(self, employee):
