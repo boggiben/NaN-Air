@@ -18,4 +18,4 @@ class Destination:
         self.contact_number = contact_number
 
     def __str__(self):
-        return f"destination: {self.destination}, national id: {self.country}, airport: {self.airport}, flight duration: {self.flight_duration}, distance: {self.distance}, contact name: {self.contact_name}, contact number: {self.contact_number}"
+        return f"Country: {self.country}, airport: {self.airport}, flight duration: {self.flight_duration}, distance: {self.distance}, contact name: {self.contact_name}, contact number: {self.contact_number}"
