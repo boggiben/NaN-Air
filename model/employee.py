@@ -7,7 +7,5 @@ class Employee:
         self.address = address
         self.email = email
 
-    nafn, kennitala, heimilisfang, gsm - sími, netfang
-
     def __str__(self):
         return f"name: {self.name}, national id: {self.national_id}, address: {self.address}, mobile number: {self.gsm}, email: {self.email}"
