@@ -65,3 +65,21 @@ Bjó til fleiri use cases, til að fylgja kröfulistanum betur.
 * Git handbókin er komin langt á leið. 
 * Wireframeið var gert ítarlegra og hver möguleiki kominn fyrir. 
 * Fleiri use case búin til, til að til að fylgja kröfulistanum betur. 
+
+
+# Dagur 5 - Föstudagur 1. Des
+
+**Mæting:** Bjartur, Borgar, Stígur, Sverrir, Viktor
+
+**Markmið dagsins:**
+
+* Fínpússa og gera tilbúið í skil
+* Skila hönnunarskýrslunni.
+
+**Niðurstaða dagsins:**\
+
+Hittumst frá 10-11 og fórum í að fínpússa allt og bættum við nokkrum auka use cases. Fengum álit hjá TA um bestu leiðina til að bæta class diagram og wireframe inn í aðalskjalið og fylgdum því. Við bættum líka kröfulistanum við og settum forsíðu.
+
+
+# Dagur 6 - Mánudagur 4. Des
+
