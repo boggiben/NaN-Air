@@ -55,17 +55,16 @@ Mættum allir frá kl. 9 til 10, fórum á stuttan fyrirlestur sem var haldinn u
 Við betrumbættum class diagramið og fengum síðan álit TA á diagraminu okkar. Git handbókin er komin langt á leið. Wireframeið var gert ítarlegra og hver möguleiki kominn fyrir. 
 Bjó til fleiri use cases, til að fylgja kröfulistanum betur. 
 
-
 # Dagur 4 - fimmtudagur 30. Nóv
 
 **Mæting:** Mættum allir 6.
+
 * Mættum allir frá kl. 9 til 10.
 * Fórum á stuttan fyrirlestur sem var haldinn um class diagrams og hvernig maður bætir UI, Logic og Data layer inn í diagramið. 
 * Betrumbættum class diagramið og fengum síðan álit TA á diagraminu okkar. 
 * Git handbókin er komin langt á leið. 
 * Wireframeið var gert ítarlegra og hver möguleiki kominn fyrir. 
 * Fleiri use case búin til, til að til að fylgja kröfulistanum betur. 
-
 
 # Dagur 5 - Föstudagur 1. Des
 
@@ -79,7 +78,6 @@ Bjó til fleiri use cases, til að fylgja kröfulistanum betur.
 **Niðurstaða dagsins:**\
 
 Hittumst frá 10-11 og fórum í að fínpússa allt og bættum við nokkrum auka use cases. Fengum álit hjá TA um bestu leiðina til að bæta class diagram og wireframe inn í aðalskjalið og fylgdum því. Við bættum líka kröfulistanum við og settum forsíðu.
-
 
 # Dagur 6 - Mánudagur 4. Des
 
