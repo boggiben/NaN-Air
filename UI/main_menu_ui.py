@@ -14,6 +14,20 @@ class MainMenu_UI:
         print("5 Skrá starfsmann í vinnuferð")
         print("6. Skrá nýjan starfsmann")
         print("q. Hætta")
+        print("*" * 30)
+        print(
+            """                          
+            __/\__
+           `==/\==`
+ ____________/__\____________
+/____________________________/
+  __||__||__/.--.\__||__||__
+ /__|___|___( >< )___|___|__/
+           _/`--`\_
+          (/------\)
+               """
+        )
+        print("*" * 30)
 
     def input_main_menu(self):
         while True:
