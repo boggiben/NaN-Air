@@ -14,7 +14,6 @@ class DestinationData:
             for row in reader:
                 destination_list.append(
                     Destination(
-                        row["destination"],
                         row["country"],
                         row["airport"],
                         row["flight_duration"],
@@ -28,7 +27,6 @@ class DestinationData:
     def create_destination(self, destination):
         with open(self.filename, "a", newline="", encoding="utf-8") as csvfile:
             fieldnames = [
-                "destination",
                 "country",
                 "airport",
                 "flight_duration",
@@ -40,7 +38,6 @@ class DestinationData:
             
             writer.writerow(
                 {
-                    "destination": destination.destination,
                     "country": destination.country,
                     "airport": destination.airport,
                     "flight_duration": destination.flight_duration,
