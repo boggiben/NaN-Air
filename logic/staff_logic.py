@@ -5,5 +5,5 @@ class Staff_Logic:
     def create_employee(self, employee):
         pass
         
-    def see_all_employees(self):
+    def see_all_staff(self):
         pass
