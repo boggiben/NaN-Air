@@ -1,5 +1,5 @@
 class Employee:
-    def __init__(self, name="", national_id="", address="", gsm="", email="", role=""):
+    def __init__(self, name="", gsm="", email="", address="", national_id="", role=""):
         self.name = name
         self.national_id = national_id
         self.address = address
@@ -8,4 +8,4 @@ class Employee:
         self.role = role
 
     def __str__(self):
-        return f"name: {self.name}, national id: {self.national_id}, address: {self.address}, mobile number: {self.gsm}, email: {self.email}, role: {self.role}"
+        return f"name: {self.name}, mobile number: {self.gsm}, email: {self.email}, address: {self.address}, national id: {self.national_id}, role: {self.role}"

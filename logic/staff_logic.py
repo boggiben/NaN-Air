@@ -1,5 +1,6 @@
 from model.employee import Employee
 import csv
+file_name = "files/staff.csv"
 
 class Staff_Logic:
     def __init__(self, data_wrapper):
@@ -9,10 +10,13 @@ class Staff_Logic:
         pass
         
     def see_all_staff(self):
-        with open("staff.csv", newline="") as csvfile:
-            read = csv.DictReader(csvfile)
-            for row in read:
-                 print(row["first_name"], row["last_name"])
+        staff_list = []
+        with open(file_name, newline="") as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                staff_list.append(Employee)
+
+        return staff_list
 
     def add_new_flight(self, plane, employee):
         pass
