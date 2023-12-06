@@ -1,4 +1,3 @@
-from logic.destination_logic import DestinationLogic
 from model.destination import Destination
 from logic.logic_wrapper import LogicWrapper
 

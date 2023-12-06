@@ -1,6 +1,7 @@
 from logic.logic_wrapper import LogicWrapper
 from ui.staff_ui import Staff_UI
 from ui.destination_ui import Destination_UI
+from ui.voyage_ui import Voyage_UI
 
 
 class MainMenu_UI:
@@ -37,7 +38,9 @@ class MainMenu_UI:
             elif user_input == "3":
                 self.logic_wrapper.get_all_flights()
             elif user_input == "4":
-                self.logic_wrapper.add_new_flight()
+                menu = Voyage_UI(self.logic_wrapper)
+                menu.input_voyage_menu()
+                # self.logic_wrapper.add_new_voyage()
             elif user_input == "5":
                 self.logic_wrapper.add_staff_to_flight()
             elif user_input == "6":
