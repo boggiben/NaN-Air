@@ -81,3 +81,11 @@ Hittumst frá 10-11 og fórum í að fínpússa allt og bættum við nokkrum auk
 
 # Dagur 6 - Mánudagur 4. Des
 
+**Mæting:** Árni, Bjartur, Borgar, Stígur, Sverrir, Viktor
+
+**Markmið:**
+Horfa á fyrirlesturinn
+
+
+**Niðurstaða:**
+Tókum fyrirlesturinn með krafti og hófum undirbúning á verkefninu
