@@ -1,6 +1,7 @@
 from data.data_wrapper import DataWrapper
 from logic.destination_logic import DestinationLogic
 from logic.staff_logic import Staff_Logic
+from flight_logic import FlightLogic
 
 
 class LogicWrapper:
@@ -8,9 +9,10 @@ class LogicWrapper:
         self.data_wrapper = DataWrapper()
         self.staff_logic = Staff_Logic(self.data_wrapper)
         self.destination_logic = DestinationLogic(self.data_wrapper)
+        self.flight_logic = FlightLogic(self.data_wrapper)
 
     def get_all_flights(self):
-        pass
+        self.data_wrapper.get_all_flights()
 
     def get_flights_by_week(self):
         pass

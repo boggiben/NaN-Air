@@ -7,7 +7,4 @@ class Flight:
         self.arrival = arrival
 
     def __str__(self):
-        return f"departure location: {self.departure_location}, 
-        departure time: {self.departure_time}, 
-        arrival location: {self.arrival_location}, 
-        arrival time: {self.arrival_time}"
+        return f"departure location: {self.departure_location}, departure time: {self.departure_time}, arrival location: {self.arrival_location}, arrival time: {self.arrival_time}"
