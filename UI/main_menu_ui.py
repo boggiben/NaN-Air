@@ -1,5 +1,6 @@
 from logic.logic_wrapper import LogicWrapper
 from ui.staff_ui import Staff_UI
+from ui.destination_ui import Destination_UI
 
 
 class MainMenu_UI:
@@ -14,6 +15,8 @@ class MainMenu_UI:
         print("4. Skrá nýja flugferð")
         print("5. Skrá starfsmann í vinnuferð")
         print("6. Skrá nýjan starfsmann")
+        print("7. Skrá nýjan áfangastað")
+        print("8. Skoða alla áfangastaði")
         print("q. Hætta")
         print("*" * 30)
         print(
@@ -42,7 +45,6 @@ class MainMenu_UI:
             elif user_input == "3":
                 menu = Staff_UI(self.logic_wrapper)
                 menu.input_staff_menu()
-                
                 # self.logic_wrapper.get_all_staff()
             elif user_input == "4":
                 self.logic_wrapper.add_new_flight()
@@ -50,6 +52,11 @@ class MainMenu_UI:
                 self.logic_wrapper.add_staff_to_flight()
             elif user_input == "6":
                 self.logic_wrapper.add_new_staff()
+            elif user_input == "7":
+                self.logic_wrapper.create_destination()
+            elif user_input == "8":
+                menu = Destination_UI(self.logic_wrapper)
+                menu.input_destination()
             elif user_input == "q":
                 print("Bless")
                 break

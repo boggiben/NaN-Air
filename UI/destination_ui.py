@@ -6,7 +6,7 @@ class Destination_UI:
     def __init__(self, logic_connection):
         self.logic_wrapper = logic_connection
         
-    def menu(self):
+    def destination_menu(self):
         print("Áfangastaðir")
         print("1. Stofna nýjan áfangastað")
         print("2. Sjá alla áfangastaði")
@@ -14,7 +14,7 @@ class Destination_UI:
     
     def input_destination(self):
         while True:
-            self.menu()    
+            self.destination_menu()    
             action = input("Veldu aðgerð: ")
             
             
