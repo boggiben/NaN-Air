@@ -21,3 +21,4 @@ class Staff_UI:
                 break
             else:
                 print("Rangur innsláttur. Reyndu aftur.")
+        
