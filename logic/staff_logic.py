@@ -1,14 +1,17 @@
 from model.employee import Employee
 import csv
+<<<<<<< HEAD
+
+file_name = "files/staff.csv"
+=======
+>>>>>>> ceb2a67d7e7e94183e6d3c16ac1100d06030cef8
+
 
 class Staff_Logic:
     def __init__(self, data_wrapper):
         self.data_wrapper = data_wrapper
         self.file_name = "files/staff.csv"
 
-    def add_new_staff(self, employee):
-        pass
-        
     def see_all_staff(self):
         staff_list = []
         with open(self.file_name, newline="") as csvfile:
@@ -20,11 +23,27 @@ class Staff_Logic:
     def add_new_flight(self, plane, employee):
         pass
 
+    def add_new_staff(self, employee):
+        with open(file_name, newline="") as csvfile:
+            fieldnames = [
+                "Nafn",
+                "Símanúmer",
+                "Netfang",
+                "Heimilisfang",
+                "kennitala",
+                "Staða",
+            ]
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+
     def add_staff_to_flight(self, employee):
         pass
 
-    def get_all_flights(self, ):
+    def get_all_flights(
+        self,
+    ):
         pass
 
-    def get_flights_by_week(self,):
-        pass 
+    def get_flights_by_week(
+        self,
+    ):
+        pass
