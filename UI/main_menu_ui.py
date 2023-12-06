@@ -9,29 +9,20 @@ class MainMenu_UI:
 
     def menu_output(self):
         print("\n")
-        print("Velkominn á aðalvalmynd")
-        print("1. Skoða öll skráð flug")
-        print("2. Skoða flug vikunnar")
-        print("3. Listi yfir starfsmenn")
-        print("4. Skrá nýja flugferð")
-        print("5. Skrá starfsmann í vinnuferð")
-        print("6. Skrá nýjan starfsmann")
-        print("7. Áfangastaðir")
-        print("q. Hætta")
-        print("*" * 30)
-        print(
-            """                          
-            __/\__
-           `==/\==`
- ____________/__\____________
-/____________________________/
-  __||__||__/.--.\__||__||__
- /__|___|___( >< )___|___|__/
-           _/`--`\_
-          (/------\)
-               """
-        )
-        print("*" * 30)
+        print(f"{'Velkomin/n á aðalvalmynd':^75}")
+        print("*" * 80)
+
+        print(f"{'1. Skoða öll skráð flug':<80}")
+        print(f"{'2. Skoða flug vikunnar':<80}")
+        print(f"{'3. Listi yfir starfsmenn':<80}")
+        print(f"{'4. Skrá nýja flugferð':<80}")
+        print(f"{'5. Skrá starfsmann í vinnuferð':<80}")
+        print(f"{'6. Skrá nýjan starfsmann':<80}")
+        print(f"{'7. Áfangastaðir':<80}")
+        print(f"{'q. Hætta':<80}")
+        print("*" * 80)
+        print(ascii)
+        print("*" * 80)
 
     def input_main_menu(self):
         while True:
@@ -60,3 +51,16 @@ class MainMenu_UI:
                 break
             else:
                 print("Rangur innsláttur")
+
+
+
+ascii = """                          
+            __/\__                              
+           `==/\==`
+ ____________/__\____________
+/____________________________/
+  __||__||__/.--.\__||__||__
+ /__|___|___( >< )___|___|__/
+           _/`--`\_
+          (/------\)
+               """
