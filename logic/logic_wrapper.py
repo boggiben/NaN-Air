@@ -30,5 +30,6 @@ class LogicWrapper:
     def get_all_destinations(self):
         return self.data_wrapper.get_all_destinations()
 
-    def create_destination(self, destination):
-        return self.data_wrapper.create_destination
+    def add_new_destination(self, destination: list):
+        self.destination = destination
+        return self.data_wrapper.add_new_destination
