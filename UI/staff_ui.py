@@ -1,4 +1,4 @@
-
+from logic.staff_logic import Staff_Logic
 
 class Staff_UI:
     def __init__(self, logic_connection):
