@@ -25,7 +25,12 @@ class Staff_UI:
 
                 for elem in result:
                     print(
-                        f"name: {elem.name}, mobile_number: {elem.mobile_number}, email: {elem.email}, address: {elem.address}, national_id: {elem.national_id}, role: {elem.role}"
+                        f"Name: {elem.name:<10} | "
+                        f"Mobile Number: {elem.gsm:<10} | "
+                        f"Email: {elem.email:<20} | "
+                        f"Address: {elem.address:<8} | "
+                        f"National ID: {elem.national_id:<20} | "
+                        f"Role: {elem.role:<15}"
                     )
 
             elif user_input.lower() == "2":
@@ -37,7 +42,6 @@ class Staff_UI:
                 break
             else:
                 print("Rangur innsláttur. Reyndu aftur.")
-
 
     def add_new_staff_ui(self):
         new_employee = Employee()
