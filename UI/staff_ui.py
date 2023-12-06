@@ -16,7 +16,7 @@ class Staff_UI:
             user_input = input("Veldu aðgerð: ")
             if user_input == "1":
                 print("Þú valdir að sjá alla starfsmenn")
-            elif user_input.lower() == "q":
+            elif user_input.lower() == "b":
                 break
             else:
                 print("Rangur innsláttur. Reyndu aftur.")
