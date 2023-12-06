@@ -16,5 +16,5 @@ class DataWrapper:
     def get_all_destinations(self):
         return self.destination_data.get_all_destinations()
 
-    def create_destination(self, destination):
-        return self.destination_data.create_destination(destination)
+    def add_new_destination(self, destination):
+        return self.destination_data.add_new_destination(destination)

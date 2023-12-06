@@ -6,7 +6,7 @@ from model.destination import Destination
 class DestinationData:
     def __init__(self):
         self.filename = "files/destinations.csv"
-        
+
     def get_all_destinations(self):
         destination_list = []
         with open(self.filename, newline="", encoding="utf-8") as csvfile:
@@ -23,8 +23,8 @@ class DestinationData:
                     )
                 )
         return destination_list
-    
-    def create_destination(self, destination):
+
+    def add_new_destination(self, destination):
         with open(self.filename, "a", newline="", encoding="utf-8") as csvfile:
             fieldnames = [
                 "country",
@@ -35,7 +35,7 @@ class DestinationData:
                 "contact_number",
             ]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            
+
             writer.writerow(
                 {
                     "country": destination.country,

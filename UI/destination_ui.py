@@ -19,7 +19,7 @@ class Destination_UI:
             action = input("Veldu aðgerð: ")
 
             if action == "1":
-                return self.logic_wrapper.create_destination()
+                return self.logic_wrapper.add_new_destination()
             elif action == "2":
                 all_destinations = self.logic_wrapper.get_all_destinations()
                 self.display_destinations(all_destinations)
@@ -34,7 +34,7 @@ class Destination_UI:
         for dest in destinations:
             print(dest)
 
-    def create_destination_ui(self):
+    def add_new_destination_ui(self):
         destination_list = []
         country = input("Land: ")
         destination_list.append(country)

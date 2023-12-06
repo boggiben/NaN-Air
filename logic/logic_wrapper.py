@@ -24,11 +24,13 @@ class LogicWrapper:
     def add_staff_to_flight(self):
         pass
 
-    def add_new_staff(self):
-        pass
+    def add_new_staff(self, employee: list):
+        self.employee = employee
+        return self.data_wrapper.create_staff
 
     def get_all_destinations(self):
         return self.data_wrapper.get_all_destinations()
 
-    def create_destination(self, destination):
-        return self.data_wrapper.create_destination
+    def add_new_destination(self, destination: list):
+        self.destination = destination
+        return self.data_wrapper.add_new_destination
