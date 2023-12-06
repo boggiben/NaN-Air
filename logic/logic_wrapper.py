@@ -25,7 +25,7 @@ class LogicWrapper:
         pass
 
     def add_new_staff(self):
-        pass
+        
 
     def get_all_destinations(self):
         return self.data_wrapper.get_all_destinations()
