@@ -21,9 +21,9 @@ class Destination_UI:
             if action == "1":
                 success = self.add_new_destination_ui()
                 if success:
-                    print("*"*30)
+                    print("*" * 30)
                     print("Aðgerð tókst!")
-                    print("*"*30)
+                    print("*" * 30)
             elif action == "2":
                 all_destinations = self.logic_wrapper.get_all_destinations()
                 self.display_destinations(all_destinations)
@@ -42,17 +42,17 @@ class Destination_UI:
             
 
     def add_new_destination_ui(self):
-        destination_list = []
+        new_destination = Destination()
         country = input("Land: ")
-        destination_list.append(country)
+        new_destination.country = country
         airport = input("Flugvöllur: ")
-        destination_list.append(airport)
+        new_destination.airport = airport
         duration = input("Flugtími: ")
-        destination_list.append(duration)
+        new_destination.flight_duration = duration
         distance = input("Fjarlægð: ")
-        destination_list.append(distance)
+        new_destination.distance = distance
         contact = input("Nafn tengiliðs: ")
-        destination_list.append(contact)
+        new_destination.contact_name = contact
         number = input("Neyðarnúmer tengiliðs: ")
-        destination_list.append(number)
-        self.logic_wrapper.add_new_destination(destination_list)
+        new_destination.contact_number = number
+        return self.logic_wrapper.add_new_destination(new_destination)

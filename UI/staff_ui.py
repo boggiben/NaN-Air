@@ -1,5 +1,6 @@
 from logic.logic_wrapper import LogicWrapper
-
+from logic.staff_logic import Staff_Logic
+from model.employee import Employee
 
 class Staff_UI:
     def __init__(self, logic_connection):
@@ -23,6 +24,11 @@ class Staff_UI:
 
                 for elem in result:
                     print(f"name: {elem.name}")
+
+            elif user_input.lower() == "2": 
+                print("Þú valdir að skrá nýjan starfsmann")
+                self.logic_wrapper.add_new_staff(Employee)
+
             elif user_input.lower() == "b":
                 break
             else:

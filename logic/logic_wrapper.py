@@ -26,11 +26,10 @@ class LogicWrapper:
 
     def add_new_staff(self, employee: list):
         self.employee = employee
-        return self.data_wrapper.create_staff
+        self.staff_logic.add_new_staff(employee)
 
     def get_all_destinations(self):
         return self.data_wrapper.get_all_destinations()
 
-    def add_new_destination(self, destination: list):
-        self.destination = destination
-        return self.data_wrapper.add_new_destination
+    def add_new_destination(self, destination):
+        return self.destination_logic.add_new_destination(destination)

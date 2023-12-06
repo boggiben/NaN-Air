@@ -31,6 +31,7 @@ class Staff_Data:
                     "role": staff.role,
                 }
             )
+            return True
 
     def read_all_staff(self):
         staff_list = []

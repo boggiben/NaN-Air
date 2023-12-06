@@ -7,7 +7,7 @@ class DestinationLogic:
         self.data_wrapper = data_connection
 
     def add_new_destination(self, destination):
-        self.data_wrapper.add_new_destination(destination)
+        return self.data_wrapper.add_new_destination(destination)
 
     def get_all_destinations(self):
         return self.data_wrapper.get_all_destinations()
