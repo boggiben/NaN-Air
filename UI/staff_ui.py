@@ -23,6 +23,10 @@ class Staff_UI:
 
                 for elem in result:
                     print(f"name: {elem.name}")
+
+            elif user_input.lower() == "2": 
+                print("Þú valdir að skrá nýjan starfsmann")
+                
             elif user_input.lower() == "b":
                 break
             else:
