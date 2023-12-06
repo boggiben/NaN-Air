@@ -1,10 +1,10 @@
 class Employee:
     def __init__(self, name="", gsm="", email="", address="", national_id="", role=""):
         self.name = name
-        self.national_id = national_id
-        self.address = address
         self.gsm = gsm
         self.email = email
+        self.address = address
+        self.national_id = national_id
         self.role = role
 
     def __str__(self):
