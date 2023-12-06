@@ -32,4 +32,4 @@ class Destination_UI:
 
     def display_destinations(self, destinations):
         for dest in destinations:
-            #print(dest)
+            print(dest)
