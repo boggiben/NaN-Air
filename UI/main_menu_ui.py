@@ -14,7 +14,7 @@ class MainMenu_UI:
 
         print(f"{'1. Skoða öll skráð flug':<80}")
         print(f"{'2. Skoða flug vikunnar':<80}")
-        print(f"{'3. Listi yfir starfsmenn':<80}")
+        print(f"{'3. Starfsmenn':<80}")
         print(f"{'4. Skrá nýja flugferð':<80}")
         print(f"{'5. Skrá starfsmann í vinnuferð':<80}")
         print(f"{'6. Skrá nýjan starfsmann':<80}")
@@ -51,7 +51,6 @@ class MainMenu_UI:
                 break
             else:
                 print("Rangur innsláttur")
-
 
 
 ascii = """                          
