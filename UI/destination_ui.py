@@ -28,7 +28,7 @@ class Destination_UI:
                 break
             else:
                 print("Rangur innsláttur")
-                self.destination_menumenu()
+                self.destination_menu()
 
     def create_destination_ui(self):
         destination_list = []
