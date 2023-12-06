@@ -16,7 +16,7 @@ class Destination_UI:
     def input_destination(self):
         while True:
             self.destination_menu()
-            action = input("Veldu aðgerð: ")
+            action = input("Veldu aðgerð: ").lower
 
             if action == "1":
                 success = self.add_new_destination_ui()
@@ -37,9 +37,13 @@ class Destination_UI:
     def display_destinations(self, destinations):
         print(f"{'Áfangastaðir':^120}")
         print("*" * 120)
-        print(f"{'Country':<20} {'Airport':<20} {'Flight Duration':<20} {'Flight Distance km':<20} {'Contact Name':<20} {'Contact Number':<20}")
-        for dest in destinations:           
-            print(f"{dest.country:<20} {dest.airport:<20} {dest.flight_duration:<20} {dest.distance:<20} {dest.contact_name:<20} {dest.contact_number:<20}")
+        print(
+            f"{'Country':<20} {'Airport':<20} {'Flight Duration':<20} {'Flight Distance km':<20} {'Contact Name':<20} {'Contact Number':<20}"
+        )
+        for dest in destinations:
+            print(
+                f"{dest.country:<20} {dest.airport:<20} {dest.flight_duration:<20} {dest.distance:<20} {dest.contact_name:<20} {dest.contact_number:<20}"
+            )
         print("*" * 120)
         print()
 
@@ -49,9 +53,9 @@ class Destination_UI:
         new_destination.country = country
         airport = input("Flugvöllur: ")
         new_destination.airport = airport
-        duration = input("Flugtími: ")
+        duration = input("Flugtími klst:mín: ")
         new_destination.flight_duration = duration
-        distance = input("Fjarlægð: ")
+        distance = input("Fjarlægð í km: ")
         new_destination.distance = distance
         contact = input("Nafn tengiliðs: ")
         new_destination.contact_name = contact
