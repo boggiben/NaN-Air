@@ -8,6 +8,7 @@ class MainMenu_UI:
         self.logic_wrapper = LogicWrapper()
 
     def menu_output(self):
+        print("\n")
         print("Velkominn á aðalvalmynd")
         print("1. Skoða öll skráð flug")
         print("2. Skoða flug vikunnar")

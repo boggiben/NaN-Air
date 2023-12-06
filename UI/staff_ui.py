@@ -8,7 +8,7 @@ class Staff_UI:
         self.logic_wrapper = logic_connection
 
     def menu_output(self):
-        print("--Starfsmenn--")
+        print("\n----STARFSMENN----")
         print("1. Sjá alla starfsmenn")
         print("2. Skrá nýjan starfsmann")
         print("3. Sjá lausa starfsmenn")
