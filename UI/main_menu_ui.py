@@ -15,8 +15,7 @@ class MainMenu_UI:
         print("4. Skrá nýja flugferð")
         print("5. Skrá starfsmann í vinnuferð")
         print("6. Skrá nýjan starfsmann")
-        print("7. Skrá nýjan áfangastað")
-        print("8. Skoða alla áfangastaði")
+        print("7. Áfangastaðir")
         print("q. Hætta")
         print("*" * 30)
         print(
@@ -53,8 +52,6 @@ class MainMenu_UI:
             elif user_input == "6":
                 self.logic_wrapper.add_new_staff()
             elif user_input == "7":
-                self.logic_wrapper.create_destination()
-            elif user_input == "8":
                 menu = Destination_UI(self.logic_wrapper)
                 menu.input_destination()
             elif user_input == "q":

@@ -1,5 +1,6 @@
 from logic.destination_logic import DestinationLogic
 from model.destination import Destination
+from logic.logic_wrapper import LogicWrapper
 
 
 class Destination_UI:
@@ -19,12 +20,12 @@ class Destination_UI:
             
             
             if action == "1":
-                self.create_destination()
+                self.logic_wrapper.add_new_destination()
             elif action == "2":
-                self.see_all_destinations()
+                self.logic_wrapper.get_all_destinations()
             elif action == "b":
                 print("Til baka í aðalvalmynd")
                 break
             else:
                 print("Rangur innsláttur")
-                self.menu()
+                self.destination_menumenu()
