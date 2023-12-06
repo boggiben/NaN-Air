@@ -1,4 +1,5 @@
 from data.data_wrapper import DataWrapper
+from logic.destination_logic import DestinationLogic
 from logic.staff_logic import Staff_Logic
 
 
