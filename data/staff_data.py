@@ -6,7 +6,6 @@ from model.employee import Employee
 
 class Staff_Data:
     def __init__(self):
-        # print(os.getcwd())
         self.file_name = "files/staff.csv"
 
     def create_staff(self, staff):
