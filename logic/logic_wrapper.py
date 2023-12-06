@@ -26,7 +26,7 @@ class LogicWrapper:
 
     def add_new_staff(self, employee: list):
         self.employee = employee
-        return self.data_wrapper.create_staff
+        self.staff_logic.add_new_staff(employee)
 
     def get_all_destinations(self):
         return self.data_wrapper.get_all_destinations()
