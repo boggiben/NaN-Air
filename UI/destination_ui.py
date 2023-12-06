@@ -33,3 +33,20 @@ class Destination_UI:
     def display_destinations(self, destinations):
         for dest in destinations:
             print(dest)
+            
+            
+        def create_destination_ui(self):
+            destination_list = []
+            country = input("Land: ")
+            destination_list.append(country)
+            airport = input("Flugvöllur: ")
+            destination_list.append(airport)
+            duration = input("Flugtími: ")
+            destination_list.append(duration)
+            distance = input("Fjarlægð: ")
+            destination_list.append(distance)
+            contact = input("Nafn tengiliðs: ")
+            destination_list.append(contact)
+            number = input("Neyðarnúmer tengiliðs: ")
+            destination_list.append(number)
+            self.logic_wrapper.add_new_destination(destination_list)
