@@ -1,4 +1,4 @@
-﻿Nafn,Símanúmer,Netfang,Heimilisfang,Kennitala,Staða
+﻿name,mobile_number,email,address,national_id,role
 Anna,855-7645,anna@nanair.is,Grettisgata 18,040586-4959,Flugþjónn
 Einar,321-5678,einar@nanair.is,Kirkjustræti 25,150495-7899,Yfirflugþjónn
 Sara,456-9876,sara@nanair.is,Austurberg 10,230398-4569,Flugstjóri

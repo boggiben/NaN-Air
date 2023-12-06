@@ -34,7 +34,9 @@ class Staff_Data:
 
     def read_all_staff(self):
         staff_list = []
-        with open(self.file_name, newline="") as csvfile:
+        with open(
+            self.file_name, mode="r", newline="", encoding="utf-8-sig"
+        ) as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 staff_list.append(

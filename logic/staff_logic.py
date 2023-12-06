@@ -7,40 +7,21 @@ file_name = "files/staff.csv"
 class Staff_Logic:
     def __init__(self, data_wrapper):
         self.data_wrapper = data_wrapper
-        self.file_name = "files/staff.csv"
 
-    def see_all_staff(self):
-        staff_list = []
-        with open(self.file_name, newline="") as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                staff_list.append(Employee(row["Nafn"], row["Netfang"]))
-        return staff_list
+    def get_all_staff(self):
+        return self.data_wrapper.get_all_staff()
 
     def add_new_flight(self, plane, employee):
         pass
 
     def add_new_staff(self, employee):
-        with open(file_name, newline="") as csvfile:
-            fieldnames = [
-                "Nafn",
-                "Símanúmer",
-                "Netfang",
-                "Heimilisfang",
-                "kennitala",
-                "Staða",
-            ]
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        pass
 
     def add_staff_to_flight(self, employee):
         pass
 
-    def get_all_flights(
-        self,
-    ):
+    def get_all_flights(self):
         pass
 
-    def get_flights_by_week(
-        self,
-    ):
+    def get_flights_by_week(self):
         pass
