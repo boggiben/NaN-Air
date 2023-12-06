@@ -9,6 +9,9 @@ class LogicWrapper:
         self.staff_logic = Staff_Logic(self.data_wrapper)
         self.destination_logic = DestinationLogic(self.data_wrapper)
 
+    def get_employee_by_ssn(self, ssn):
+        return self.staff_logic.get_employee_by_ssn(ssn)
+
     def get_all_flights(self):
         pass
 

@@ -13,6 +13,7 @@ class Staff_UI:
         print("2. Skrá nýjan starfsmann")
         print("3. Sjá lausa starfsmenn")
         print("4. Sjá upptekna starfsmenn")
+        print("5 leita af starfsmanni eftir kennitölu: ")
         print("b. Til að fara í aðalvalmynd")
 
     def input_staff_menu(self):
@@ -38,6 +39,16 @@ class Staff_UI:
                 success = self.add_new_staff_ui()
                 if success:
                     print("Aðgerð tókst!")
+            elif user_input.lower() == "5":
+                ssn = input("kennitala: ")
+                # print("upplýsingar")
+                emp = self.logic_wrapper.get_employee_by_ssn(ssn)
+
+                if emp is None:
+                    print("Starfsmaður er ekki til")
+                else:
+                    print(emp)
+
             elif user_input.lower() == "b":
                 break
             else:
