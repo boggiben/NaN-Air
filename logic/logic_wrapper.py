@@ -16,7 +16,7 @@ class LogicWrapper:
         pass
 
     def get_all_staff(self):
-        self.staff_logic.see_all_staff()
+        self.staff_logic.get_all_staff()
 
     def add_new_flight(self):
         pass
