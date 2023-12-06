@@ -1,4 +1,4 @@
-Land,Flugvöllur,Flugtími(klst/min),Lengd(km),Tengiliður,Neyðarnúmer
+country,airport,flight_duration,distance,contact_name,contact_number
 Grænland,Kulusuk,1:50,711,Malik Kristensen,+299 52 12345
 Grænland,Nuuk,3:55,1430,Naja Egede,+299 61 98765
 Færeyjar,Þórshöfn,0:45,383,Johan Hansen,+298 22 34567

@@ -1,11 +1,11 @@
 import csv
+from model.employee import Employee
 
 # from model.staff import Staff
 
 
 class Staff_Data:
     def __init__(self):
-        # print(os.getcwd())
         self.file_name = "files/staff.csv"
 
     def create_staff(self, staff):
@@ -30,6 +30,26 @@ class Staff_Data:
                     "role": staff.role,
                 }
             )
+            return True
+
+    def read_all_staff(self):
+        staff_list = []
+        with open(
+            self.file_name, mode="r", newline="", encoding="utf-8-sig"
+        ) as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                staff_list.append(
+                    Employee(
+                        row["name"],
+                        row["national_id"],
+                        row["address"],
+                        row["mobile_number"],
+                        row["email"],
+                        row["role"],
+                    )
+                )
+        return staff_list
 
     # def read_all_customers(self):
     #     ret_list = []
