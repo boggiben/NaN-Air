@@ -2,6 +2,7 @@ from logic.logic_wrapper import LogicWrapper
 from logic.staff_logic import Staff_Logic
 from model.employee import Employee
 
+
 class Staff_UI:
     def __init__(self, logic_connection):
         self.logic_wrapper = logic_connection
@@ -23,9 +24,11 @@ class Staff_UI:
                 result = self.logic_wrapper.get_all_staff()
 
                 for elem in result:
-                    print(f"name: {elem.name}")
+                    print(
+                        f"name: {elem.name}, mobile_number: {elem.gsm}, email: {elem.email}, address: {elem.address}, national_id: {elem.national_id}, role: {elem.role}"
+                    )
 
-            elif user_input.lower() == "2": 
+            elif user_input.lower() == "2":
                 print("Þú valdir að skrá nýjan starfsmann")
                 success = self.add_new_staff_ui()
                 if success:
