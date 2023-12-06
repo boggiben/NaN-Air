@@ -28,9 +28,9 @@ class Staff_UI:
                         f"Nafn: {elem.name:<10} | "
                         f"Símanúmer: {elem.gsm:<10} | "
                         f"Netfang: {elem.email:<20} | "
-                        f"Heimilisfang: {elem.address:<8} | "
+                        f"Heimilisfang: {elem.address:<20} | "
                         f"Kennitala: {elem.national_id:<20} | "
-                        f"Staða: {elem.role:<15}"
+                        f"Staða: {elem.role:<10}"
                     )
 
             elif user_input.lower() == "2":
