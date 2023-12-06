@@ -15,7 +15,7 @@ class Staff_Logic:
         pass
 
     def add_new_staff(self, employee):
-        pass
+        return self.data_wrapper.create_staff
 
     def add_staff_to_flight(self, employee):
         pass
