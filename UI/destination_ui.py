@@ -21,7 +21,9 @@ class Destination_UI:
             if action == "1":
                 success = self.add_new_destination_ui()
                 if success:
+                    print("*" * 30)
                     print("Aðgerð tókst!")
+                    print("*" * 30)
             elif action == "2":
                 all_destinations = self.logic_wrapper.get_all_destinations()
                 self.display_destinations(all_destinations)
