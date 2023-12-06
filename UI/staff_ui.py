@@ -1,3 +1,5 @@
+
+
 class Staff_UI:
     def __init__(self, logic_connection):
         self.logic_wrapper = logic_connection
@@ -16,6 +18,7 @@ class Staff_UI:
             user_input = input("Veldu aðgerð: ")
             if user_input == "1":
                 print("Þú valdir að sjá alla starfsmenn")
+                self.logic_wrapper.see_all_staff
             elif user_input.lower() == "b":
                 break
             else:
