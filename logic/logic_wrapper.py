@@ -7,6 +7,7 @@ class LogicWrapper:
     def __init__(self):
         self.data_wrapper = DataWrapper()
         self.staff_logic = Staff_Logic(self.data_wrapper)
+        self.destination_logic = DestinationLogic(self.data_wrapper)
 
     def get_all_flights(self):
         pass
@@ -15,7 +16,7 @@ class LogicWrapper:
         pass
 
     def get_all_staff(self):
-        return self.staff_logic.get_all_staff()
+        return self.staff_logic.see_all_staff()
 
     def add_new_flight(self):
         pass
@@ -25,3 +26,9 @@ class LogicWrapper:
 
     def add_new_staff(self):
         pass
+
+    def get_all_destinations(self):
+        return self.data_wrapper.get_all_destinations()
+
+    def create_destination(self, destination):
+        return self.data_wrapper.create_destination
