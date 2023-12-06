@@ -17,7 +17,7 @@ class LogicWrapper:
         return self.staff_logic.get_employee_by_ssn(ssn)
 
     def get_all_flights(self):
-        self.data_wrapper.get_all_flights()
+        return self.data_wrapper.get_all_flights()
 
     def get_flights_by_week(self):
         pass

@@ -2,6 +2,7 @@ import csv
 
 from model.flight import Flight
 
+
 class FlightData:
     def __init__(self):
         self.filename = "files/upcoming_flights.csv"
