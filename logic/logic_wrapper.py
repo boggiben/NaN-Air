@@ -27,6 +27,9 @@ class LogicWrapper:
     def add_new_staff(self, employee):
         return self.staff_logic.add_new_staff(employee)
 
+    def add_new_voyage(self, voyage):
+        return self.staff_logic.add_new_voyage(voyage)
+
     def get_all_destinations(self):
         return self.data_wrapper.get_all_destinations()
 
