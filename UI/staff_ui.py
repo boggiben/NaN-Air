@@ -25,12 +25,12 @@ class Staff_UI:
 
                 for elem in result:
                     print(
-                        f"Name: {elem.name:<10} | "
-                        f"Mobile Number: {elem.gsm:<10} | "
-                        f"Email: {elem.email:<20} | "
-                        f"Address: {elem.address:<8} | "
-                        f"National ID: {elem.national_id:<20} | "
-                        f"Role: {elem.role:<15}"
+                        f"Nafn: {elem.name:<10} | "
+                        f"Símanúmer: {elem.gsm:<10} | "
+                        f"Netfang: {elem.email:<20} | "
+                        f"Heimilisfang: {elem.address:<8} | "
+                        f"Kennitala: {elem.national_id:<20} | "
+                        f"Staða: {elem.role:<15}"
                     )
 
             elif user_input.lower() == "2":
