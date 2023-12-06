@@ -46,3 +46,4 @@ class DestinationData:
                     "contact_number": destination.contact_number,
                 }
             )
+            return True
