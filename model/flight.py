@@ -1,7 +1,7 @@
 class Flight:
     def __init__(self, flight_nr="", dep_from="", arr_at="", departure="", arrival=""):
         self.flight_nr = flight_nr
-        self.depa_from= dep_from
+        self.depa_from = dep_from
         self.arr_at = arr_at
         self.departure = departure
         self.arrival = arrival

@@ -12,6 +12,15 @@ class Staff_Logic:
     def get_all_staff(self):
         return self.data_wrapper.get_all_staff()
 
+    def get_employee_by_ssn(self, ssn):
+        all_employees = self.get_all_staff()
+
+        for emp in all_employees:
+            if emp.national_id == ssn:
+                return emp
+
+        return None
+
     def add_new_flight(self, plane, employee):
         pass
 

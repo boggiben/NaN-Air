@@ -13,6 +13,9 @@ class LogicWrapper:
         #self.flight_logic = FlightLogic(self.data_wrapper)
         self.voyage_logic = Voyage_Logic(self.data_wrapper)
 
+    def get_employee_by_ssn(self, ssn):
+        return self.staff_logic.get_employee_by_ssn(ssn)
+
     def get_all_flights(self):
         self.data_wrapper.get_all_flights()
 
