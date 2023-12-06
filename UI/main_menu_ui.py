@@ -17,7 +17,6 @@ class MainMenu_UI:
         print(f"{'3. Flugferðir':<80}")
         print(f"{'4. Vinnuferðir':<80}")
         print(f"{'5. Skrá starfsmann í vinnuferð':<80}")
-        print(f"{'6. Skrá nýjan starfsmann':<80}")
         print(f"{'q. Hætta':<80}")
         print("*" * 80)
         print(ascii)
