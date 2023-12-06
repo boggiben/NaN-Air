@@ -8,7 +8,7 @@ class DataWrapper:
         self.destination_data = DestinationData()
 
     def create_staff(self, employee):
-        self.staff_data.create_staff(employee)
+        return self.staff_data.create_staff(employee)
 
     def get_all_staff(self):
         return self.staff_data.read_all_staff()

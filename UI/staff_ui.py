@@ -27,9 +27,27 @@ class Staff_UI:
 
             elif user_input.lower() == "2": 
                 print("Þú valdir að skrá nýjan starfsmann")
-                self.logic_wrapper.add_new_staff(Employee)
-
+                success = self.add_new_staff_ui()
+                if success:
+                    print("Aðgerð tókst!")
             elif user_input.lower() == "b":
                 break
             else:
                 print("Rangur innsláttur. Reyndu aftur.")
+
+
+    def add_new_staff_ui(self):
+        new_employee = Employee()
+        name = input("Nafn: ")
+        new_employee.name = name
+        national_id = input("Kennitala: ")
+        new_employee.national_id = national_id
+        address = input("Heimilisfang: ")
+        new_employee.address = address
+        mobile_number = input("Símanúmer: ")
+        new_employee.gsm = mobile_number
+        email = input("Netfang: ")
+        new_employee.email = email
+        role = input("Staða: ")
+        new_employee.role = role
+        return self.logic_wrapper.add_new_staff(new_employee)

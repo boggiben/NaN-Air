@@ -1,3 +1,4 @@
+from data.data_wrapper import DataWrapper
 from model.employee import Employee
 import csv
 
@@ -15,7 +16,7 @@ class Staff_Logic:
         pass
 
     def add_new_staff(self, employee):
-        return self.data_wrapper.create_staff
+        return self.data_wrapper.create_staff(employee)
 
     def add_staff_to_flight(self, employee):
         pass
