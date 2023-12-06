@@ -16,7 +16,7 @@ class Destination_UI:
     def input_destination(self):
         while True:
             self.destination_menu()
-            action = input("Veldu aðgerð: ").lower
+            action = input("Veldu aðgerð: ")
 
             if action == "1":
                 success = self.add_new_destination_ui()
