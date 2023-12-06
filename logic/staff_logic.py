@@ -1,10 +1,7 @@
 from model.employee import Employee
 import csv
-<<<<<<< HEAD
 
 file_name = "files/staff.csv"
-=======
->>>>>>> ceb2a67d7e7e94183e6d3c16ac1100d06030cef8
 
 
 class Staff_Logic:
