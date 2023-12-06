@@ -1,7 +1,8 @@
 from data.data_wrapper import DataWrapper
 from logic.destination_logic import DestinationLogic
 from logic.staff_logic import Staff_Logic
-#from logic.flight_logic import FlightLogic
+
+# from logic.flight_logic import FlightLogic
 from logic.voyage_logic import Voyage_Logic
 
 
@@ -10,7 +11,7 @@ class LogicWrapper:
         self.data_wrapper = DataWrapper()
         self.staff_logic = Staff_Logic(self.data_wrapper)
         self.destination_logic = DestinationLogic(self.data_wrapper)
-        #self.flight_logic = FlightLogic(self.data_wrapper)
+        # self.flight_logic = FlightLogic(self.data_wrapper)
         self.voyage_logic = Voyage_Logic(self.data_wrapper)
 
     def get_employee_by_ssn(self, ssn):
@@ -35,7 +36,7 @@ class LogicWrapper:
         return self.staff_logic.add_new_staff(employee)
 
     def add_new_voyage(self, voyage):
-        return self.staff_logic.add_new_voyage(voyage)
+        return self.voyage_logic.add_new_voyage(voyage)
 
     def get_all_destinations(self):
         return self.data_wrapper.get_all_destinations()
