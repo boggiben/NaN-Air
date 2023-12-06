@@ -1,20 +1,23 @@
 from model.employee import Employee
 import csv
+<<<<<<< HEAD
 
 file_name = "files/staff.csv"
+=======
+>>>>>>> ceb2a67d7e7e94183e6d3c16ac1100d06030cef8
 
 
 class Staff_Logic:
     def __init__(self, data_wrapper):
         self.data_wrapper = data_wrapper
+        self.file_name = "files/staff.csv"
 
     def see_all_staff(self):
         staff_list = []
-        with open(file_name, newline="") as csvfile:
+        with open(self.file_name, newline="") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                staff_list.append(Employee)
-
+                staff_list.append(Employee(row["Nafn"], row["Netfang"]))
         return staff_list
 
     def add_new_flight(self, plane, employee):

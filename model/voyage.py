@@ -1,6 +1,6 @@
 class Voyage:
     def __init__(self, destination="", departure_date="", departure_time="", return_date="", return_time="", 
-        crew_captain="", crew_pilot="", crew_cabin_manager="", crew_flight_attendant=""):
+        crew_captain="", crew_pilot="", cabin_manager="", flight_attendant=""):
         self.destination = destination
         self.departure_date = departure_date
         self.departure_time = departure_time

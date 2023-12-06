@@ -42,6 +42,7 @@ class MainMenu_UI:
             elif user_input == "3":
                 menu = Staff_UI(self.logic_wrapper)
                 menu.input_staff_menu()
+                
                 # self.logic_wrapper.get_all_staff()
             elif user_input == "4":
                 self.logic_wrapper.add_new_flight()
