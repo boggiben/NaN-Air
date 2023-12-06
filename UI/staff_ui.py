@@ -25,7 +25,7 @@ class Staff_UI:
 
                 for elem in result:
                     print(
-                        f"name: {elem.name}, mobile_number: {elem.gsm}, email: {elem.email}, address: {elem.address}, national_id: {elem.national_id}, role: {elem.role}"
+                        f"name: {elem.name}, mobile_number: {elem.mobile_number}, email: {elem.email}, address: {elem.address}, national_id: {elem.national_id}, role: {elem.role}"
                     )
 
             elif user_input.lower() == "2":
@@ -48,7 +48,7 @@ class Staff_UI:
         address = input("Heimilisfang: ")
         new_employee.address = address
         mobile_number = input("Símanúmer: ")
-        new_employee.gsm = mobile_number
+        new_employee.mobile_number = mobile_number
         email = input("Netfang: ")
         new_employee.email = email
         role = input("Staða: ")
