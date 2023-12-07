@@ -32,8 +32,8 @@ class LogicWrapper:
     def add_new_flight(self):
         pass
 
-    def add_staff_to_flight(self):
-        pass
+    def add_staff_to_flight(self, employee):
+        return self.staff_logic.add_staff_to_flight(employee)
 
     def add_new_staff(self, employee):
         return self.staff_logic.add_new_staff(employee)
