@@ -89,3 +89,29 @@ Horfa á fyrirlesturinn
 
 **Niðurstaða:**
 Tókum fyrirlesturinn með krafti og hófum undirbúning á verkefninu
+
+
+# Dagur 7 - Þriðjudagur 5. des
+**Mæting**: Bjartur, Borgar, Stígur, Sverrir
+
+**Markmið dagsins*:*  Skipuleggja verkefnaskiptingu, byrja á kóðanum og koma öllum inn í git repo-ið.
+
+
+# Dagur 8 - Miðvikudagur 6. des
+**Mæting**:  Bjartur, Borgar, Stígur, Sverrir, Viktor
+
+**Markmið:**
+Komast vel á leið með viðmótið (UI) og klára nokkrar virknikröfur.
+
+**Niðurstaða**:
+Markmiðum dagsins náð.
+
+
+# Dagur 9 - Fimmtudagur 7. des
+**Mæting**: Stígur, Sverrir
+
+**Markmið dagsins:**
+Laga ýmsar bögga sem hafa uppgötvast og halda áfram að klára A-kröfur.
+
+**Niðurstaða**:
+Markmiðum dagsins náð.
