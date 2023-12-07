@@ -12,6 +12,12 @@ class Staff_Logic:
     def get_all_staff(self):
         return self.data_wrapper.get_all_staff()
 
+    def get_all_pilots(self):
+        return self.data_wrapper.get_all_pilots()
+
+    def get_all_flight_attendants(self):
+        return self.data_wrapper.get_all_flight_attendants()
+
     def get_employee_by_ssn(self, ssn):
         all_employees = self.get_all_staff()
 

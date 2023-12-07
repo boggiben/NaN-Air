@@ -10,10 +10,12 @@ class Staff_UI:
     def menu_output(self):
         print("\n----STARFSMENN----")
         print("1. Allir starfsmenn")
-        print("2. Skrá starfsmann")
-        print("3. Lausir starfsmenn")
-        print("4. Uppteknir starfsmenn")
+        print("2. Allir flugmenn")
+        print("3. Allir flugþjónar")
+        print("4. Skrá starfsmann")
         print("5. Finna starfsmann (nota kt) ")
+        print("6. Lausir starfsmenn (á eftir að útfæra)")
+        print("7. Uppteknir starfsmenn (á eftir að útfæra)")
         print("b. Fara í aðalvalmynd")
 
     def input_staff_menu(self):
@@ -33,12 +35,39 @@ class Staff_UI:
                         f"Kennitala: {elem.national_id:<20} | "
                         f"Staða: {elem.role:<10}"
                     )
+            elif user_input == "2":
+                print("Þú valdir að sjá alla flugmenn")
+                result = self.logic_wrapper.get_all_pilots()
 
-            elif user_input.lower() == "2":
+                for elem in result:
+                    print(
+                        f"Nafn: {elem.name:<10} | "
+                        f"Símanúmer: {elem.gsm:<10} | "
+                        f"Netfang: {elem.email:<20} | "
+                        f"Heimilisfang: {elem.address:<20} | "
+                        f"Kennitala: {elem.national_id:<20} | "
+                        f"Staða: {elem.role:<10}"
+                    )
+            elif user_input == "3":
+                print("Þú valdir að sjá alla flugþjóna")
+                result = self.logic_wrapper.get_all_flight_attendants()
+
+                for elem in result:
+                    print(
+                        f"Nafn: {elem.name:<10} | "
+                        f"Símanúmer: {elem.gsm:<10} | "
+                        f"Netfang: {elem.email:<20} | "
+                        f"Heimilisfang: {elem.address:<20} | "
+                        f"Kennitala: {elem.national_id:<20} | "
+                        f"Staða: {elem.role:<10}"
+                    )
+
+            elif user_input.lower() == "4":
                 print("Þú valdir að skrá nýjan starfsmann")
                 success = self.add_new_staff_ui()
                 if success:
                     print("Aðgerð tókst!")
+
             elif user_input.lower() == "5":
                 ssn = input("kennitala: ")
                 # print("upplýsingar")

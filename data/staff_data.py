@@ -51,6 +51,50 @@ class Staff_Data:
                 )
         return staff_list
 
+    def read_all_pilots(self):
+        """Mjög svipað og read_all_staff nema að hérna filterum við flugmenn/flugstjóra"""
+        pilots_list = []
+
+        with open(
+            self.file_name, mode="r", newline="", encoding="utf-8-sig"
+        ) as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if row["role"] in ["Flugstjóri", "Flugmaður"]:
+                    pilots_list.append(
+                        Employee(
+                            row["name"],
+                            row["mobile_number"],
+                            row["email"],
+                            row["address"],
+                            row["national_id"],
+                            row["role"],
+                        )
+                    )
+        return pilots_list
+
+    def read_all_flight_attendants(self):
+        """Mjög svipað og read_all_staf nema að hérna filterum við flugþjóna/yfirflugþjóna"""
+        flight_attendants_list = []
+
+        with open(
+            self.file_name, mode="r", newline="", encoding="utf-8-sig"
+        ) as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if row["role"] in ["Yfirflugþjónn", "Flugþjónn"]:
+                    flight_attendants_list.append(
+                        Employee(
+                            row["name"],
+                            row["mobile_number"],
+                            row["email"],
+                            row["address"],
+                            row["national_id"],
+                            row["role"],
+                        )
+                    )
+        return flight_attendants_list
+
     # def read_all_customers(self):
     #     ret_list = []
     #     with open(self.file_name, newline='', encoding="utf-8") as csvfile:

@@ -17,6 +17,12 @@ class DataWrapper:
     def get_all_staff(self):
         return self.staff_data.read_all_staff()
 
+    def get_all_pilots(self):
+        return self.staff_data.read_all_pilots()
+
+    def get_all_flight_attendants(self):
+        return self.staff_data.read_all_flight_attendants()
+
     def get_all_destinations(self):
         return self.destination_data.get_all_destinations()
 
