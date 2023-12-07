@@ -58,14 +58,14 @@ class Staff_UI:
         new_employee = Employee()
         name = input("Nafn: ")
         new_employee.name = name
-        national_id = input("Kennitala: ")
-        new_employee.national_id = national_id
-        address = input("Heimilisfang: ")
-        new_employee.address = address
         mobile_number = input("Símanúmer: ")
         new_employee.mobile_number = mobile_number
         email = input("Netfang: ")
         new_employee.email = email
+        address = input("Heimilisfang: ")
+        new_employee.address = address
+        national_id = input("Kennitala: ")
+        new_employee.national_id = national_id
         role = input("Staða: ")
         new_employee.role = role
         return self.logic_wrapper.add_new_staff(new_employee)

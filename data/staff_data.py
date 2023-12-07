@@ -12,10 +12,10 @@ class Staff_Data:
         with open(self.file_name, "a", newline="", encoding="utf-8") as csvfile:
             fieldnames = [
                 "name",
-                "national_id",
-                "address",
                 "mobile_number",
                 "email",
+                "address",
+                "national_id",
                 "role",
             ]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
