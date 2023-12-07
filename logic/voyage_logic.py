@@ -16,3 +16,6 @@ class Voyage_Logic:
 
     def get_all_voyages(self):
         return self.data_wrapper.get_all_voyages()
+
+    def add_new_voyage(self, voyage):
+        return self.data_wrapper.create_voyage(voyage)

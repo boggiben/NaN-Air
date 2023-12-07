@@ -1,25 +1,29 @@
 class Voyage:
     def __init__(
         self,
-        destination="",
-        departure_date="",
+        flight_number="",
+        departure="",
+        arrival="",
         departure_time="",
-        return_date="",
-        return_time="",
-        crew_captain="",
-        crew_pilot="",
-        cabin_manager="",
-        flight_attendant="",
+        arrival_time="",
+        aircraft_id="",
+        captain="",
+        copilot="",
+        flight_service_manager="",
+        flight_attendant_one="",
+        flight_attendant_two="",
     ):
-        self.destination = destination
-        self.departure_date = departure_date
+        self.flight_number = flight_number
+        self.departure = departure
+        self.arrival = arrival
         self.departure_time = departure_time
-        self.return_date = return_date
-        self.return_time = return_time
-        self.crew_captain = crew_captain
-        self.crew_pilot = crew_pilot
-        self.cabin_manager = cabin_manager
-        self.flight_attendant = flight_attendant
+        self.arrival_time = arrival_time
+        self.aircraft_id = aircraft_id
+        self.captain = captain
+        self.copilot = copilot
+        self.fsm = flight_service_manager
+        self.fa1 = flight_attendant_one
+        self.fa2 = flight_attendant_two
 
     def __str__(self):
-        return f"destination: {self.destination}, departure date: {self.departure_date}, departure time: {self.departure_time}, return date: {self.return_date}, return time: {self.return_time}, crew captain: {self.crew_captain}, crew pilot: {self.crew_pilot}, cabin manager: {self.cabin_manager}, flight attendant: {self.flight_attendant}"
+        return f"flight number: {self.flight_number}, departure from: {self.departure}, arrival at:: {self.arrival}, departure time: {self.deparature_time}, arrival time: {self.arriva_time}, aircraft id: {self.aircraft_id}, captain: {self.captain}, copilot: {self.copilot}, flight service manager: {self.fsm}, flight attendant 1: {self.fa1}, flight attendant 2: {self.fa2}"
