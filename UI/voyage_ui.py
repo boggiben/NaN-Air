@@ -46,7 +46,7 @@ class Voyage_UI:
             else:
                 print("Rangur innsláttur. Reyndu aftur.")
 
-    def add_new_voyage_ui(self, voyage):
+    def add_new_voyage_ui(self):
         new_voyage = Voyage()
         flight_number = input("Flugnúmer: ")
         new_voyage.flight_number = flight_number
@@ -58,4 +58,4 @@ class Voyage_UI:
         new_voyage.departure_time = departure_time
         arrival_time = input("Komutími: ")
         new_voyage.arrival_time = arrival_time
-        return self.logic_wrapper.add_new_voyage(voyage)
+        return self.logic_wrapper.add_new_voyage(new_voyage)
