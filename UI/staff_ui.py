@@ -14,7 +14,7 @@ class Staff_UI:
         print("3. Lausir starfsmenn")
         print("4. Uppteknir starfsmenn")
         print("5. Finna starfsmann (nota kt) ")
-        print("b. Fara í aðalvalmynd")
+        print("b. git Fara í aðalvalmynd")
 
     def input_staff_menu(self):
         while True:
