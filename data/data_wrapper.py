@@ -22,15 +22,21 @@ class DataWrapper:
 
     def add_new_destination(self, destination):
         return self.destination_data.add_new_destination(destination)
-    
+
     def get_all_flights(self):
-        return self.flight_data.get_all_flights()
-    
+        return self.flight_data.get_all_flights
+
     def add_new_flight(self, flight):
         return self.flight_data.add_new_flight(flight)
+<<<<<<< HEAD
     
     def get_all_voyages(self):
         return self.voyage_data.read_all_voyages()
     
     def create_voyage(self, voyage):
         return self.voyage_data.create_voyage(voyage)
+=======
+
+    def create_voyage(self, voyage):
+        return self.voyage_data.create_voyage(voyage)
+>>>>>>> 2c823be4ddea30e29cd9c5122a8ac92db16902b9
