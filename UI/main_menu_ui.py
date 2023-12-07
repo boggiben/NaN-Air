@@ -49,10 +49,10 @@ class MainMenu_UI:
                 # self.logic_wrapper.add_new_voyage()
             elif user_input == "5":
                 self.logic_wrapper.add_staff_to_flight()
-            elif user_input == "6":
-                self.logic_wrapper.add_new_staff()
-            elif user_input == "7":
-                self.logic_wrapper.get_flights_by_week()
+            # elif user_input == "6":
+                # self.logic_wrapper.add_new_staff()
+            # elif user_input == "7":
+                # self.logic_wrapper.get_flights_by_week()
             elif user_input == "q":
                 print("Bless")
                 break
