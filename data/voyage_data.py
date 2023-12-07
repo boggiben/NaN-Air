@@ -16,6 +16,12 @@ class Voyage_Data:
                 "arrival",
                 "departure_time",
                 "arrival_time",
+                "aircraft_id",
+                "captain",
+                "copilot",
+                "fsm",
+                "fa1",
+                "fa2",
                 # Add other necessary fields if they are part of the Voyage object
             ]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
