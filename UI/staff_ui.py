@@ -9,12 +9,12 @@ class Staff_UI:
 
     def menu_output(self):
         print("\n----STARFSMENN----")
-        print("1. Sjá alla starfsmenn")
-        print("2. Skrá nýjan starfsmann")
-        print("3. Sjá lausa starfsmenn")
-        print("4. Sjá upptekna starfsmenn")
-        print("5 leita af starfsmanni eftir kennitölu: ")
-        print("b. Til að fara í aðalvalmynd")
+        print("1. Allir starfsmenn")
+        print("2. Skrá starfsmann")
+        print("3. Lausir starfsmenn")
+        print("4. Uppteknir starfsmenn")
+        print("5. Finna starfsmann (nota kt) ")
+        print("b. Fara í aðalvalmynd")
 
     def input_staff_menu(self):
         while True:
@@ -58,14 +58,14 @@ class Staff_UI:
         new_employee = Employee()
         name = input("Nafn: ")
         new_employee.name = name
-        national_id = input("Kennitala: ")
-        new_employee.national_id = national_id
-        address = input("Heimilisfang: ")
-        new_employee.address = address
         mobile_number = input("Símanúmer: ")
         new_employee.mobile_number = mobile_number
         email = input("Netfang: ")
         new_employee.email = email
+        address = input("Heimilisfang: ")
+        new_employee.address = address
+        national_id = input("Kennitala: ")
+        new_employee.national_id = national_id
         role = input("Staða: ")
         new_employee.role = role
         return self.logic_wrapper.add_new_staff(new_employee)

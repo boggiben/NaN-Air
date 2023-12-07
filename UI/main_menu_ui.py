@@ -19,7 +19,6 @@ class MainMenu_UI:
         print(f"{'2. Áfangastaðir':<80}")
         print(f"{'3. Flugferðir':<80}")
         print(f"{'4. Vinnuferðir':<80}")
-        print(f"{'5. Skrá starfsmann í vinnuferð':<80}")
         print(f"{'q. Hætta':<80}")
         print("*" * 80)
         print(logo)
@@ -50,9 +49,9 @@ class MainMenu_UI:
             elif user_input == "5":
                 self.logic_wrapper.add_staff_to_flight()
             # elif user_input == "6":
-                # self.logic_wrapper.add_new_staff()
+            # self.logic_wrapper.add_new_staff()
             # elif user_input == "7":
-                # self.logic_wrapper.get_flights_by_week()
+            # self.logic_wrapper.get_flights_by_week()
             elif user_input == "q":
                 print("Bless")
                 break
