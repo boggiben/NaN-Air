@@ -31,3 +31,6 @@ class DataWrapper:
     
     def get_all_voyages(self):
         return self.voyage_data.read_all_voyages()
+    
+    def create_voyage(self):
+        return self.voyage_data.create_voyage
