@@ -9,12 +9,12 @@ class Staff_UI:
 
     def menu_output(self):
         print("\n----STARFSMENN----")
-        print("1. Sjá alla starfsmenn")
-        print("2. Skrá nýjan starfsmann")
-        print("3. Sjá lausa starfsmenn")
-        print("4. Sjá upptekna starfsmenn")
-        print("5 leita af starfsmanni eftir kennitölu: ")
-        print("b. Til að fara í aðalvalmynd")
+        print("1. Allir starfsmenn")
+        print("2. Skrá starfsmann")
+        print("3. Lausir starfsmenn")
+        print("4. Uppteknir starfsmenn")
+        print("5. Finna starfsmann (nota kt) ")
+        print("b. Fara í aðalvalmynd")
 
     def input_staff_menu(self):
         while True:
