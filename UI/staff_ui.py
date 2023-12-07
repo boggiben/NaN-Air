@@ -70,6 +70,11 @@ class Staff_UI:
 
             elif user_input.lower() == "5":
                 ssn = input("kennitala: ")
+
+                # Tökum við bæði kennitölu án og með bandstriki
+                if "-" not in ssn and len(ssn) == 10:
+                    ssn = ssn[:6] + "-" + ssn[6:]
+
                 # print("upplýsingar")
                 emp = self.logic_wrapper.get_employee_by_ssn(ssn)
 
