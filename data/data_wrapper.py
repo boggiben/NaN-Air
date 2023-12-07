@@ -34,3 +34,6 @@ class DataWrapper:
     
     def create_voyage(self, voyage):
         return self.voyage_data.create_voyage(voyage)
+
+    def add_staff_to_flight(self, employee):
+        return self.staff_data.add_staff_to_flight(employee)
