@@ -3,6 +3,7 @@ from ui.staff_ui import Staff_UI
 from ui.destination_ui import Destination_UI
 from ui.voyage_ui import Voyage_UI
 from ui.flight_ui import FlightUI
+from ui.art import logo
 
 
 class MainMenu_UI:
@@ -21,7 +22,7 @@ class MainMenu_UI:
         print(f"{'5. Skrá starfsmann í vinnuferð':<80}")
         print(f"{'q. Hætta':<80}")
         print("*" * 80)
-        print(ascii)
+        print(logo)
         print("*" * 80)
 
     def input_main_menu(self):
@@ -33,15 +34,15 @@ class MainMenu_UI:
                 menu = Staff_UI(self.logic_wrapper)
                 menu.input_staff_menu()
                 # self.logic_wrapper.get_all_staff()
-                
+
             elif user_input == "2":
                 menu = Destination_UI(self.logic_wrapper)
                 menu.input_destination()
-                
+
             elif user_input == "3":
                 flight_menu = FlightUI(self.logic_wrapper)
                 flight_menu.input_flight()
-                
+
             elif user_input == "4":
                 menu = Voyage_UI(self.logic_wrapper)
                 menu.input_voyage_menu()
@@ -57,15 +58,3 @@ class MainMenu_UI:
                 break
             else:
                 print("Rangur innsláttur")
-
-
-ascii = """                          
-            __/\__                              
-           `==/\==`
- ____________/__\____________
-/____________________________/
-  __||__||__/.--.\__||__||__
- /__|___|___( >< )___|___|__/
-           _/`--`\_
-          (/------\)
-               """
