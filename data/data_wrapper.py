@@ -22,7 +22,7 @@ class DataWrapper:
         return self.destination_data.add_new_destination(destination)
     
     def get_all_flights(self):
-        return self.flight_data.get_all_flights
+        return self.flight_data.get_all_flights()
     
     def add_new_flight(self, flight):
         return self.flight_data.add_new_flight(flight)
