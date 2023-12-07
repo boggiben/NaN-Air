@@ -48,7 +48,7 @@ class MainMenu_UI:
                 menu.input_voyage_menu()
                 # self.logic_wrapper.add_new_voyage()
             elif user_input == "5":
-                menu = LogicWrapper(self.logic_wrapper)
+                menu = LogicWrapper()
                 menu.add_staff_to_flight()
             # elif user_input == "6":
                 # self.logic_wrapper.add_new_staff()
