@@ -14,8 +14,9 @@ class Staff_UI:
         print("3. Allir flugþjónar")
         print("4. Skrá starfsmann")
         print("5. Finna starfsmann (nota kt) ")
-        print("6. Lausir starfsmenn (á eftir að útfæra)")
-        print("7. Uppteknir starfsmenn (á eftir að útfæra)")
+        print("6. Breyta starfsmannaupplýsingum (nema nafni og kt)")
+        print("7. Lausir starfsmenn (á eftir að útfæra)")
+        print("8. Uppteknir starfsmenn (á eftir að útfæra)")
         print("b. Fara í aðalvalmynd")
 
     def input_staff_menu(self):
