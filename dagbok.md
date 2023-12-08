@@ -115,3 +115,7 @@ Laga ýmsar bögga sem hafa uppgötvast og halda áfram að klára A-kröfur.
 
 **Niðurstaða**:
 Markmiðum dagsins náð.
+
+
+# Dagur 10 - Föstudagur 8. des
+
