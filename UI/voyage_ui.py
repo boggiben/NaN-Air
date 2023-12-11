@@ -1,6 +1,7 @@
 from logic.logic_wrapper import LogicWrapper
 from logic.voyage_logic import Voyage_Logic
 from model.voyage import Voyage
+from datetime import datetime
 
 
 class Voyage_UI:
@@ -11,6 +12,7 @@ class Voyage_UI:
         print("\n----Vinnuferðir----")
         print("1. Allar vinnuferðir")
         print("2. Skrá vinnuferð")
+        print("3. Sjá vinnuferðir út frá dagsetningu (og skoða mönnun)")
         print("b. Til að fara í aðalvalmynd")
 
     def input_voyage_menu(self):
@@ -41,8 +43,27 @@ class Voyage_UI:
                 success = self.add_new_voyage_ui()
                 if success:
                     print("Aðgerð tókst!")
+
+            elif user_input.lower() == "3":
+                print("Þú valdir að sjá vinnuferðir út frá dagsetningu")
+                voyage_date = input("dagsetning: ")
+
+                try:
+                    # Validate date format
+                    valid_date = datetime.strptime(voyage_date, "%Y-%m-%d %H:%M:%S")
+                    voyage = self.logic_wrapper.get_voyage_by_date(voyage_date)
+
+                    if voyage is None:
+                        print("Engin vinnuferð á þessum degi")
+                    else:
+                        print("Flugnúmer:", voyage.flight_number)
+                        print("Brottfarartími:", voyage.departure)
+                except ValueError:
+                    print("Rangur innsláttur. Reyndu aftur.")
+
             elif user_input.lower() == "b":
                 break
+
             else:
                 print("Rangur innsláttur. Reyndu aftur.")
 
