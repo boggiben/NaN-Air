@@ -52,3 +52,6 @@ class LogicWrapper:
 
     def add_new_destination(self, destination):
         return self.destination_logic.add_new_destination(destination)
+
+    def modify_staff(self, employee):
+        return self.staff_logic.modify_staff(employee)

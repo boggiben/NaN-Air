@@ -84,6 +84,19 @@ class Staff_UI:
                 else:
                     print(emp)
 
+            elif user_input.lower() == "6":
+                ssn = input("Enter staff national ID to modify: ")
+
+                # Tökum við bæði kennitölu án og með bandstriki
+                if "-" not in ssn and len(ssn) == 10:
+                    ssn = ssn[:6] + "-" + ssn[6:]
+
+                employee = self.logic_wrapper.get_employee_by_ssn(ssn)
+                if employee is None:
+                    print("Enginn starfsmaður er með þessa kennitölu")
+                else:
+                    self.modify_staff_ui(employee)
+
             elif user_input.lower() == "b":
                 break
             else:
@@ -104,3 +117,34 @@ class Staff_UI:
         role = input("Staða: ")
         new_employee.role = role
         return self.logic_wrapper.add_new_staff(new_employee)
+
+    def modify_staff_ui(self, employee):
+        # Birtum núverandi upplýsingar og um biðjum svo um að fá nýjar upplýsingar frá notanda
+        print(f"Núverandi upplýsingar: {employee}")
+
+        new_address = (
+            input("Nýtt heimilisfang (skildu eftir autt til að halda óbreyttu): ")
+            or employee.address
+        )
+        new_mobile_number = (
+            input("Nýtt símanúmer (skildu eftir autt til að halda óbreyttu): ")
+            or employee.gsm
+        )
+        new_email = (
+            input("Nýtt netfang (skildu eftir autt til að halda óbreyttu): ")
+            or employee.email
+        )
+        new_role = (
+            input("Ný staða (skildu eftir autt til að halda óbreyttu): ")
+            or employee.role
+        )
+
+        employee.address = new_address
+        employee.gsm = new_mobile_number
+        employee.email = new_email
+        employee.role = new_role
+
+        if self.logic_wrapper.modify_staff(employee):
+            print("Starfsmannaupplýsingar uppfærðar.")
+        else:
+            print("Uppfærsla á upplýsingum mistókst!")

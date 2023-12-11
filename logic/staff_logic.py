@@ -36,6 +36,9 @@ class Staff_Logic:
     def add_staff_to_flight(self, employee):
         return self.data_wrapper.add_staff_to_flight(employee)
 
+    def modify_staff(self, employee):
+        return self.data_wrapper.modify_staff(employee)
+
     def get_all_flights(self):
         pass
 

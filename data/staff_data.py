@@ -74,7 +74,7 @@ class Staff_Data:
         return pilots_list
 
     def read_all_flight_attendants(self):
-        """Mjög svipað og read_all_staf nema að hérna filterum við flugþjóna/yfirflugþjóna"""
+        """Mjög svipað og read_all_staff nema að hérna filterum við flugþjóna/yfirflugþjóna"""
         flight_attendants_list = []
 
         with open(
@@ -95,10 +95,41 @@ class Staff_Data:
                     )
         return flight_attendants_list
 
-    # def read_all_customers(self):
-    #     ret_list = []
-    #     with open(self.file_name, newline='', encoding="utf-8") as csvfile:
-    #         reader = csv.DictReader(csvfile)
-    #         for row in reader:
-    #             ret_list.append(Customer(row["name"], row["birth_year"]))
-    #     return ret_list
+    def modify_staff(self, employee):
+        employees = self.read_all_staff()
+        updated = False
+        for i, emp in enumerate(employees):
+            if emp.national_id == employee.national_id:
+                employees[i] = employee
+                updated = True
+                break
+
+        if updated:
+            self.write_all_staff(employees)
+            return True
+        else:
+            return False
+
+    def write_all_staff(self, employees):
+        with open(self.file_name, "w", newline="", encoding="utf-8") as file:
+            fieldnames = [
+                "name",
+                "mobile_number",
+                "email",
+                "address",
+                "national_id",
+                "role",
+            ]
+            writer = csv.DictWriter(file, fieldnames=fieldnames)
+            writer.writeheader()
+            for emp in employees:
+                writer.writerow(
+                    {
+                        "name": emp.name,
+                        "mobile_number": emp.gsm,
+                        "email": emp.email,
+                        "address": emp.address,
+                        "national_id": emp.national_id,
+                        "role": emp.role,
+                    }
+                )
