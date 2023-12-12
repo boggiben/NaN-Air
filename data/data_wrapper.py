@@ -48,4 +48,4 @@ class DataWrapper:
         return self.staff_data.modify_staff(employee)
 
     def see_available_staff(self):
-        return self.staff_data.see_available_employees(elf)
+        return self.staff_data.see_available_employees()
