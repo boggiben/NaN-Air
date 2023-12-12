@@ -96,6 +96,11 @@ class Staff_UI:
                     print("Enginn starfsmaður er með þessa kennitölu")
                 else:
                     self.modify_staff_ui(employee)
+            
+            elif user_input.lower() == "7":
+                success = self.see_available_employees()
+                if success:
+                    print("Aðgerð tókst!")
 
             elif user_input.lower() == "b":
                 break

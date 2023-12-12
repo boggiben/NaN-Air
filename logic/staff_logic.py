@@ -44,3 +44,6 @@ class Staff_Logic:
 
     def get_flights_by_week(self):
         pass
+
+    def see_available_employees(self):
+        return self.data_wrapper.see_available_staff()

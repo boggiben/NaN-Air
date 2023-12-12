@@ -133,3 +133,6 @@ class Staff_Data:
                         "role": emp.role,
                     }
                 )
+
+    def see_available_employees(self):
+        pass

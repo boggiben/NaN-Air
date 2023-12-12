@@ -55,3 +55,6 @@ class LogicWrapper:
 
     def modify_staff(self, employee):
         return self.staff_logic.modify_staff(employee)
+
+    def see_availabe_employees(self):
+        return self.staff_logic.see_available_employees()
