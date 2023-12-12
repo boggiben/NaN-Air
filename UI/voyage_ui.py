@@ -47,19 +47,16 @@ class Voyage_UI:
             elif user_input.lower() == "3":
                 print("Þú valdir að sjá vinnuferðir út frá dagsetningu")
                 voyage_date = input("dagsetning: ")
+                year, month, day = voyage_date.split("-")
+                date = datetime(int(year), int(month), int(day))
+                voyages = self.logic_wrapper.get_voyage_by_date(date)
 
-                try:
-                    # Validate date format
-                    valid_date = datetime.strptime(voyage_date, "%Y-%m-%d %H:%M:%S")
-                    voyage = self.logic_wrapper.get_voyage_by_date(voyage_date)
-
-                    if voyage is None:
-                        print("Engin vinnuferð á þessum degi")
-                    else:
+                if not voyages:
+                    print("Engin vinnuferð á þessum degi")
+                else:
+                    for voyage in voyages:
                         print("Flugnúmer:", voyage.flight_number)
                         print("Brottfarartími:", voyage.departure)
-                except ValueError:
-                    print("Rangur innsláttur. Reyndu aftur.")
 
             elif user_input.lower() == "b":
                 break
