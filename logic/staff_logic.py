@@ -1,9 +1,10 @@
 from data.data_wrapper import DataWrapper
 from model.employee import Employee
 import csv
+from model.voyage import Voyage
+from datetime import datetime
 
 file_name = "files/staff.csv"
-
 
 class Staff_Logic:
     def __init__(self, data_wrapper):
@@ -45,5 +46,15 @@ class Staff_Logic:
     def get_flights_by_week(self):
         pass
 
-    def see_available_employees(self):
-        return self.data_wrapper.see_available_staff()
+    # def see_available_employees(self, voyage_date):
+    #     all_voyages = self.get_all_voyages()
+    #     employee_list = []
+
+    #     for captain,copilot,fsm,fa1,fa2 in all_voyages:
+    #         date, time = captain,copilot,fsm,fa1,fa2.departure_time.split()
+    #         year, month, day = date.split("-")
+    #         date = datetime(int(year), int(month), int(day))
+    #         if date == voyage_date:
+    #             employee_list.append(captain,copilot,fsm,fa1,fa2)
+
+    #     return employee_list

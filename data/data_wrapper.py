@@ -4,6 +4,7 @@ from data.flight_data import FlightData
 from data.voyage_data import Voyage_Data
 
 
+
 class DataWrapper:
     def __init__(self):
         self.staff_data = Staff_Data()
@@ -47,5 +48,5 @@ class DataWrapper:
     def modify_staff(self, employee):
         return self.staff_data.modify_staff(employee)
 
-    def see_available_staff(self):
-        return self.staff_data.see_available_employees()
+    def see_booked_staff(self):
+        return self.staff_data.see_booked_employees()

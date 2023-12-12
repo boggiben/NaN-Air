@@ -7,6 +7,8 @@ from model.employee import Employee
 class Staff_Data:
     def __init__(self):
         self.file_name = "files/staff.csv"
+        self.file_name_2 = "files/past_flights.csv"
+
 
     def create_staff(self, staff):
         with open(self.file_name, "a", newline="", encoding="utf-8") as csvfile:
@@ -135,4 +137,5 @@ class Staff_Data:
                 )
 
     def see_available_employees(self):
-        pass
+        with open(self.file_name_2,"w", newline="", encoding="utf-8") as file:
+            pass

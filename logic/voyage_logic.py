@@ -34,3 +34,25 @@ class Voyage_Logic:
                 voyages_list.append(voyage)
 
         return voyages_list
+    
+
+    def see_booked_employees(self, voyage_date):
+        all_voyages = self.get_all_voyages()
+        employee_list = []
+        # voyage_date = datetime.strptime(voyage_date, '%Y-%m-%d')
+        
+        for voy in all_voyages:
+            dep_time = datetime.strptime(voy.departure_time, '%Y-%m-%d %H:%M:%S')
+            arr_time = datetime.strptime(voy.arrival_time, '%Y-%m-%d %H:%M:%S')
+            if voyage_date.date() == dep_time.date() or voyage_date.date() == arr_time.date():
+                employee_list.append(voy.captain)
+                employee_list.append(voy.copilot)
+                employee_list.append(voy.fsm)
+                #
+                if voy.fa1 != "":
+                    employee_list.append(voy.fa1)
+                if voy.fa2 != "":
+                    employee_list.append(voy.fa2)
+        unique_list = list(set(employee_list))
+
+        return unique_list

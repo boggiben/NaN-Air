@@ -1,7 +1,7 @@
 from logic.logic_wrapper import LogicWrapper
 from logic.staff_logic import Staff_Logic
 from model.employee import Employee
-
+from datetime import datetime
 
 class Staff_UI:
     def __init__(self, logic_connection):
@@ -98,9 +98,17 @@ class Staff_UI:
                     self.modify_staff_ui(employee)
             
             elif user_input.lower() == "7":
-                success = self.see_available_employees()
-                if success:
-                    print("Aðgerð tókst!")
+                voyage_date = input("Dagsetning: ")
+                year, month, day = voyage_date.split("-")
+                date = datetime(int(year), int(month), int(day))
+                employees = self.logic_wrapper.see_booked_employees(date)
+
+                if not employees:
+                    print("Engir bókaðir starfsmenn.")
+                else:
+                    for employee in employees:
+                        print(employee)
+                
 
             elif user_input.lower() == "b":
                 break
