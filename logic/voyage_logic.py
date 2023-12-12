@@ -56,3 +56,17 @@ class Voyage_Logic:
         unique_list = list(set(employee_list))
 
         return unique_list
+
+    def get_voayges_of_employee(self, ssn):
+        all_voyages = self.get_all_voyages()
+        voyages_that_employee_works_in = []
+        for voyage in all_voyages:
+            if (
+                voyage.captain == ssn
+                or voyage.copilot == ssn
+                or voyage.fsm == ssn
+                or voyage.fa1 == ssn
+                or voyage.fa2 == ssn
+            ):
+                voyages_that_employee_works_in.append(voyage)
+        return voyages_that_employee_works_in
