@@ -61,3 +61,6 @@ class LogicWrapper:
 
     def see_availabe_employees(self):
         return self.staff_logic.see_available_employees()
+
+    def get_voayges_of_employee(self, ssn):
+        return self.voyage_logic.get_voayges_of_employee(ssn)

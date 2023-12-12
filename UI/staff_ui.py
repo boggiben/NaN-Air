@@ -103,6 +103,13 @@ class Staff_UI:
                 if success:
                     print("Aðgerð tókst!")
 
+            elif user_input.lower() == "9":
+                ssn = input("kennitala: ")
+
+                all_voyages = self.logic_wrapper.get_voayges_of_employee(ssn)
+                for voyage in all_voyages:
+                    print(voyage)
+
             elif user_input.lower() == "b":
                 break
             else:
