@@ -1,7 +1,7 @@
 from logic.logic_wrapper import LogicWrapper
 from logic.voyage_logic import Voyage_Logic
 from model.voyage import Voyage
-from datetime import datetime
+from datetime import datetime, timedelta
 
 
 class Voyage_UI:
@@ -12,8 +12,9 @@ class Voyage_UI:
         print("\n----Vinnuferðir----")
         print("1. Allar vinnuferðir")
         print("2. Skrá vinnuferð")
-        print("3. Sjá vinnuferðir út frá dagsetningu (og skoða mönnun)")
-        print("b. Til að fara í aðalvalmynd")
+        print("3. Skoða vinnuferðir á ákveðinni dagsetningu")
+        print("4. Skoða vinnuferðir á ákveðinni viku")
+        print("b. Fara í aðalvalmynd")
 
     def input_voyage_menu(self):
         while True:
@@ -47,13 +48,39 @@ class Voyage_UI:
 
             elif user_input.lower() == "3":
                 print("Þú valdir að sjá vinnuferðir út frá dagsetningu")
-                voyage_date = input("dagsetning: ")
+                voyage_date = input("Dagsetning: ")
                 year, month, day = voyage_date.split("-")
                 date = datetime(int(year), int(month), int(day))
                 voyages = self.logic_wrapper.get_voyage_by_date(date)
 
                 if not voyages:
                     print("Engin vinnuferð á þessum degi")
+                else:
+                    for voyage in voyages:
+                        print("-----")
+                        print("Flugnúmer:", voyage.flight_number)
+                        print("Frá:", voyage.departure)
+                        print("Brottfarartími:", voyage.departure_time)
+                        print("Til:", voyage.arrival)
+                        print("Komutími:", voyage.arrival_time)
+                        if voyage.staffed == "1":
+                            print("Mönnun: Fullmönnuð")
+                        else:
+                            print("Mönnun: Ekki fullmönnuð")
+
+            elif user_input.lower() == "4":
+                print("Þú valdir að sjá vinnuferðir út frá viku")
+                voyage_date = input("Dagsetning: ")
+                year, month, day = voyage_date.split("-")
+
+                ## Búa til for lúppu sem byrjar á start_date, og endar á end_date
+                ## sem er start_date + timedelta(days=7)
+                # start_date = datetime(int(year), int(month), int(day))
+                # end_date = start_date + timedelta(days=7)
+                # voyages = self.logic_wrapper.get_voyage_by_date(date)
+
+                if not voyages:
+                    print("Engin vinnuferð í þessari viku")
                 else:
                     for voyage in voyages:
                         print("-----")

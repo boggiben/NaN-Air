@@ -17,6 +17,7 @@ class Staff_UI:
         print("6. Breyta starfsmannaupplýsingum (nema nafni og kt)")
         print("7. Lausir starfsmenn (á eftir að útfæra)")
         print("8. Uppteknir starfsmenn (á eftir að útfæra)")
+        print("9. sjá vinnuferðir starfsmanns (nota kt) ")
         print("b. Fara í aðalvalmynd")
 
     def input_staff_menu(self):
@@ -96,7 +97,7 @@ class Staff_UI:
                     print("Enginn starfsmaður er með þessa kennitölu")
                 else:
                     self.modify_staff_ui(employee)
-            
+
             elif user_input.lower() == "7":
                 voyage_date = input("Dagsetning: ")
                 year, month, day = voyage_date.split("-")
@@ -109,6 +110,13 @@ class Staff_UI:
                     for employee in employees:
                         print(employee)
                 
+
+            elif user_input.lower() == "9":
+                ssn = input("kennitala: ")
+
+                all_voyages = self.logic_wrapper.get_voayges_of_employee(ssn)
+                for voyage in all_voyages:
+                    print(voyage)
 
             elif user_input.lower() == "b":
                 break
