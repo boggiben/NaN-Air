@@ -1,5 +1,6 @@
 import csv
 from model.voyage import Voyage
+
 # from model.staff import Staff
 
 
@@ -56,17 +57,9 @@ class Voyage_Data:
                 )
         return voyage_list
 
-
-
     def add_staff_to_flight(self, voyage):
         with open(self.file_name, "a", newline="", encoding="utf-8") as csvfile:
-            fieldnames = [
-                "captain"
-                "copilot"
-                "fsm"
-                "fa1"
-                "fa2"
-            ]
+            fieldnames = ["captain" "copilot" "fsm" "fa1" "fa2"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
             writer.writerow(
@@ -79,6 +72,7 @@ class Voyage_Data:
                 }
             )
             return True
+
     # def read_all_customers(self):
     #     ret_list = []
     #     with open(self.file_name, newline='', encoding="utf-8") as csvfile:

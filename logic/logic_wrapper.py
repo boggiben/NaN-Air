@@ -47,6 +47,9 @@ class LogicWrapper:
     def add_new_voyage(self, voyage):
         return self.voyage_logic.add_new_voyage(voyage)
 
+    def get_voyage_by_date(self, voyage_date):
+        return self.voyage_logic.get_voyage_by_date(voyage_date)
+
     def get_all_destinations(self):
         return self.data_wrapper.get_all_destinations()
 
