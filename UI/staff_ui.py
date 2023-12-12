@@ -17,6 +17,7 @@ class Staff_UI:
         print("6. Breyta starfsmannaupplýsingum (nema nafni og kt)")
         print("7. Lausir starfsmenn (á eftir að útfæra)")
         print("8. Uppteknir starfsmenn (á eftir að útfæra)")
+        print("9. sjá vinnuferðir starfsmanns (nota kt) ")
         print("b. Fara í aðalvalmynd")
 
     def input_staff_menu(self):
@@ -96,7 +97,7 @@ class Staff_UI:
                     print("Enginn starfsmaður er með þessa kennitölu")
                 else:
                     self.modify_staff_ui(employee)
-            
+
             elif user_input.lower() == "7":
                 success = self.see_available_employees()
                 if success:
