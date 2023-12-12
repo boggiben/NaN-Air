@@ -53,6 +53,7 @@ class Voyage_Data:
                         row["fsm"],
                         row["fa1"],
                         row["fa2"],
+                        row["staffed"],
                     )
                 )
         return voyage_list

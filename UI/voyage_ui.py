@@ -36,6 +36,7 @@ class Voyage_UI:
                         f"Yfirflugþjónn: {elem.fsm:<20} | "
                         f"Flugþjónn 1: {elem.fa1:<20} | "
                         f"Flugþjónn 2: {elem.fa2:<20} | "
+                        f"Fullmönnuð: {elem.staffed:<20} | "
                     )
 
             elif user_input.lower() == "2":
@@ -55,8 +56,16 @@ class Voyage_UI:
                     print("Engin vinnuferð á þessum degi")
                 else:
                     for voyage in voyages:
+                        print("-----")
                         print("Flugnúmer:", voyage.flight_number)
-                        print("Brottfarartími:", voyage.departure)
+                        print("Frá:", voyage.departure)
+                        print("Brottfarartími:", voyage.departure_time)
+                        print("Til:", voyage.arrival)
+                        print("Komutími:", voyage.arrival_time)
+                        if voyage.staffed == "1":
+                            print("Mönnun: Fullmönnuð")
+                        else:
+                            print("Mönnun: Ekki fullmönnuð")
 
             elif user_input.lower() == "b":
                 break
