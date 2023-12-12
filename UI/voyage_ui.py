@@ -12,8 +12,9 @@ class Voyage_UI:
         print("\n----Vinnuferðir----")
         print("1. Allar vinnuferðir")
         print("2. Skrá vinnuferð")
-        print("3. Sjá vinnuferðir út frá dagsetningu (og skoða mönnun)")
-        print("b. Til að fara í aðalvalmynd")
+        print("3. Skoða vinnuferðir á ákveðinni dagsetningu")
+        print("4. Skoða vinnuferðir á ákveðinni viku")
+        print("b. Fara í aðalvalmynd")
 
     def input_voyage_menu(self):
         while True:
