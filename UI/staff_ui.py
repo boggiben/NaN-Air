@@ -106,6 +106,9 @@ class Staff_UI:
             elif user_input.lower() == "9":
                 ssn = input("kennitala: ")
 
+                if "-" in ssn:
+                    ssn = ssn.replace("-", "")
+
                 all_voyages = self.logic_wrapper.get_voayges_of_employee(ssn)
                 for voyage in all_voyages:
                     print(voyage)
