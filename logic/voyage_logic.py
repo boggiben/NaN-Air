@@ -96,7 +96,7 @@ class Voyage_Logic:
                 or voyage_date.date() == arr_time.date()
             ):
                 arrival = str(voy.arrival)
-                # break
+                
 
             return arrival
 
