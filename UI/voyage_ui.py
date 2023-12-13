@@ -31,7 +31,7 @@ class Voyage_UI:
                         f"Til: {elem.arrival:<20} | "
                         f"Brottfarartími: {elem.departure_time:<20} | "
                         f"Komutími: {elem.arrival_time:<20} | "
-                        f"Flugvél: {elem.arrival_time:<20} | "
+                        f"Flugvél: {elem.aircraft_id:<20} | "
                         f"Flugstjóri: {elem.captain:<20} | "
                         f"Flugmaður: {elem.copilot:<20} | "
                         f"Yfirflugþjónn: {elem.fsm:<20} | "
@@ -86,10 +86,10 @@ class Voyage_UI:
                         continue
 
                     # Búum til set til að halda utan um vinnuferðir
-                    processed_voyages = set()
+                    voyages_by_week = set()
 
                     for i, voyage1 in enumerate(voyages):
-                        if i in processed_voyages:
+                        if i in voyages_by_week:
                             continue
 
                         # Breytum departure_time úr streng í datetime format fyrir bæði voyage1 og voyage2
@@ -98,7 +98,7 @@ class Voyage_UI:
                         )
 
                         for j, voyage2 in enumerate(voyages):
-                            if j in processed_voyages or i == j:
+                            if j in voyages_by_week or i == j:
                                 continue
 
                             voyage2_departure_time = datetime.strptime(
@@ -127,7 +127,7 @@ class Voyage_UI:
                                 )
 
                                 work_trip_number += 1
-                                processed_voyages.update([i, j])
+                                voyages_by_week.update([i, j])
                                 break
 
                     date += timedelta(days=1)
