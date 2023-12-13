@@ -96,9 +96,9 @@ class Voyage_Logic:
                 or voyage_date.date() == arr_time.date()
             ):
                 arrival = str(voy.arrival)
-                break
+                
 
-        return arrival
+            return arrival
 
     def get_voayges_of_employee(self, ssn):
         all_voyages = self.get_all_voyages()
