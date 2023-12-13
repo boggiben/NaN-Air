@@ -73,3 +73,9 @@ class LogicWrapper:
 
     def see_voyage_plan(self, ssn):
         return self.voyage_logic.see_voyage_plan(ssn)
+    
+    def see_booked_employees_name(self, employee):
+        return self.voyage_logic.see_booked_employees_name(employee)
+    
+    def see_booked_employees_phone(self, employee):
+        return self.voyage_logic.see_booked_employees_phone(employee)

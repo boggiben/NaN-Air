@@ -3,7 +3,8 @@ from model.voyage import Voyage
 import csv
 from datetime import datetime
 
-file_name = "files/past_flights.csv"
+#file_name = "files/past_flights.csv"
+#file_name2 = "files/staff.csv"
 
 
 class Voyage_Logic:
@@ -58,7 +59,7 @@ class Voyage_Logic:
                         employee_list.append(voy.fa2)
             except:
                 ValueError
-                return None
+                return "ValueError"
         unique_list = list(set(employee_list))
 
         return unique_list
@@ -118,3 +119,25 @@ class Voyage_Logic:
 
     def see_voyage_plan(self, ssn):
         pass
+
+    def see_booked_employees_name(self, employee):
+        all_staff = self.data_wrapper.get_all_staff()
+        name = ""
+        # voyage_date = datetime.strptime(voyage_date, '%Y-%m-%d')
+
+        for staff in all_staff:
+            if employee == staff.national_id:
+                name = str(staff.name)
+
+        return name
+
+    def see_booked_employees_phone(self, employee):
+        all_staff = self.data_wrapper.get_all_staff()
+        phone = ""
+        staff_list = []
+        # voyage_date = datetime.strptime(voyage_date, '%Y-%m-%d')
+        for staff in all_staff:
+            if employee == staff.national_id:
+                phone = str(staff.gsm)
+
+        return phone
