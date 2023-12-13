@@ -43,18 +43,22 @@ class Voyage_Logic:
         for voy in all_voyages:
             dep_time = datetime.strptime(voy.departure_time, "%Y-%m-%d %H:%M:%S")
             arr_time = datetime.strptime(voy.arrival_time, "%Y-%m-%d %H:%M:%S")
-            if (
-                voyage_date.date() == dep_time.date()
-                or voyage_date.date() == arr_time.date()
-            ):
-                employee_list.append(voy.captain)
-                employee_list.append(voy.copilot)
-                employee_list.append(voy.fsm)
-                #
-                if voy.fa1 != "":
-                    employee_list.append(voy.fa1)
-                if voy.fa2 != "":
-                    employee_list.append(voy.fa2)
+            try:
+                if (
+                    voyage_date.date() == dep_time.date()
+                    or voyage_date.date() == arr_time.date()
+                ):
+                    employee_list.append(voy.captain)
+                    employee_list.append(voy.copilot)
+                    employee_list.append(voy.fsm)
+                    #
+                    if voy.fa1 != "":
+                        employee_list.append(voy.fa1)
+                    if voy.fa2 != "":
+                        employee_list.append(voy.fa2)
+            except:
+                ValueError
+                return None
         unique_list = list(set(employee_list))
 
         return unique_list
@@ -73,7 +77,7 @@ class Voyage_Logic:
                 employee_list.append(voy.captain)
                 employee_list.append(voy.copilot)
                 employee_list.append(voy.fsm)
-                
+
                 if voy.fa1 != "":
                     employee_list.append(voy.fa1)
                 if voy.fa2 != "":
@@ -95,7 +99,6 @@ class Voyage_Logic:
                 or voyage_date.date() == arr_time.date()
             ):
                 arrival = str(voy.arrival)
-                
 
             return arrival
 
