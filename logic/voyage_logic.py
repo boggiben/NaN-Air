@@ -84,7 +84,20 @@ class Voyage_Logic:
         return unique_list
 
     def see_booked_employees_departure(self, voyage_date):
-        pass
+        all_voyages = self.get_all_voyages()
+        destination = ""
+        # voyage_date = datetime.strptime(voyage_date, '%Y-%m-%d')
+
+        for voy in all_voyages:
+            dep_time = datetime.strptime(voy.departure_time, "%Y-%m-%d %H:%M:%S")
+            arr_time = datetime.strptime(voy.arrival_time, "%Y-%m-%d %H:%M:%S")
+            if (
+                voyage_date.date() == dep_time.date()
+                or voyage_date.date() == arr_time.date()
+            ):
+                destination = voy.departure
+
+        return destination
 
     def get_voayges_of_employee(self, ssn):
         all_voyages = self.get_all_voyages()
