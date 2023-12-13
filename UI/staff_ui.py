@@ -93,7 +93,12 @@ class Staff_UI:
                     print("b. Til baka.")
                     user_input = input()
                     if user_input == "1":
-                        self.see_voyage_plan()
+                        if "-" in ssn:
+                            ssn = ssn.replace("-", "")
+
+                        all_voyages = self.logic_wrapper.get_voayges_of_employee(ssn)
+                        for voyage in all_voyages:
+                            print(voyage)
                     elif user_input == "b":
                         break
             elif user_input.lower() == "6":
@@ -132,7 +137,9 @@ class Staff_UI:
                     year, month, day = voyage_date.split("-")
                     date = datetime(int(year), int(month), int(day))
                     employees = self.logic_wrapper.see_booked_employees(date)
-                    destination = self.logic_wrapper.see_booked_employees_departure(date)
+                    destination = self.logic_wrapper.see_booked_employees_departure(
+                        date
+                    )
 
                     if not employees:
                         print("Engir bókaðir starfsmenn.")
