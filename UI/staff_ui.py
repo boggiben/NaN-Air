@@ -110,8 +110,8 @@ class Staff_UI:
                     self.modify_staff_ui(employee)
 
             elif user_input.lower() == "7":
-                
-                voyage_date = input("Dagsetning: ")
+                print("Þú valdir að sjá lausa starfsmenn.")
+                voyage_date = input("Veldu dagsetningu: ")
                 year, month, day = voyage_date.split("-")
                 date = datetime(int(year), int(month), int(day))
                 employees = self.logic_wrapper.see_unbooked_employees(date)
@@ -124,8 +124,8 @@ class Staff_UI:
                 
 
             elif user_input.lower() == "8":
-                
-                voyage_date = input("Dagsetning: ")
+                print("Þú valdir að sjá bókaða starfsmenn")
+                voyage_date = input("Veldu dagsetningu: ")
                 year, month, day = voyage_date.split("-")
                 date = datetime(int(year), int(month), int(day))
                 employees = self.logic_wrapper.see_booked_employees(date)
