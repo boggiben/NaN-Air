@@ -9,7 +9,6 @@ class Staff_Data:
         self.file_name = "files/staff.csv"
         self.file_name_2 = "files/past_flights.csv"
 
-
     def create_staff(self, staff):
         with open(self.file_name, "a", newline="", encoding="utf-8") as csvfile:
             fieldnames = [
@@ -27,7 +26,7 @@ class Staff_Data:
                     "name": staff.name,
                     "national_id": staff.national_id,
                     "address": staff.address,
-                    "mobile_number": staff.mobile_number,
+                    "mobile_number": staff.gsm,
                     "email": staff.email,
                     "role": staff.role,
                 }
@@ -137,5 +136,5 @@ class Staff_Data:
                 )
 
     def see_available_employees(self):
-        with open(self.file_name_2,"w", newline="", encoding="utf-8") as file:
+        with open(self.file_name_2, "w", newline="", encoding="utf-8") as file:
             pass
