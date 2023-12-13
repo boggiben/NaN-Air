@@ -16,10 +16,10 @@ class Staff_UI:
         print("2. Allir flugmenn")
         print("3. Allir flugþjónar")
         print("4. Skrá starfsmann")
-        print("5. Finna starfsmann (nota kt) ")
+        print("5. Finna starfsmann með kennitölu")
         print("6. Breyta starfsmannaupplýsingum (nema nafni og kt)")
-        print("7. Lausir starfsmenn (á eftir að útfæra)")
-        print("8. Uppteknir starfsmenn (á eftir að útfæra)")
+        print("7. Lausir starfsmenn")
+        print("8. Uppteknir starfsmenn")
         print("9. sjá vinnuferðir starfsmanns (nota kt) ")
         print("b. Fara í aðalvalmynd")
         print("*" * 80)
@@ -124,7 +124,7 @@ class Staff_UI:
                 
 
             elif user_input.lower() == "8":
-                print("Þú valdir að sjá bókaða starfsmenn")
+                print("Þú valdir að sjá upptekna starfsmenn")
                 voyage_date = input("Veldu dagsetningu: ")
                 year, month, day = voyage_date.split("-")
                 date = datetime(int(year), int(month), int(day))
