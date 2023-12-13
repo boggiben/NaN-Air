@@ -21,19 +21,56 @@ class Voyage_Logic:
     def add_new_voyage(self, voyage):
         return self.data_wrapper.create_voyage(voyage)
 
+    # def get_voyage_by_date(self, voyage_date):
+    #     all_voyages = self.get_all_voyages()
+    #     voyages_list = []
+
+    #     for voyage in all_voyages:
+    #         date, time = voyage.departure_time.split()
+    #         year, month, day = date.split("-")
+    #         date = datetime(int(year), int(month), int(day))
+    #         # if voyage.departure == voyage_date:
+    #         if date == voyage_date:
+    #             voyages_list.append(voyage)
+
+    #     return voyages_list
+
     def get_voyage_by_date(self, voyage_date):
         all_voyages = self.get_all_voyages()
-        voyages_list = []
+        voyages_for_date = []
+        voyages_by_date = set()
 
-        for voyage in all_voyages:
-            date, time = voyage.departure_time.split()
-            year, month, day = date.split("-")
-            date = datetime(int(year), int(month), int(day))
-            # if voyage.departure == voyage_date:
-            if date == voyage_date:
-                voyages_list.append(voyage)
+        for i, voyage1 in enumerate(all_voyages):
+            date1, _ = voyage1.departure_time.split()
+            year1, month1, day1 = date1.split("-")
+            date1 = datetime(int(year1), int(month1), int(day1))
 
-        return voyages_list
+            if date1 != voyage_date or i in voyages_by_date:
+                continue
+
+            for j, voyage2 in enumerate(all_voyages):
+                if j in voyages_by_date or i == j:
+                    continue
+
+                date2, _ = voyage2.departure_time.split()
+                year2, month2, day2 = date2.split("-")
+                date2 = datetime(int(year2), int(month2), int(day2))
+
+                if date2 != voyage_date:
+                    continue
+
+                if (
+                    voyage1.departure == voyage2.arrival
+                    and voyage1.arrival == voyage2.departure
+                    and date1 == date2
+                ):
+                    voyages_for_date.append((voyage1, voyage2))
+                    voyages_by_date.update([i, j])
+
+        return voyages_for_date
+
+    def get_voyage_by_week(self, voyage_date):
+        pass
 
     def see_booked_employees(self, voyage_date):
         all_voyages = self.get_all_voyages()
@@ -96,7 +133,6 @@ class Voyage_Logic:
                 or voyage_date.date() == arr_time.date()
             ):
                 arrival = str(voy.arrival)
-                
 
             return arrival
 
