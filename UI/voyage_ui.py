@@ -31,7 +31,7 @@ class Voyage_UI:
                         f"Til: {elem.arrival:<20} | "
                         f"Brottfarartími: {elem.departure_time:<20} | "
                         f"Komutími: {elem.arrival_time:<20} | "
-                        f"Flugvél: {elem.arrival_time:<20} | "
+                        f"Flugvél: {elem.aircraft_id:<20} | "
                         f"Flugstjóri: {elem.captain:<20} | "
                         f"Flugmaður: {elem.copilot:<20} | "
                         f"Yfirflugþjónn: {elem.fsm:<20} | "

@@ -3,12 +3,15 @@ from logic.staff_logic import Staff_Logic
 from model.employee import Employee
 from datetime import datetime
 
+
 class Staff_UI:
     def __init__(self, logic_connection):
         self.logic_wrapper = logic_connection
 
     def menu_output(self):
-        print("\n----STARFSMENN----")
+        print("\n")
+        print(f'{"Starfsmenn":>45}')
+        print("*" * 80)
         print("1. Allir starfsmenn")
         print("2. Allir flugmenn")
         print("3. Allir flugþjónar")
@@ -19,6 +22,7 @@ class Staff_UI:
         print("8. Uppteknir starfsmenn (á eftir að útfæra)")
         print("9. sjá vinnuferðir starfsmanns (nota kt) ")
         print("b. Fara í aðalvalmynd")
+        print("*" * 80)
 
     def input_staff_menu(self):
         while True:
@@ -102,14 +106,26 @@ class Staff_UI:
                 voyage_date = input("Dagsetning: ")
                 year, month, day = voyage_date.split("-")
                 date = datetime(int(year), int(month), int(day))
+                employees = self.logic_wrapper.see_unbooked_employees(date)
+
+                if not employees:
+                    print("Engir lausir starfsmenn.")
+                else:
+                    for employee in employees:
+                        print(employee)
+
+            elif user_input.lower() == "8":
+                voyage_date = input("Dagsetning: ")
+                year, month, day = voyage_date.split("-")
+                date = datetime(int(year), int(month), int(day))
                 employees = self.logic_wrapper.see_booked_employees(date)
+                destination = self.logic_wrapper.see_booked_employees_departure(date)
 
                 if not employees:
                     print("Engir bókaðir starfsmenn.")
                 else:
                     for employee in employees:
                         print(employee)
-                
 
             elif user_input.lower() == "9":
                 ssn = input("kennitala: ")
