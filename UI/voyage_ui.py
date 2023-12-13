@@ -9,12 +9,15 @@ class Voyage_UI:
         self.logic_wrapper = logic_connection
 
     def menu_output(self):
-        print("\n----Vinnuferðir----")
+        print("\n")
+        print(f'{"Vinnuferðir":>45}')
+        print("*" * 80)
         print("1. Allar vinnuferðir")
         print("2. Skrá vinnuferð")
         print("3. Skoða vinnuferðir á ákveðinni dagsetningu")
         print("4. Skoða vinnuferðir á ákveðinni viku")
         print("b. Fara í aðalvalmynd")
+        print("*" * 80)
 
     def input_voyage_menu(self):
         while True:
