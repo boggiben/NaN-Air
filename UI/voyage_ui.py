@@ -45,19 +45,28 @@ class Voyage_UI:
 
             elif user_input.lower() == "3":
                 print("Þú valdir að sjá vinnuferðir út frá dagsetningu")
-                voyage_date = input("Dagsetning: ")
-                year, month, day = voyage_date.split("-")
-                date = datetime(int(year), int(month), int(day))
-                voyages = self.logic_wrapper.get_voyage_by_date(date)
-                work_trip_number = 1
+                voyage_date = input("Dagsetning: (Í sniðinu YYYY-MM-DD) ")
 
-                for voyage1, voyage2 in voyages:
-                    print(f"-----\nVinnuferð {work_trip_number}")
+                try:
+                    year, month, day = voyage_date.split("-")
+                    date = datetime(int(year), int(month), int(day))
+                    voyages = self.logic_wrapper.get_voyage_by_date(date)
+                    work_trip_number = 1
 
-                    self.print_voyage_details(voyage1, print_staffed=False)
-                    self.print_voyage_details(voyage1)
+                    if not voyages:
+                        print("\n--------------------")
+                        print("Engar vinnuferðir á \nþessum degi")
+                        print("--------------------")
+                    else:
+                        for voyage1, voyage2 in voyages:
+                            print(f"-----\nVinnuferð {work_trip_number}")
 
-                    work_trip_number += 1
+                            self.print_voyage_details(voyage1, print_staffe0d=False)
+                            self.print_voyage_details(voyage1)
+
+                            work_trip_number += 1
+                except ValueError:
+                    print("Villa. Dagsetning slegin inn í vitlausu sniði.")
 
             elif user_input.lower() == "4":
                 print("Þú valdir að sjá vinnuferðir út frá viku")
