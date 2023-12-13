@@ -51,22 +51,71 @@ class Voyage_UI:
                 voyage_date = input("Dagsetning: ")
                 year, month, day = voyage_date.split("-")
                 date = datetime(int(year), int(month), int(day))
-                voyages = self.logic_wrapper.get_voyage_by_date(date)
 
-                if not voyages:
-                    print("Engin vinnuferð á þessum degi")
-                else:
-                    for voyage in voyages:
-                        print("-----")
-                        print("Flugnúmer:", voyage.flight_number)
-                        print("Frá:", voyage.departure)
-                        print("Brottfarartími:", voyage.departure_time)
-                        print("Til:", voyage.arrival)
-                        print("Komutími:", voyage.arrival_time)
-                        if voyage.staffed == "1":
-                            print("Mönnun: Fullmönnuð")
-                        else:
-                            print("Mönnun: Ekki fullmönnuð")
+                # Teljari til að halda utan um tölu vinnuferða fyrir vikuna
+                work_trip_number = 1
+
+                voyages = self.logic_wrapper.get_voyage_by_date(date)
+                voyages_by_date = set()
+                for i, voyage1 in enumerate(voyages):
+                    if i in voyages_by_date:
+                        continue
+
+                    # Breytum departure_time úr streng í datetime format fyrir bæði voyage1 og voyage2
+                    voyage1_departure_time = datetime.strptime(
+                        voyage1.departure_time, "%Y-%m-%d %H:%M:%S"
+                    )
+
+                    for j, voyage2 in enumerate(voyages):
+                        if j in voyages_by_date or i == j:
+                            continue
+
+                        voyage2_departure_time = datetime.strptime(
+                            voyage2.departure_time, "%Y-%m-%d %H:%M:%S"
+                        )
+
+                        if (
+                            voyage1.departure == voyage2.arrival
+                            and voyage1.arrival == voyage2.departure
+                            and voyage1_departure_time.date()
+                            == voyage2_departure_time.date()
+                        ):
+                            # Prenta vinnuferðir
+                            print(f"-----\nVinnuferð {work_trip_number}")
+                            print(
+                                f"Flugnúmer: {voyage1.flight_number} Frá: {voyage1.departure} Til: {voyage1.arrival} Brottfarartími: {voyage1_departure_time}"
+                            )
+                            print(
+                                f"Flugnúmer: {voyage2.flight_number} Frá: {voyage2.departure} Til: {voyage2.arrival} Brottfarartími: {voyage2_departure_time}"
+                            )
+                            print(
+                                f"Flugstjóri: {voyage1.captain}, Flugmaður: {voyage1.copilot}, Yfirflugþjónn: {voyage1.fsm} "
+                            )
+                            print(
+                                "Mönnun:",
+                                "Fullmönnuð"
+                                if voyage1.staffed == "1"
+                                else "Ekki fullmönnuð",
+                            )
+
+                            work_trip_number += 1
+                            voyages_by_date.update([i, j])
+                            break
+
+                # if not voyages:
+                #     print("Engin vinnuferð á þessum degi")
+                # else:
+                #     for voyage in voyages:
+                #         print("-----")
+                #         print("Flugnúmer:", voyage.flight_number)
+                #         print("Frá:", voyage.departure)
+                #         print("Brottfarartími:", voyage.departure_time)
+                #         print("Til:", voyage.arrival)
+                #         print("Komutími:", voyage.arrival_time)
+                #         if voyage.staffed == "1":
+                #             print("Mönnun: Fullmönnuð")
+                #         else:
+                #             print("Mönnun: Ekki fullmönnuð")
 
             elif user_input.lower() == "4":
                 print("Þú valdir að sjá vinnuferðir út frá viku")
@@ -118,6 +167,9 @@ class Voyage_UI:
                                 )
                                 print(
                                     f"Flugnúmer: {voyage2.flight_number} Frá: {voyage2.departure} Til: {voyage2.arrival} Brottfarartími: {voyage2_departure_time}"
+                                )
+                                print(
+                                    f"Flugstjóri: {voyage1.captain}, Flugmaður: {voyage1.copilot}, Yfirflugþjónn: {voyage1.fsm} "
                                 )
                                 print(
                                     "Mönnun:",
