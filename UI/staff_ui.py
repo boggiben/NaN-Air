@@ -141,7 +141,7 @@ class Staff_UI:
                             print(f"{destination}: {employee}")
                 except ValueError:
                     print("Villa í innslætti. Sniðmátið er YYYY-MM-DD")
-                
+                #veit ekki hvort það sé of mikið að gerast í UI 
 
             elif user_input.lower() == "9":
                 ssn = input("kennitala: ")
