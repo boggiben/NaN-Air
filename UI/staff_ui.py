@@ -8,7 +8,9 @@ class Staff_UI:
         self.logic_wrapper = logic_connection
 
     def menu_output(self):
-        print("\n----STARFSMENN----")
+        print("\n")
+        print(f"{"Starfsmenn":>45}")
+        print("*"*80)      
         print("1. Allir starfsmenn")
         print("2. Allir flugmenn")
         print("3. Allir flugþjónar")
@@ -19,6 +21,7 @@ class Staff_UI:
         print("8. Uppteknir starfsmenn (á eftir að útfæra)")
         print("9. sjá vinnuferðir starfsmanns (nota kt) ")
         print("b. Fara í aðalvalmynd")
+        print("*"*80)
 
     def input_staff_menu(self):
         while True:
