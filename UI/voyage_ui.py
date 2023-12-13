@@ -187,6 +187,9 @@ class Voyage_UI:
                 if work_trip_number == 1:
                     print("Engin vinnuferð í þessari viku")
 
+            elif user_input == "b":
+                break
+
     def add_new_voyage_ui(self):
         new_voyage = Voyage()
         flight_number = input("Flugnúmer: ")
