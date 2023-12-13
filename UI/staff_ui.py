@@ -93,7 +93,7 @@ class Staff_UI:
                     print("b. Til baka.")
                     user_input = input()
                     if user_input == "1":
-                        pass
+                        self.see_voyage_plan()
                     elif user_input == "b":
                         break    
             elif user_input.lower() == "6":
@@ -110,6 +110,7 @@ class Staff_UI:
                     self.modify_staff_ui(employee)
 
             elif user_input.lower() == "7":
+                
                 voyage_date = input("Dagsetning: ")
                 year, month, day = voyage_date.split("-")
                 date = datetime(int(year), int(month), int(day))
@@ -120,8 +121,10 @@ class Staff_UI:
                 else:
                     for employee in employees:
                         print(employee)
+                
 
             elif user_input.lower() == "8":
+                
                 voyage_date = input("Dagsetning: ")
                 year, month, day = voyage_date.split("-")
                 date = datetime(int(year), int(month), int(day))
@@ -133,6 +136,7 @@ class Staff_UI:
                 else:
                     for employee in employees:
                         print(f"{destination}: {employee}")
+                
 
             elif user_input.lower() == "9":
                 ssn = input("kennitala: ")
