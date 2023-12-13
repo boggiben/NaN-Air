@@ -147,7 +147,7 @@ class Staff_UI:
         name = input("Nafn: ")
         new_employee.name = name
         mobile_number = input("Símanúmer: ")
-        new_employee.mobile_number = mobile_number
+        new_employee.gsm = mobile_number
         email = input("Netfang: ")
         new_employee.email = email
         address = input("Heimilisfang: ")
