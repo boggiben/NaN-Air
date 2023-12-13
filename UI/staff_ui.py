@@ -125,7 +125,7 @@ class Staff_UI:
                     print("Engir bókaðir starfsmenn.")
                 else:
                     for employee in employees:
-                        print(employee)
+                        print(f"{destination}: {employee}")
 
             elif user_input.lower() == "9":
                 ssn = input("kennitala: ")

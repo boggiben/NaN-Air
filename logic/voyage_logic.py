@@ -68,8 +68,8 @@ class Voyage_Logic:
             dep_time = datetime.strptime(voy.departure_time, "%Y-%m-%d %H:%M:%S")
             arr_time = datetime.strptime(voy.arrival_time, "%Y-%m-%d %H:%M:%S")
             if (
-                voyage_date.date() == dep_time.date()
-                or voyage_date.date() == arr_time.date()
+                voyage_date.date() != dep_time.date()
+                or voyage_date.date() != arr_time.date()
             ):
                 employee_list.append(voy.captain)
                 employee_list.append(voy.copilot)
@@ -85,7 +85,7 @@ class Voyage_Logic:
 
     def see_booked_employees_departure(self, voyage_date):
         all_voyages = self.get_all_voyages()
-        destination = ""
+        arrival = ""
         # voyage_date = datetime.strptime(voyage_date, '%Y-%m-%d')
 
         for voy in all_voyages:
@@ -95,9 +95,10 @@ class Voyage_Logic:
                 voyage_date.date() == dep_time.date()
                 or voyage_date.date() == arr_time.date()
             ):
-                destination = voy.departure
+                arrival = str(voy.arrival)
+                break
 
-        return destination
+        return arrival
 
     def get_voayges_of_employee(self, ssn):
         all_voyages = self.get_all_voyages()
