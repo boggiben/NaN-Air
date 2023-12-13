@@ -72,27 +72,40 @@ class Voyage_UI:
                 print("Þú valdir að sjá vinnuferðir út frá viku")
                 voyage_date = input("Dagsetning: ")
                 year, month, day = voyage_date.split("-")
+                date = datetime(int(year), int(month), int(day))
+                end_date = date + timedelta(days=7)
 
-                ## Búa til for lúppu sem byrjar á start_date, og endar á end_date
-                ## sem er start_date + timedelta(days=7)
-                # start_date = datetime(int(year), int(month), int(day))
-                # end_date = start_date + timedelta(days=7)
-                # voyages = self.logic_wrapper.get_voyage_by_date(date)
+                voyages_found = False  # Flag to track if any voyages are found
 
-                if not voyages:
+                while date <= end_date:
+                    voyages = self.logic_wrapper.get_voyage_by_date(date)
+
+                    if voyages:
+                        voyages_found = (
+                            True  # Set the flag to True if voyages are found
+                        )
+                        for voyage in voyages:
+                            print("-----")
+                            print(
+                                f"Flugnúmer:",
+                                voyage.flight_number,
+                                "Frá:",
+                                voyage.departure,
+                                "Til:",
+                                voyage.arrival,
+                                "Dags:",
+                                voyage.departure_time,
+                            )
+                            if voyage.staffed == "1":
+                                print("Mönnun: Fullmönnuð")
+                            else:
+                                print("Mönnun: Ekki fullmönnuð")
+
+                    # Increment date by one
+                    date += timedelta(days=1)
+
+                if not voyages_found:
                     print("Engin vinnuferð í þessari viku")
-                else:
-                    for voyage in voyages:
-                        print("-----")
-                        print("Flugnúmer:", voyage.flight_number)
-                        print("Frá:", voyage.departure)
-                        print("Brottfarartími:", voyage.departure_time)
-                        print("Til:", voyage.arrival)
-                        print("Komutími:", voyage.arrival_time)
-                        if voyage.staffed == "1":
-                            print("Mönnun: Fullmönnuð")
-                        else:
-                            print("Mönnun: Ekki fullmönnuð")
 
             elif user_input.lower() == "b":
                 break
