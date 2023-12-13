@@ -97,8 +97,11 @@ class Staff_UI:
                             ssn = ssn.replace("-", "")
 
                         all_voyages = self.logic_wrapper.get_voayges_of_employee(ssn)
-                        for voyage in all_voyages:
-                            print(voyage)
+                        if all_voyages:
+                            for voyage in all_voyages:
+                                print(voyage)
+                        else:
+                            print("Starfsmaður er ekki skráður í vinnuferð")
                     elif user_input == "b":
                         break
             elif user_input.lower() == "6":
@@ -161,7 +164,7 @@ class Staff_UI:
                     for voyage in all_voyages:
                         print(voyage)
                 else:
-                    print("starfsmaður ekki skráður í vinnuferð")
+                    print("Starfsmaður ekki skráður í vinnuferð")
 
             elif user_input.lower() == "b":
                 break
