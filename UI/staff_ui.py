@@ -90,7 +90,7 @@ class Staff_UI:
                     print(emp)
 
             elif user_input.lower() == "6":
-                ssn = input("Enter staff national ID to modify: ")
+                ssn = input("Skráðu kenntiölu starfsmanns til breytingar: ")
 
                 # Tökum við bæði kennitölu án og með bandstriki
                 if "-" not in ssn and len(ssn) == 10:
