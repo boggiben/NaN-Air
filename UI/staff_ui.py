@@ -132,9 +132,7 @@ class Staff_UI:
                     year, month, day = voyage_date.split("-")
                     date = datetime(int(year), int(month), int(day))
                     employees = self.logic_wrapper.see_booked_employees(date)
-                    destination = self.logic_wrapper.see_booked_employees_departure(
-                        date
-                    )
+                    destination = self.logic_wrapper.see_booked_employees_departure(date)
 
                     if not employees:
                         print("Engir bókaðir starfsmenn.")
