@@ -106,7 +106,7 @@ class Staff_UI:
                 voyage_date = input("Dagsetning: ")
                 year, month, day = voyage_date.split("-")
                 date = datetime(int(year), int(month), int(day))
-                employees = self.logic_wrapper.see_booked_employees(date)
+                employees = self.logic_wrapper.see_unbooked_employees(date)
 
                 if not employees:
                     print("Engir bókaðir starfsmenn.")
