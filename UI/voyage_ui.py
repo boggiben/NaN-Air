@@ -89,7 +89,7 @@ class Voyage_UI:
                                 f"Flugnúmer: {voyage2.flight_number} Frá: {voyage2.departure} Til: {voyage2.arrival} Brottfarartími: {voyage2_departure_time}"
                             )
                             print(
-                                f"Flugstjóri: {voyage1.captain}, Flugmaður: {voyage1.copilot}, Yfirflugþjónn: {voyage1.fsm} "
+                                f"Flugstjóri: {voyage1.captain}, Flugmaður: {voyage1.copilot}, Yfirflugþjónn: {voyage1.fsm}"
                             )
                             print(
                                 "Mönnun:",
@@ -101,21 +101,6 @@ class Voyage_UI:
                             work_trip_number += 1
                             voyages_by_date.update([i, j])
                             break
-
-                # if not voyages:
-                #     print("Engin vinnuferð á þessum degi")
-                # else:
-                #     for voyage in voyages:
-                #         print("-----")
-                #         print("Flugnúmer:", voyage.flight_number)
-                #         print("Frá:", voyage.departure)
-                #         print("Brottfarartími:", voyage.departure_time)
-                #         print("Til:", voyage.arrival)
-                #         print("Komutími:", voyage.arrival_time)
-                #         if voyage.staffed == "1":
-                #             print("Mönnun: Fullmönnuð")
-                #         else:
-                #             print("Mönnun: Ekki fullmönnuð")
 
             elif user_input.lower() == "4":
                 print("Þú valdir að sjá vinnuferðir út frá viku")
