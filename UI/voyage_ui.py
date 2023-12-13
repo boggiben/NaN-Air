@@ -75,43 +75,65 @@ class Voyage_UI:
                 date = datetime(int(year), int(month), int(day))
                 end_date = date + timedelta(days=7)
 
-                voyages_found = False  # Flag to track if any voyages are found
+                # Teljari til að halda utan um tölu vinnuferða fyrir vikuna
+                work_trip_number = 1
 
                 while date <= end_date:
                     voyages = self.logic_wrapper.get_voyage_by_date(date)
 
-                    if voyages:
-                        voyages_found = (
-                            True  # Set the flag to True if voyages are found
-                        )
-                        for voyage in voyages:
-                            print("-----")
-                            print(
-                                f"Flugnúmer:",
-                                voyage.flight_number,
-                                "Frá:",
-                                voyage.departure,
-                                "Til:",
-                                voyage.arrival,
-                                "Dags:",
-                                voyage.departure_time,
-                            )
-                            if voyage.staffed == "1":
-                                print("Mönnun: Fullmönnuð")
-                            else:
-                                print("Mönnun: Ekki fullmönnuð")
+                    if not voyages:
+                        date += timedelta(days=1)
+                        continue
 
-                    # Increment date by one
+                    # Búum til set til að halda utan um vinnuferðir
+                    processed_voyages = set()
+
+                    for i, voyage1 in enumerate(voyages):
+                        if i in processed_voyages:
+                            continue
+
+                        # Breytum departure_time úr streng í datetime format fyrir bæði voyage1 og voyage2
+                        voyage1_departure_time = datetime.strptime(
+                            voyage1.departure_time, "%Y-%m-%d %H:%M:%S"
+                        )
+
+                        for j, voyage2 in enumerate(voyages):
+                            if j in processed_voyages or i == j:
+                                continue
+
+                            voyage2_departure_time = datetime.strptime(
+                                voyage2.departure_time, "%Y-%m-%d %H:%M:%S"
+                            )
+
+                            if (
+                                voyage1.departure == voyage2.arrival
+                                and voyage1.arrival == voyage2.departure
+                                and voyage1_departure_time.date()
+                                == voyage2_departure_time.date()
+                            ):
+                                # Prenta vinnuferðir
+                                print(f"-----\nVinnuferð {work_trip_number}")
+                                print(
+                                    f"Flugnúmer: {voyage1.flight_number} Frá: {voyage1.departure} Til: {voyage1.arrival} Brottfarartími: {voyage1_departure_time}"
+                                )
+                                print(
+                                    f"Flugnúmer: {voyage2.flight_number} Frá: {voyage2.departure} Til: {voyage2.arrival} Brottfarartími: {voyage2_departure_time}"
+                                )
+                                print(
+                                    "Mönnun:",
+                                    "Fullmönnuð"
+                                    if voyage1.staffed == "1"
+                                    else "Ekki fullmönnuð",
+                                )
+
+                                work_trip_number += 1
+                                processed_voyages.update([i, j])
+                                break
+
                     date += timedelta(days=1)
 
-                if not voyages_found:
+                if work_trip_number == 1:
                     print("Engin vinnuferð í þessari viku")
-
-            elif user_input.lower() == "b":
-                break
-
-            else:
-                print("Rangur innsláttur. Reyndu aftur.")
 
     def add_new_voyage_ui(self):
         new_voyage = Voyage()
