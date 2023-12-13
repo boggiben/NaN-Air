@@ -63,7 +63,6 @@ class Voyage_Logic:
         all_voyages = self.get_all_voyages()
         employee_list = []
         # voyage_date = datetime.strptime(voyage_date, '%Y-%m-%d')
-
         for voy in all_voyages:
             dep_time = datetime.strptime(voy.departure_time, "%Y-%m-%d %H:%M:%S")
             arr_time = datetime.strptime(voy.arrival_time, "%Y-%m-%d %H:%M:%S")
@@ -74,7 +73,7 @@ class Voyage_Logic:
                 employee_list.append(voy.captain)
                 employee_list.append(voy.copilot)
                 employee_list.append(voy.fsm)
-                #
+                
                 if voy.fa1 != "":
                     employee_list.append(voy.fa1)
                 if voy.fa2 != "":

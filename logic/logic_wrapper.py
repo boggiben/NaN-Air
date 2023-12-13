@@ -67,6 +67,9 @@ class LogicWrapper:
 
     def see_booked_employees_departure(self, voyage_date):
         return self.voyage_logic.see_booked_employees_departure(voyage_date)
-
+        
     def get_voayges_of_employee(self, ssn):
         return self.voyage_logic.get_voayges_of_employee(ssn)
+
+    def see_voyage_plan(self, ssn):
+        return self.voyage_logic.see_voyage_plan(ssn)
