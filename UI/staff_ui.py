@@ -88,7 +88,14 @@ class Staff_UI:
                     print("Starfsmaður er ekki til")
                 else:
                     print(emp)
-
+                    print( "\n")
+                    print("1. Prenta vinnuyfirlit starfsmanns.")
+                    print("b. Til baka.")
+                    user_input = input()
+                    if user_input == "1":
+                        pass
+                    elif user_input == "b":
+                        break    
             elif user_input.lower() == "6":
                 ssn = input("Skráðu kenntiölu starfsmanns til breytingar: ")
 
