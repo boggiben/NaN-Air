@@ -35,6 +35,9 @@ class LogicWrapper:
     def get_all_voyages(self):
         return self.voyage_logic.get_all_voyages()
 
+    def list_all_voyages(self):
+        return self.voyage_logic.list_all_voyages()
+
     def add_new_flight(self):
         pass
 
@@ -49,6 +52,9 @@ class LogicWrapper:
 
     def get_voyage_by_date(self, voyage_date):
         return self.voyage_logic.get_voyage_by_date(voyage_date)
+
+    def get_voyage_by_week(self, voyage_date):
+        return self.voyage_logic.get_voyage_by_week(voyage_date)
 
     def get_all_destinations(self):
         return self.data_wrapper.get_all_destinations()
@@ -67,15 +73,15 @@ class LogicWrapper:
 
     def see_booked_employees_departure(self, voyage_date):
         return self.voyage_logic.see_booked_employees_departure(voyage_date)
-        
+
     def get_voayges_of_employee(self, ssn):
         return self.voyage_logic.get_voayges_of_employee(ssn)
 
     def see_voyage_plan(self, ssn):
         return self.voyage_logic.see_voyage_plan(ssn)
-    
+
     def see_booked_employees_name(self, employee):
         return self.voyage_logic.see_booked_employees_name(employee)
-    
+
     def see_booked_employees_phone(self, employee):
         return self.voyage_logic.see_booked_employees_phone(employee)

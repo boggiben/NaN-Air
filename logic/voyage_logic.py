@@ -1,10 +1,10 @@
 from data.data_wrapper import DataWrapper
 from model.voyage import Voyage
 import csv
-from datetime import datetime
+from datetime import datetime, timedelta
 
-#file_name = "files/past_flights.csv"
-#file_name2 = "files/staff.csv"
+# file_name = "files/past_flights.csv"
+# file_name2 = "files/staff.csv"
 
 
 class Voyage_Logic:
@@ -18,6 +18,41 @@ class Voyage_Logic:
 
     def get_all_voyages(self):
         return self.data_wrapper.get_all_voyages()
+
+    def list_all_voyages(self):
+        all_voyages = self.get_all_voyages()  # Retrieve all voyages
+        voyages_list = []
+        paired_voyages = set()
+
+        for i, voyage1 in enumerate(all_voyages):
+            if i in paired_voyages:
+                continue
+
+            # Extract date from voyage1 departure_time
+            departure_date1 = datetime.strptime(
+                voyage1.departure_time, "%Y-%m-%d %H:%M:%S"
+            ).date()
+
+            for j, voyage2 in enumerate(all_voyages):
+                if j in paired_voyages or i == j:
+                    continue
+
+                # Extract date from voyage2 departure_time
+                departure_date2 = datetime.strptime(
+                    voyage2.departure_time, "%Y-%m-%d %H:%M:%S"
+                ).date()
+
+                # Check for inverse route and same date
+                if (
+                    voyage1.departure == voyage2.arrival
+                    and voyage1.arrival == voyage2.departure
+                    and departure_date1 == departure_date2
+                ):
+                    voyages_list.append((voyage1, voyage2))
+                    paired_voyages.update([i, j])
+                    break
+
+        return voyages_list
 
     def add_new_voyage(self, voyage):
         return self.data_wrapper.create_voyage(voyage)
@@ -70,8 +105,38 @@ class Voyage_Logic:
 
         return voyages_for_date
 
-    def get_voyage_by_week(self, voyage_date):
-        pass
+    def get_voyage_by_week(self, start_date):
+        end_date = start_date + timedelta(days=7)
+        paired_voyages = set()
+        grouped_voyages_weekly = []
+
+        current_date = start_date
+        while current_date <= end_date:
+            daily_voyage_pairs = self.get_voyage_by_date(
+                current_date
+            )  # Returns pairs of voyages
+
+            for pair in daily_voyage_pairs:
+                for i, voyage1 in enumerate(pair):
+                    # Check if voyage1 is already paired
+                    if any(voyage1 in voyages for voyages in grouped_voyages_weekly):
+                        continue
+
+                    for j, voyage2 in enumerate(pair):
+                        if voyage1 == voyage2:
+                            continue
+
+                        if (
+                            voyage1.departure == voyage2.arrival
+                            and voyage1.arrival == voyage2.departure
+                        ):
+                            grouped_voyages_weekly.append((voyage1, voyage2))
+                            paired_voyages.update([voyage1, voyage2])
+                            break
+
+            current_date += timedelta(days=1)
+
+        return grouped_voyages_weekly
 
     def see_booked_employees(self, voyage_date):
         all_voyages = self.get_all_voyages()
