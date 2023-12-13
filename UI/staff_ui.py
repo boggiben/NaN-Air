@@ -88,14 +88,14 @@ class Staff_UI:
                     print("Starfsmaður er ekki til")
                 else:
                     print(emp)
-                    print( "\n")
+                    print("\n")
                     print("1. Prenta vinnuyfirlit starfsmanns.")
                     print("b. Til baka.")
                     user_input = input()
                     if user_input == "1":
                         self.see_voyage_plan()
                     elif user_input == "b":
-                        break    
+                        break
             elif user_input.lower() == "6":
                 ssn = input("Skráðu kenntiölu starfsmanns til breytingar: ")
 
@@ -132,7 +132,9 @@ class Staff_UI:
                     year, month, day = voyage_date.split("-")
                     date = datetime(int(year), int(month), int(day))
                     employees = self.logic_wrapper.see_booked_employees(date)
-                    destination = self.logic_wrapper.see_booked_employees_departure(date)
+                    destination = self.logic_wrapper.see_booked_employees_departure(
+                        date
+                    )
 
                     if not employees:
                         print("Engir bókaðir starfsmenn.")
@@ -141,7 +143,7 @@ class Staff_UI:
                             print(f"{destination}: {employee}")
                 except ValueError:
                     print("Villa í innslætti. Sniðmátið er YYYY-MM-DD")
-                #veit ekki hvort það sé of mikið að gerast í UI 
+                # veit ekki hvort það sé of mikið að gerast í UI
 
             elif user_input.lower() == "9":
                 ssn = input("kennitala: ")
