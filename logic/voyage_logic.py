@@ -113,3 +113,6 @@ class Voyage_Logic:
             ):
                 voyages_that_employee_works_in.append(voyage)
         return voyages_that_employee_works_in
+
+    def see_voyage_plan(self, ssn):
+        pass
