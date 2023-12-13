@@ -126,16 +126,19 @@ class Staff_UI:
             elif user_input.lower() == "8":
                 print("Þú valdir að sjá upptekna starfsmenn")
                 voyage_date = input("Veldu dagsetningu: ")
-                year, month, day = voyage_date.split("-")
-                date = datetime(int(year), int(month), int(day))
-                employees = self.logic_wrapper.see_booked_employees(date)
-                destination = self.logic_wrapper.see_booked_employees_departure(date)
+                try:
+                    year, month, day = voyage_date.split("-")
+                    date = datetime(int(year), int(month), int(day))
+                    employees = self.logic_wrapper.see_booked_employees(date)
+                    destination = self.logic_wrapper.see_booked_employees_departure(date)
 
-                if not employees:
-                    print("Engir bókaðir starfsmenn.")
-                else:
-                    for employee in employees:
-                        print(f"{destination}: {employee}")
+                    if not employees:
+                        print("Engir bókaðir starfsmenn.")
+                    else:
+                        for employee in employees:
+                            print(f"{destination}: {employee}")
+                except ValueError:
+                    print("Villa í innslætti. Sniðmátið er YYYY-MM-DD")
                 
 
             elif user_input.lower() == "9":
