@@ -16,10 +16,10 @@ class Staff_UI:
         print("2. Allir flugmenn")
         print("3. Allir flugþjónar")
         print("4. Skrá starfsmann")
-        print("5. Finna starfsmann (nota kt) ")
+        print("5. Finna starfsmann með kennitölu")
         print("6. Breyta starfsmannaupplýsingum (nema nafni og kt)")
-        print("7. Lausir starfsmenn (á eftir að útfæra)")
-        print("8. Uppteknir starfsmenn (á eftir að útfæra)")
+        print("7. Lausir starfsmenn")
+        print("8. Uppteknir starfsmenn")
         print("9. sjá vinnuferðir starfsmanns (nota kt) ")
         print("b. Fara í aðalvalmynd")
         print("*" * 80)
@@ -88,7 +88,22 @@ class Staff_UI:
                     print("Starfsmaður er ekki til")
                 else:
                     print(emp)
+                    print("\n")
+                    print("1. Prenta vinnuyfirlit starfsmanns.")
+                    print("b. Til baka.")
+                    user_input = input()
+                    if user_input == "1":
+                        if "-" in ssn:
+                            ssn = ssn.replace("-", "")
 
+                        all_voyages = self.logic_wrapper.get_voayges_of_employee(ssn)
+                        if all_voyages:
+                            for voyage in all_voyages:
+                                print(voyage)
+                        else:
+                            print("Starfsmaður er ekki skráður í vinnuferð")
+                    elif user_input == "b":
+                        break
             elif user_input.lower() == "6":
                 ssn = input("Skráðu kenntiölu starfsmanns til breytingar: ")
 
@@ -103,29 +118,44 @@ class Staff_UI:
                     self.modify_staff_ui(employee)
 
             elif user_input.lower() == "7":
-                voyage_date = input("Dagsetning: ")
-                year, month, day = voyage_date.split("-")
-                date = datetime(int(year), int(month), int(day))
-                employees = self.logic_wrapper.see_unbooked_employees(date)
+                print("Þú valdir að sjá lausa starfsmenn.")
+                voyage_date = input("Veldu dagsetningu: ")
+                try:
+                    year, month, day = voyage_date.split("-")
+                    date = datetime(int(year), int(month), int(day))
+                    employees = self.logic_wrapper.see_unbooked_employees(date)
+                    
 
-                if not employees:
-                    print("Engir lausir starfsmenn.")
-                else:
-                    for employee in employees:
-                        print(employee)
+                    if not employees:
+                        print("Engir lausir starfsmenn.")
+                    else:
+                        for employee in employees:
+                            name = self.logic_wrapper.see_booked_employees_name(employee)
+                            phone = self.logic_wrapper.see_booked_employees_phone(employee)
+                            print(f"{name}: sími: {phone}, kt.{employee}")
+                except ValueError:
+                    print("Villa í innslætti. Sniðmátið er YYYY-MM-DD")
 
             elif user_input.lower() == "8":
-                voyage_date = input("Dagsetning: ")
-                year, month, day = voyage_date.split("-")
-                date = datetime(int(year), int(month), int(day))
-                employees = self.logic_wrapper.see_booked_employees(date)
-                destination = self.logic_wrapper.see_booked_employees_departure(date)
+                print("Þú valdir að sjá upptekna starfsmenn")
+                voyage_date = input("Veldu dagsetningu: ")
+                try:
+                    year, month, day = voyage_date.split("-")
+                    date = datetime(int(year), int(month), int(day))
+                    employees = self.logic_wrapper.see_booked_employees(date)
+                    destination = self.logic_wrapper.see_booked_employees_departure(date)
+                    
 
-                if not employees:
-                    print("Engir bókaðir starfsmenn.")
-                else:
-                    for employee in employees:
-                        print(f"{destination}: {employee}")
+                    if not employees:
+                        print("Engir bókaðir starfsmenn.")
+                    else:
+                        for employee in employees:
+                            name = self.logic_wrapper.see_booked_employees_name(employee)
+                            phone = self.logic_wrapper.see_booked_employees_phone(employee)
+                            print(f"{destination}: {name}: sími: {phone}, kt.{employee}")
+                except ValueError:
+                    print("Villa í innslætti. Sniðmátið er YYYY-MM-DD")
+                # veit ekki hvort það sé of mikið að gerast í UI
 
             elif user_input.lower() == "9":
                 ssn = input("kennitala: ")
@@ -134,8 +164,11 @@ class Staff_UI:
                     ssn = ssn.replace("-", "")
 
                 all_voyages = self.logic_wrapper.get_voayges_of_employee(ssn)
-                for voyage in all_voyages:
-                    print(voyage)
+                if all_voyages:
+                    for voyage in all_voyages:
+                        print(voyage)
+                else:
+                    print("Starfsmaður ekki skráður í vinnuferð")
 
             elif user_input.lower() == "b":
                 break

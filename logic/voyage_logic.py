@@ -3,7 +3,8 @@ from model.voyage import Voyage
 import csv
 from datetime import datetime
 
-file_name = "files/past_flights.csv"
+#file_name = "files/past_flights.csv"
+#file_name2 = "files/staff.csv"
 
 
 class Voyage_Logic:
@@ -80,18 +81,22 @@ class Voyage_Logic:
         for voy in all_voyages:
             dep_time = datetime.strptime(voy.departure_time, "%Y-%m-%d %H:%M:%S")
             arr_time = datetime.strptime(voy.arrival_time, "%Y-%m-%d %H:%M:%S")
-            if (
-                voyage_date.date() == dep_time.date()
-                or voyage_date.date() == arr_time.date()
-            ):
-                employee_list.append(voy.captain)
-                employee_list.append(voy.copilot)
-                employee_list.append(voy.fsm)
-                #
-                if voy.fa1 != "":
-                    employee_list.append(voy.fa1)
-                if voy.fa2 != "":
-                    employee_list.append(voy.fa2)
+            try:
+                if (
+                    voyage_date.date() == dep_time.date()
+                    or voyage_date.date() == arr_time.date()
+                ):
+                    employee_list.append(voy.captain)
+                    employee_list.append(voy.copilot)
+                    employee_list.append(voy.fsm)
+                    #
+                    if voy.fa1 != "":
+                        employee_list.append(voy.fa1)
+                    if voy.fa2 != "":
+                        employee_list.append(voy.fa2)
+            except:
+                ValueError
+                return "ValueError"
         unique_list = list(set(employee_list))
 
         return unique_list
@@ -100,7 +105,6 @@ class Voyage_Logic:
         all_voyages = self.get_all_voyages()
         employee_list = []
         # voyage_date = datetime.strptime(voyage_date, '%Y-%m-%d')
-
         for voy in all_voyages:
             dep_time = datetime.strptime(voy.departure_time, "%Y-%m-%d %H:%M:%S")
             arr_time = datetime.strptime(voy.arrival_time, "%Y-%m-%d %H:%M:%S")
@@ -111,7 +115,7 @@ class Voyage_Logic:
                 employee_list.append(voy.captain)
                 employee_list.append(voy.copilot)
                 employee_list.append(voy.fsm)
-                #
+
                 if voy.fa1 != "":
                     employee_list.append(voy.fa1)
                 if voy.fa2 != "":
@@ -149,3 +153,27 @@ class Voyage_Logic:
             ):
                 voyages_that_employee_works_in.append(voyage)
         return voyages_that_employee_works_in
+
+    def see_voyage_plan(self, ssn):
+        pass
+
+    def see_booked_employees_name(self, employee):
+        all_staff = self.data_wrapper.get_all_staff()
+        name = ""
+        # voyage_date = datetime.strptime(voyage_date, '%Y-%m-%d')
+
+        for staff in all_staff:
+            if employee == staff.national_id:
+                name = str(staff.name)
+
+        return name
+
+    def see_booked_employees_phone(self, employee):
+        all_staff = self.data_wrapper.get_all_staff()
+        phone = ""
+        # voyage_date = datetime.strptime(voyage_date, '%Y-%m-%d')
+        for staff in all_staff:
+            if employee == staff.national_id:
+                phone = str(staff.gsm)
+
+        return phone
