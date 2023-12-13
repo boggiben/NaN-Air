@@ -64,7 +64,7 @@ class Staff_UI:
                         f"Símanúmer: {elem.gsm:<10} | "
                         f"Netfang: {elem.email:<20} | "
                         f"Heimilisfang: {elem.address:<20} | "
-                        f"Kennitala: {elem.national_id:<20} | "
+                        f"Kennitala: {elem.national_id:<10} | "
                         f"Staða: {elem.role:<10}"
                     )
 
