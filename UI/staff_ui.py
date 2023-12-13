@@ -109,6 +109,19 @@ class Staff_UI:
                 employees = self.logic_wrapper.see_unbooked_employees(date)
 
                 if not employees:
+                    print("Engir lausir starfsmenn.")
+                else:
+                    for employee in employees:
+                        print(employee)
+
+            elif user_input.lower() == "8":
+                voyage_date = input("Dagsetning: ")
+                year, month, day = voyage_date.split("-")
+                date = datetime(int(year), int(month), int(day))
+                employees = self.logic_wrapper.see_booked_employees(date)
+                destination = self.logic_wrapper.see_booked_employees_departure(date)
+
+                if not employees:
                     print("Engir bókaðir starfsmenn.")
                 else:
                     for employee in employees:

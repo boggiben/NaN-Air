@@ -60,7 +60,13 @@ class LogicWrapper:
         return self.staff_logic.modify_staff(employee)
 
     def see_unbooked_employees(self, voyage_date):
+        return self.voyage_logic.see_unbooked_employees(voyage_date)
+
+    def see_booked_employees(self, voyage_date):
         return self.voyage_logic.see_booked_employees(voyage_date)
+
+    def see_booked_employees_departure(self, voyage_date):
+        self.voyage_logic.see_booked_employees_departure(voyage_date)
 
     def get_voayges_of_employee(self, ssn):
         return self.voyage_logic.get_voayges_of_employee(ssn)
