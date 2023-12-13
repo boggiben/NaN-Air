@@ -38,7 +38,7 @@ class Staff_UI:
                         f"Símanúmer: {elem.gsm:<10} | "
                         f"Netfang: {elem.email:<20} | "
                         f"Heimilisfang: {elem.address:<20} | "
-                        f"Kennitala: {elem.national_id:<20} | "
+                        f"Kennitala: {elem.national_id:<10} | "
                         f"Staða: {elem.role:<10}"
                     )
             elif user_input == "2":
@@ -51,7 +51,7 @@ class Staff_UI:
                         f"Símanúmer: {elem.gsm:<10} | "
                         f"Netfang: {elem.email:<20} | "
                         f"Heimilisfang: {elem.address:<20} | "
-                        f"Kennitala: {elem.national_id:<20} | "
+                        f"Kennitala: {elem.national_id:<10} | "
                         f"Staða: {elem.role:<10}"
                     )
             elif user_input == "3":
@@ -90,7 +90,7 @@ class Staff_UI:
                     print(emp)
 
             elif user_input.lower() == "6":
-                ssn = input("Enter staff national ID to modify: ")
+                ssn = input("Skráðu kenntiölu starfsmanns til breytingar: ")
 
                 # Tökum við bæði kennitölu án og með bandstriki
                 if "-" not in ssn and len(ssn) == 10:
@@ -147,7 +147,7 @@ class Staff_UI:
         name = input("Nafn: ")
         new_employee.name = name
         mobile_number = input("Símanúmer: ")
-        new_employee.mobile_number = mobile_number
+        new_employee.gsm = mobile_number
         email = input("Netfang: ")
         new_employee.email = email
         address = input("Heimilisfang: ")

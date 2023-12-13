@@ -7,10 +7,13 @@ class Destination_UI:
         self.logic_wrapper = logic_connection
 
     def destination_menu(self):
-        print("Áfangastaðir")
+        print("\n")
+        print(f'{"Áfangastaðir":>45}')
+        print("*" * 80)
         print("1. Stofna nýjan áfangastað")
         print("2. Sjá alla áfangastaði")
         print("b. Til baka")
+        print("*" * 80)
 
     def input_destination(self):
         while True:
