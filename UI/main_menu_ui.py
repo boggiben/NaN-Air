@@ -3,7 +3,8 @@ from ui.staff_ui import Staff_UI
 from ui.destination_ui import Destination_UI
 from ui.voyage_ui import Voyage_UI
 from ui.flight_ui import FlightUI
-from ui.art import logo
+from ui.art import logo2
+from ui.art_alterna import logo3
 
 
 class MainMenu_UI:
@@ -12,6 +13,11 @@ class MainMenu_UI:
 
     def menu_output(self):
         print("\n")
+        max_line_length = max(len(line) for line in logo2.splitlines())
+        padding = (80 - max_line_length) // 2
+        for line in logo2.splitlines():
+            print(f'{" " * padding}{line}')
+        print("*" * 80)
         print(f"{'Velkomin/n á aðalvalmynd':^75}")
         print("*" * 80)
 
@@ -22,7 +28,7 @@ class MainMenu_UI:
         print(f"{'5. Skrá starfsmann í vinnuferð':<80}")
         print(f"{'q. Hætta':<80}")
         print("*" * 80)
-        print(logo)
+        print(logo3)
         print("*" * 80)
 
     def input_main_menu(self):
@@ -51,9 +57,9 @@ class MainMenu_UI:
                 menu = LogicWrapper()
                 menu.add_staff_to_flight()
             # elif user_input == "6":
-                # self.logic_wrapper.add_new_staff()
+            # self.logic_wrapper.add_new_staff()
             # elif user_input == "7":
-                # self.logic_wrapper.get_flights_by_week()
+            # self.logic_wrapper.get_flights_by_week()
             elif user_input == "q":
                 print("Bless")
                 break
