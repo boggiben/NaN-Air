@@ -134,7 +134,6 @@ class Voyage_Logic:
     def see_booked_employees_phone(self, employee):
         all_staff = self.data_wrapper.get_all_staff()
         phone = ""
-        staff_list = []
         # voyage_date = datetime.strptime(voyage_date, '%Y-%m-%d')
         for staff in all_staff:
             if employee == staff.national_id:
