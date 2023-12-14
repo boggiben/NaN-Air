@@ -121,6 +121,7 @@ class Voyage_UI:
                 flight_check2 = self.logic_wrapper.check_flight_number(flight_number2)
                 if flight_check and flight_check2 == True:
                     print(f"bæta starfsfólki í flug {flight_number}:")
+                    date = input("Dagsetning flugs (YYYY-MM-DD): ")
                     captain = input("kt. Flugstjóra: ")
                     copilot = input("kt. Flugmanns: ")
                     flight_service_manager = input("kt. Yfirflugþjóns: ")
