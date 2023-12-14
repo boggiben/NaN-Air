@@ -129,49 +129,42 @@ class Voyage_UI:
                     date = datetime(int(year), int(month), int(day))
                     while True:
                         captain = input("kt. Flugstjóra: ")
-<<<<<<< HEAD
                         checker = self.logic_wrapper.is_employee_booked_on_date(
                             captain, date
                         )
                         if checker == True:
                             print("starfsmaður er nú þegar bókaður")
                         else:
-=======
-                        booked_staff = self.logic_wrapper.see_booked_employees(date)
-                        if captain in booked_staff:
-                            print ("starfsmaður er nú þegar bókaður")
-                        else: 
->>>>>>> 26c47f9ec2f581fb5c5472053d196c9f93c6a394
                             break
                     while True:
                         copilot = input("kt. Flugmanns: ")
                         booked_staff = self.logic_wrapper.see_booked_employees(date)
                         if copilot in booked_staff:
-                            print ("starfsmaður er nú þegar bókaður")
-                        else: 
+                            print("starfsmaður er nú þegar bókaður")
+                        else:
                             break
                     while True:
                         flight_service_manager = input("kt. Yfirflugþjóns: ")
                         booked_staff = self.logic_wrapper.see_booked_employees(date)
                         if flight_service_manager in booked_staff:
-                            print ("starfsmaður er nú þegar bókaður")
-                        else: 
+                            print("starfsmaður er nú þegar bókaður")
+                        else:
                             break
                     while True:
                         flight_attendant_one = input("kt. flugþjóns 1: ")
                         booked_staff = self.logic_wrapper.see_booked_employees(date)
                         if flight_attendant_one in booked_staff:
-                            print ("starfsmaður er nú þegar bókaður")
-                        else: 
+                            print("starfsmaður er nú þegar bókaður")
+                        else:
                             break
                     while True:
                         flight_attendant_two = input("kt. flugþjóns 2: ")
                         booked_staff = self.logic_wrapper.see_booked_employees(date)
                         if flight_attendant_two in booked_staff:
-                            print ("starfsmaður er nú þegar bókaður")
-                        else: 
+                            print("starfsmaður er nú þegar bókaður")
+                        else:
                             break
-                        
+
                     self.logic_wrapper.add_staff_to_voyage(
                         flight_number,
                         flight_number2,
@@ -230,7 +223,7 @@ class Voyage_UI:
             voy_1_arrival_time_str, "%Y-%m-%d %H:%M:%S"
         )
         voyage1.arrival_time = voy_arrival_time
-        voyage1.aircraft_id = input("Aircraft ID fyrir flugið út")
+        voyage1.aircraft_id = input("Aircraft ID fyrir flugið út: ")
 
         # Flight crew
         # voyage1.aircraft_id = input("Aircraft ID fyrir fyrsta flug: ")
@@ -258,12 +251,12 @@ class Voyage_UI:
         )
         voyage2.departure_time = voy2_departure_time
 
-        voy2_arrival_time_str = input("Brottfarartími (snið: YYYY-MM-DD HH:MM:SS): ")
+        voy2_arrival_time_str = input("Komutími (snið: YYYY-MM-DD HH:MM:SS): ")
         voy2_arrival_time = datetime.strptime(
             voy2_arrival_time_str, "%Y-%m-%d %H:%M:%S"
         )
         voyage2.arrival_time = voy2_arrival_time
-        voyage2.aircraft_id = input("Aircraft ID fyrir flugið heim")
+        voyage2.aircraft_id = voyage1.aircraft_id
 
         # Additional input for the flight back (voyage2)
         # voyage2.aircraft_id = voyage1.aircraft_id
