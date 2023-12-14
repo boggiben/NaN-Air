@@ -209,39 +209,40 @@ class Voyage_Logic:
     def get_voayges_of_employee(self, ssn, start_date_input):
         all_voyages = self.list_all_voyages()
         voyages_that_employee_works_in = []
+        try:
+            # Convert user input start date to datetime object
+            user_start_date = datetime.strptime(start_date_input, "%Y-%m-%d")
 
-        # Convert user input start date to datetime object
-        user_start_date = datetime.strptime(start_date_input, "%Y-%m-%d")
+            # Convert user_start_date to datetime with time of midnight
+            user_start_datetime = datetime.combine(user_start_date, datetime.min.time())
 
-        # Convert user_start_date to datetime with time of midnight
-        user_start_datetime = datetime.combine(user_start_date, datetime.min.time())
+            # Calculate the end of the week (7 days later)
+            user_end_date = user_start_date + timedelta(days=7)
 
-        # Calculate the end of the week (7 days later)
-        user_end_date = user_start_date + timedelta(days=7)
+            for voyages_tuple in all_voyages:
+                for voyage in voyages_tuple:
+                    # Extract date from voyage departure_time
+                    departure_date = datetime.strptime(
+                        voyage.departure_time, "%Y-%m-%d %H:%M:%S"
+                    ).date()
 
-        for voyages_tuple in all_voyages:
-            for voyage in voyages_tuple:
-                # Extract date from voyage departure_time
-                departure_date = datetime.strptime(
-                    voyage.departure_time, "%Y-%m-%d %H:%M:%S"
-                ).date()
+                    # Convert departure_date to datetime with time of midnight
+                    departure_datetime = datetime.combine(
+                        departure_date, datetime.min.time()
+                    )
 
-                # Convert departure_date to datetime with time of midnight
-                departure_datetime = datetime.combine(
-                    departure_date, datetime.min.time()
-                )
-
-                if (
-                    voyage.captain == ssn
-                    or voyage.copilot == ssn
-                    or voyage.fsm == ssn
-                    or voyage.fa1 == ssn
-                    or voyage.fa2 == ssn
-                ) and user_start_datetime <= departure_datetime < user_start_datetime + timedelta(
-                    days=7
-                ):
-                    voyages_that_employee_works_in.append(voyage)
-
+                    if (
+                        voyage.captain == ssn
+                        or voyage.copilot == ssn
+                        or voyage.fsm == ssn
+                        or voyage.fa1 == ssn
+                        or voyage.fa2 == ssn
+                    ) and user_start_datetime <= departure_datetime < user_start_datetime + timedelta(
+                        days=7
+                    ):
+                        voyages_that_employee_works_in.append(voyage)
+        except ValueError:
+            return None
         return voyages_that_employee_works_in
 
     def see_voyage_plan(self, ssn):
@@ -282,7 +283,18 @@ class Voyage_Logic:
     
     def add_staff_to_voyage(self, flight_number, flight_number2, captain, copilot, flight_service_manager, flight_attendant_one, flight_attendant_two):
         pass
-    
+
+    def add_staff_to_voyage(
+        self,
+        flight_number,
+        captain,
+        copilot,
+        flight_service_manager,
+        flight_attendant_one,
+        flight_attendant_two,
+    ):
+        pass
+
     def check_flight_number(self, flight_number):
         all_voyages = self.get_all_voyages()
         for voy in all_voyages:
