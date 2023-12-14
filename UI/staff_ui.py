@@ -213,7 +213,7 @@ class Staff_UI:
                 ):
                     print("Starfsmaður er þegar bókaður á þessum degi.")
                 else:
-                    success = self.logic_wrapper.staff_logic.add_staff_to_flight(
+                    success = self.logic_wrapper.add_staff_to_flight(
                         ssn, voyage_date
                     )
                     if success:

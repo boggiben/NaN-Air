@@ -51,8 +51,8 @@ class Staff_Logic:
         return self.data_wrapper.see_booked_staff()
 
     def add_staff_to_flight(self, employee, voyage_date):
-        if self.logic_wrapper.is_employee_booked_on_date(
+        if self.data_wrapperr.is_employee_booked_on_date(
             employee.national_id, voyage_date
         ):
             return False
-        return self.logic_wrapper.add_staff_to_flight(employee)
+        return self.data_wrapper.add_staff_to_flight(employee)
