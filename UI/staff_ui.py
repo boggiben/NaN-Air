@@ -179,32 +179,6 @@ class Staff_UI:
                 except ValueError:
                     print("Villa í innslætti. Sniðmátið er YYYY-MM-DD")
 
-            elif user_input.lower() == "9":
-                print("Þú valdir að bæta starfsmanni við vinnuferð")
-                ssn = input("Skráðu kennitölu starfsmanns: ")
-
-                if "-" in ssn:
-                    ssn = ssn.replace("-", "")
-
-                voyage_date_str = input("Skráðu dagsetningu vinnuferðar (YYYY-MM-DD): ")
-                try:
-                    voyage_date = datetime.strptime(voyage_date_str, "%Y-%m-%d")
-                except ValueError:
-                    print("Villa í innslætti. Sniðmátið er YYYY-MM-DD.")
-                    continue
-
-                # Check if the employee is booked date
-                if self.logic_wrapper.voyage_logic.is_employee_booked_on_date(
-                    ssn, voyage_date
-                ):
-                    print("Starfsmaður er þegar bókaður á þessum degi.")
-                else:
-                    success = self.logic_wrapper.add_staff_to_flight(ssn, voyage_date)
-                    if success:
-                        print("Starfsmanni hefur verið bætt við vinnuferð.")
-                    else:
-                        print("Villa við að bæta starfsmanni við vinnuferð.")
-
             elif user_input.lower() == "b":
                 break
             else:
