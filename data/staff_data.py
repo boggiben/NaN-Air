@@ -134,6 +134,7 @@ class Staff_Data:
                         "role": emp.role,
                     }
                 )
+        return True
 
     def see_available_employees(self):
         with open(self.file_name_2, "w", newline="", encoding="utf-8") as file:

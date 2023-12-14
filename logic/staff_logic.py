@@ -39,7 +39,18 @@ class Staff_Logic:
         return self.data_wrapper.add_staff_to_flight(employee)
 
     def modify_staff(self, employee):
-        return self.data_wrapper.modify_staff(employee)
+        employees = self.get_all_staff()
+        updated = False
+        for i, emp in enumerate(employees):
+            if emp.national_id == employee.national_id:
+                employees[i] = employee
+                updated = True
+                break
+
+        if updated:
+            return self.data_wrapper.write_all_staff(employees)
+        else:
+            return False
 
     def get_all_flights(self):
         pass
