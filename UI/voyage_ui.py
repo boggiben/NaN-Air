@@ -16,6 +16,7 @@ class Voyage_UI:
         print("2. Skrá vinnuferð")
         print("3. Skoða vinnuferðir á ákveðinni dagsetningu")
         print("4. Skoða vinnuferðir á ákveðinni viku")
+        print("5. Afrita skráningu á vinnuferð")
         print("b. Fara í aðalvalmynd")
         print("*" * 80)
 
@@ -32,7 +33,9 @@ class Voyage_UI:
                 for voyage1, voyage2 in grouped_voyages:
                     print(f"-----\nVinnuferð {work_trip_number}")
 
-                    self.print_voyage_details(voyage1, print_staffed=False)
+                    self.print_voyage_details(
+                        voyage1, print_crew=False, print_staffed=False
+                    )
                     self.print_voyage_details(voyage2)
 
                     work_trip_number += 1
@@ -61,7 +64,9 @@ class Voyage_UI:
                         for voyage1, voyage2 in voyages:
                             print(f"-----\nVinnuferð {work_trip_number}")
 
-                            self.print_voyage_details(voyage1, print_staffe0d=False)
+                            self.print_voyage_details(
+                                voyage1, print_crew=False, print_staffed=False
+                            )
                             self.print_voyage_details(voyage1)
 
                             work_trip_number += 1
@@ -88,13 +93,19 @@ class Voyage_UI:
                     print(f"-----\nVinnuferð {work_trip_number}")
                     # Print voyage details
 
-                    self.print_voyage_details(voyage1, print_staffed=False)
+                    self.print_voyage_details(
+                        voyage1, print_crew=False, print_staffed=False
+                    )
                     self.print_voyage_details(voyage1)
 
                     work_trip_number += 1
 
                 if work_trip_number == 1:
                     print("Engin vinnuferð í þessari viku")
+
+            elif user_input.lower() == "5":
+                print("Þú valdir að afrita skráningu á vinnuferð")
+                duplicate_voyage = input("Veldu vinnuferð sem þú vilt afrita")
 
             elif user_input == "b":
                 break
@@ -109,28 +120,29 @@ class Voyage_UI:
     #     arrival = input("Til: ")
     #     new_voyage.arrival = arrival
     #     departure_time = input("Brottfarartími: ")
-    #     new_voyage.departure_time = departure_time
+    #     new_voyage.departure_time = departure_txime
     #     arrival_time = input("Komutími: ")
     #     new_voyage.arrival_time = arrival_time
     #     return self.logic_wrapper.add_new_voyage(new_voyage)
 
+    def input(prompt, default=0):
+        """Get input with a default value if blank."""
+        value = input(prompt)
+        return value if value.strip() else default
+
     def add_new_voyage_ui(self):
-        """Fall sem er notað til að búa til nýja vinnuferð"""
+        """Function used to create a new work trip."""
         voyage1 = Voyage()
         voyage2 = Voyage()
 
-        flight_number = input("Flugnúmer fyrir fyrsta flug: ")
+        flight_number = input("Settu inn flugnúmer: ")
         voyage1.flight_number = flight_number
         voyage1.departure = input("Frá: ")
-        # voyage1.departure = departure
         voyage1.arrival = input("Til: ")
-        # voyage1.arrival = arrival
 
-        # Ensure departure_time is in the correct format with hours, minutes, and seconds
+        # Það þarf að vera rétt snið á brottfarartíma.
         while True:
-            departure_time_str = input(
-                "Brottfarartími (YYYY-MM-DD HH:MM:SS) fyrir fyrsta flug: "
-            )
+            departure_time_str = input("Brottfarartími (snið: YYYY-MM-DD HH:MM:SS): ")
             try:
                 departure_time = datetime.strptime(
                     departure_time_str, "%Y-%m-%d %H:%M:%S"
@@ -138,54 +150,136 @@ class Voyage_UI:
                 break
             except ValueError:
                 print(
-                    "Rangt snið, vinsamlegast sláðu inn dagsetningu og tíma í sniðinu YYYY-MM-DD HH:MM:SS."
+                    "Vitlaust snið. Athugaðu að brottfarartími verður að vera í sniðmátinu YYYY-MM-DD HH:MM:SS."
                 )
 
         voyage1.departure_time = departure_time
 
-        # Stillum heimferðina, þ.e. voyage2, út frá ferðinni út (voyage1)
+        # Setting arrival time for voyage1
+        while True:
+            arrival_time_str = input("Komutími (snið: YYYY-MM-DD HH:MM:SS): ")
+            try:
+                arrival_time = datetime.strptime(arrival_time_str, "%Y-%m-%d %H:%M:%S")
+                if departure_time < arrival_time:
+                    break
+                else:
+                    print("Villa: Komutími verður að vera eftir brottfarartíma.")
+            except ValueError:
+                print(
+                    "Vitlaust snið. Vinsamlegast sláðu inn dagsetningu og tíma í sniðinu YYYY-MM-DD HH:MM:SS."
+                )
+
+        voyage1.arrival_time = arrival_time
+
+        # Additional validations and inputs
+        if departure_time >= voyage1.arrival_time:
+            print("Villa: Brottfarartími verður að vera fyrir komutíma í ferðinni út.")
+            return False
+
+        # Setting optional parameters with defaults
+        voyage1_aircraft_input = input("Aircraft ID fyrir fyrsta flug: ").strip()
+        voyage1.aircraft_id = voyage1_aircraft_input if voyage1_aircraft_input else "0"
+
+        voyage1_captain_input = input("Flugstjóri í vinnuferðinni: ").strip()
+        voyage1.captain = voyage1_captain_input if voyage1_captain_input else "0"
+
+        voyage1_copilot_input = input("Flugmaður í vinnuferðinni: ").strip()
+        voyage1.copilot = voyage1_copilot_input if voyage1_copilot_input else "0"
+
+        voyage1_fsm_input = input("Yfirflugþjón í vinnuferðinni: ").strip()
+        voyage1.fsm = voyage1_fsm_input if voyage1_fsm_input else "0"
+
+        voyage1_fa1_input = input("Flugþjónn í vinnuferðinni: ").strip()
+        voyage1.fa1 = voyage1_fa1_input if voyage1_fa1_input else "0"
+
+        voyage1_fa2_input = input("Flugþjónn í vinnuferðinni: ").strip()
+        voyage1.fa2 = voyage1_fa2_input if voyage1_fa2_input else "0"
+
+        voyage1.staffed = (
+            1
+            if all([voyage1_captain_input, voyage1_copilot_input, voyage1_fsm_input])
+            else 0
+        )
+
+        # Setting return trip (voyage2) based on the outbound trip (voyage1)
         voyage2.flight_number = input("Flugnúmer fyrir heimferð: ")
         voyage2.departure = voyage1.arrival
         voyage2.arrival = voyage1.departure
 
-        # Heimferðin má ekki vera síðar en 10 tímum eftir flugið út.
-        max_arrival_time = departure_time + timedelta(hours=10)
+        # Heimferðin má ekki vera seinna en 20 tímum eftir flugið út.
+        max_arrival_time = departure_time + timedelta(hours=20)
+
+        # Setting departure time for voyage2
         while True:
-            arrival_time_str = input(
-                f"Komutími (YYYY-MM-DD HH:MM:SS) fyrir heimferðina (ekki seinna en {max_arrival_time}): "
+            voyage2_departure_time_str = input(
+                "Brottfarartími fyrir heimferð (snið YYYY-MM-DD HH:MM:SS): "
             )
             try:
-                arrival_time = datetime.strptime(arrival_time_str, "%Y-%m-%d %H:%M:%S")
-                if departure_time <= arrival_time <= max_arrival_time:
+                voyage2_departure_time = datetime.strptime(
+                    voyage2_departure_time_str, "%Y-%m-%d %H:%M:%S"
+                )
+                if voyage1.arrival_time < voyage2_departure_time <= max_arrival_time:
                     break
                 else:
                     print(
-                        f"Tíminn verður að vera á milli {departure_time} og {max_arrival_time}."
+                        f"Flugið verður að fara eftir {voyage1.arrival_time} og fyrir {max_arrival_time}."
                     )
             except ValueError:
                 print(
-                    "Rangt snið, vinsamlegast sláðu inn dagsetningu í sniðinu YYYY-MM-DD."
+                    "Vitlaust sniðmát. Vinsamlegast settu inn dagsetningu í sniðmátinu YYYY-MM-DD HH:MM:SS."
                 )
 
-        voyage2.departure_time = input(
-            "Brottfarartími fyrir heimferð (YYYY-MM-DD HH:MM:SS)"
+        voyage2.departure_time = voyage2_departure_time
+
+        while True:
+            arrival_time_str = input(
+                f"Komutími (snið YYYY-MM-DD HH:MM:SS) fyrir heimferð (ekki seinna en {max_arrival_time}): "
+            )
+            try:
+                voyage2.arrival_time = datetime.strptime(
+                    arrival_time_str, "%Y-%m-%d %H:%M:%S"
+                )
+                if departure_time < voyage2.arrival_time <= max_arrival_time:
+                    break
+                else:
+                    print(
+                        f"Flugið verður að vera milli {departure_time} og {max_arrival_time}."
+                    )
+            except ValueError:
+                print(
+                    "Vitlaust sniðmát. Vinsamlegast settu inn dagsetningu í sniðmátinu YYYY-MM-DD."
+                )
+
+        # Stillingar fyrir heimferðina (voyage2)
+        voyage2_aircraft_input = input("Aircraft ID fyrir heimferð: ")
+        voyage2.aircraft_id = voyage2_aircraft_input if voyage2_aircraft_input else "0"
+
+        # Essential flight crew
+        voyage2.captain = voyage1_captain_input if voyage1_captain_input else "0"
+        voyage2.copilot = voyage1_copilot_input if voyage1_copilot_input else "0"
+        voyage2.fsm = voyage1_fsm_input if voyage1_fsm_input else "0"
+
+        # Additional flight crew
+        voyage2.fa1 = voyage1_fa1_input if voyage1_fa1_input else "0"
+        voyage2.fa2 = voyage1_fa2_input if voyage1_fa2_input else "0"
+        voyage2.staffed = (
+            1 if all([voyage2.captain, voyage2.copilot, voyage2.fsm]) else 0
         )
 
-        # Bættu fluginu út við kerfinu og kannaðu hvort það hafi gengið.
+        # Setjum flugið í kerfið og sjáum hvort það hafi virkað
         result1 = self.logic_wrapper.add_new_voyage(voyage1)
         if not result1:
-            print("Error adding the first voyage.")
-            return False  # Or handle the error as per your system's design
+            print("Villa við skráningu á ferðinni út.")
+            return False
 
-        # Setja heimferðina líka í kerfið.
         result2 = self.logic_wrapper.add_new_voyage(voyage2)
         if not result2:
-            print("Error adding the return voyage.")
-            return False  # Or handle this error appropriately
+            print("Villa við skráningu á heimferðinni.")
+            return False
 
-        return True  # Or return both results if needed
+        return True
 
-    def print_voyage_details(self, voyage, print_staffed=True):
+    def print_voyage_details(self, voyage, print_crew=True, print_staffed=True):
         departure_time = datetime.strptime(voyage.departure_time, "%Y-%m-%d %H:%M:%S")
         arrival_time = datetime.strptime(voyage.arrival_time, "%Y-%m-%d %H:%M:%S")
 
@@ -193,9 +287,10 @@ class Voyage_UI:
             f"Flugnúmer: {voyage.flight_number} Frá: {voyage.departure} Til: {voyage.arrival} Brottfarartími: {departure_time}, Komutími: {arrival_time}"
         )
 
-        print(
-            f"Flugstjóri: {voyage.captain}, Flugmaður: {voyage.copilot}, Yfirflugþjónn: {voyage.fsm}"
-        )
+        if print_crew:
+            print(
+                f"Flugstjóri: {voyage.captain}, Flugmaður: {voyage.copilot}, Yfirflugþjónn: {voyage.fsm}"
+            )
         if print_staffed:
             print(
                 "Mönnun:", "Fullmönnuð" if voyage.staffed == "1" else "Ekki fullmönnuð"

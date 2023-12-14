@@ -1,7 +1,7 @@
 from data.data_wrapper import DataWrapper
 from model.voyage import Voyage
-import csv
 from datetime import datetime, timedelta
+import csv
 
 # file_name = "files/past_flights.csv"
 # file_name2 = "files/staff.csv"
@@ -20,6 +20,9 @@ class Voyage_Logic:
         return self.data_wrapper.get_all_voyages()
 
     def list_all_voyages(self):
+        """This function lists all voyages in a neat format. One voyage is a roundtrip, with at least one captain,
+        one copilot and one flight service manager"""
+
         all_voyages = self.get_all_voyages()  # Retrieve all voyages
         voyages_list = []
         paired_voyages = set()
@@ -28,19 +31,17 @@ class Voyage_Logic:
             if i in paired_voyages:
                 continue
 
-            # Extract date from voyage1 departure_time
             departure_date1 = datetime.strptime(
                 voyage1.departure_time, "%Y-%m-%d %H:%M:%S"
-            ).date()
+            ).date()  # Extract date from voyage1 departure_time
 
             for j, voyage2 in enumerate(all_voyages):
                 if j in paired_voyages or i == j:
                     continue
 
-                # Extract date from voyage2 departure_time
                 departure_date2 = datetime.strptime(
                     voyage2.departure_time, "%Y-%m-%d %H:%M:%S"
-                ).date()
+                ).date()  # Extract date from voyage2 departure_time
 
                 # Check for inverse route and same date
                 if (
@@ -242,3 +243,8 @@ class Voyage_Logic:
                 phone = str(staff.gsm)
 
         return phone
+
+    # def change_date(self, new_departure_time, new_arrival_time):
+    #     self.departure_time = new_departure_time
+    #     self.arrival_time = new_arrival_time
+    #     return self

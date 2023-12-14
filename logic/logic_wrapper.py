@@ -85,3 +85,6 @@ class LogicWrapper:
 
     def see_booked_employees_phone(self, employee):
         return self.voyage_logic.see_booked_employees_phone(employee)
+
+    # def change_date(self, new_departure_time, new_arrival_time):
+    #     return self.voyage_logic.change_date(self, new_departure_time, new_arrival_time)
