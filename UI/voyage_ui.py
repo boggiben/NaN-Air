@@ -98,7 +98,7 @@ class Voyage_UI:
                         self.print_voyage_details(
                             voyage1, print_crew=False, print_staffed=False
                         )
-                        self.print_voyage_details(voyage1)
+                        self.print_voyage_details(voyage2)
 
                         work_trip_number += 1
 
