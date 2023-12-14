@@ -6,6 +6,7 @@ from datetime import datetime
 
 file_name = "files/staff.csv"
 
+
 class Staff_Logic:
     def __init__(self, data_wrapper):
         self.data_wrapper = data_wrapper
@@ -48,3 +49,10 @@ class Staff_Logic:
 
     def see_booked_employees(self):
         return self.data_wrapper.see_booked_staff()
+
+    # def add_staff_to_flight(self, employee, voyage_date):
+    #     if self.data_wrapper.voyage_logic.is_employee_booked_on_date(
+    #         employee.national_id, voyage_date
+    #     ):
+    #         return False
+    #     return self.data_wrapper.add_staff_to_flight(employee)

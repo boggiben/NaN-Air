@@ -4,7 +4,6 @@ from data.flight_data import FlightData
 from data.voyage_data import Voyage_Data
 
 
-
 class DataWrapper:
     def __init__(self):
         self.staff_data = Staff_Data()
