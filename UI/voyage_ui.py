@@ -154,7 +154,16 @@ class Voyage_UI:
         # voyage1.aircraft_id = voyage1_aircraft_input if voyage1_aircraft_input else "0"
         print(voyage1.aircraft_id)
 
-        voyage1_captain_input = input("Flugstjóri í vinnuferðinni: ").strip()
+        while True:
+            counter=0
+            voyage1_captain_input = input("Flugstjóri í vinnuferðinni: ").strip()
+            booked_employees = self.logic_wrapper.see_booked_employees(voyage1.departure_time)
+            for booked_employee in booked_employees:
+                if  voyage1_captain_input == booked_employee:
+                    counter+=1
+                    print ("Starfsmaðurinn sem þú reyndir að skrá er nú þegar bókaður í flug þennan dag")
+            if counter == 0:
+                break
         voyage1.captain = voyage1_captain_input if voyage1_captain_input else "0"
         print(voyage1.captain)
 
