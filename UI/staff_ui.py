@@ -96,10 +96,14 @@ class Staff_UI:
                     if user_input == "1":
                         if "-" in ssn:
                             ssn = ssn.replace("-", "")
+                        start_date_input = input("enter start date!")
 
-                        all_voyages = self.logic_wrapper.get_voayges_of_employee(ssn)
+                        all_voyages = self.logic_wrapper.get_voayges_of_employee(
+                            ssn, start_date_input
+                        )
+                        all_voyages
                         if all_voyages:
-                            for voyage in all_voyages:
+                            for voyage in all_voyages:  # prints like the csv file
                                 print(voyage)
                                 print()
                         else:
@@ -131,15 +135,18 @@ class Staff_UI:
                     if not employees:
                         print("Engir lausir starfsmenn.")
                     else:
-                        
                         for employee in employees:
-                            counter=0
+                            counter = 0
                             for booked_employee in booked_employees:
                                 if booked_employee == employee:
-                                    counter+=1
+                                    counter += 1
                             if counter == 0:
-                                name = self.logic_wrapper.see_booked_employees_name(employee)
-                                phone = self.logic_wrapper.see_booked_employees_phone(employee)
+                                name = self.logic_wrapper.see_booked_employees_name(
+                                    employee
+                                )
+                                phone = self.logic_wrapper.see_booked_employees_phone(
+                                    employee
+                                )
                                 print(f"{name}: sími: {phone}, kt.{employee}")
                 except ValueError:
                     print("Villa í innslætti. Sniðmátið er YYYY-MM-DD")
@@ -151,15 +158,23 @@ class Staff_UI:
                     year, month, day = voyage_date.split("-")
                     date = datetime(int(year), int(month), int(day))
                     employees = self.logic_wrapper.see_booked_employees(date)
-                    destination = self.logic_wrapper.see_booked_employees_departure(date)
+                    destination = self.logic_wrapper.see_booked_employees_departure(
+                        date
+                    )
 
                     if not employees:
                         print("Engir bókaðir starfsmenn.")
                     else:
                         for employee in employees:
-                            name = self.logic_wrapper.see_booked_employees_name(employee)
-                            phone = self.logic_wrapper.see_booked_employees_phone(employee)
-                            print(f"{destination}: {name}: sími: {phone}, kt.{employee}")
+                            name = self.logic_wrapper.see_booked_employees_name(
+                                employee
+                            )
+                            phone = self.logic_wrapper.see_booked_employees_phone(
+                                employee
+                            )
+                            print(
+                                f"{destination}: {name}: sími: {phone}, kt.{employee}"
+                            )
                 except ValueError:
                     print("Villa í innslætti. Sniðmátið er YYYY-MM-DD")
                 # veit ekki hvort það sé of mikið að gerast í UI
