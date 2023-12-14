@@ -92,5 +92,10 @@ class LogicWrapper:
     def add_staff_to_flight(self, employee, voyage_date):
         return self.staff_logic.add_staff_to_flight(employee, voyage_date)
 
+    def add_staff_to_voyage(self, flight_number, captain, copilot, flight_service_manager, flight_attendant_one, flight_attendant_two):
+        return self.voyage_logic.add_staff_to_voyage(flight_number, captain, copilot, flight_service_manager, flight_attendant_one, flight_attendant_two)
+    
+    def check_flight_number(self, flight_number):
+        return self.voyage_logic.check_flight_number(flight_number)
     # def change_date(self, new_departure_time, new_arrival_time):
     #     return self.voyage_logic.change_date(self, new_departure_time, new_arrival_time)

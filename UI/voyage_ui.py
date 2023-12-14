@@ -17,6 +17,7 @@ class Voyage_UI:
         print("3. Skoða vinnuferðir á ákveðinni dagsetningu")
         print("4. Skoða vinnuferðir á ákveðinni viku")
         print("5. Afrita skráningu á vinnuferð")
+        print("6. Skrá starfsfólk í vinnuferð")
         print("b. Fara í aðalvalmynd")
         print("*" * 80)
 
@@ -111,6 +112,23 @@ class Voyage_UI:
             elif user_input.lower() == "5":
                 print("Þú valdir að afrita skráningu á vinnuferð")
                 duplicate_voyage = input("Veldu vinnuferð sem þú vilt afrita")
+                
+            elif user_input.lower() == "6":
+                print ("Þú valdir að skrá starfsfólk í vinnuferð")
+                flight_number = input("Flugnúmer: ")
+                flight_check = self.logic_wrapper.check_flight_number(flight_number)
+                if flight_check == True:
+                    print (f"bæta starfsfólki í flug {flight_number}")
+                    captain=input("kt. Flugstjóra: ")
+                    copilot=input("kt. Flugmanns: ")
+                    flight_service_manager=input("kt. Yfirflugþjóns: ")
+                    flight_attendant_one=input("kt. flugþjóns 1: ")
+                    flight_attendant_two=input("kt. flugþjóns 2: ")
+                    self.logic_wrapper.add_staff_to_voyage(flight_number, captain, copilot, flight_service_manager, flight_attendant_one, flight_attendant_two)
+                else:
+                    print ("Flugið er ekki til")
+                
+                
 
             elif user_input == "b":
                 break

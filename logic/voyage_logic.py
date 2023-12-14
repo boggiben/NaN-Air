@@ -279,6 +279,17 @@ class Voyage_Logic:
             ).date() == date:
                 return True
         return False
+    
+    def add_staff_to_voyage(self, flight_number, captain, copilot, flight_service_manager, flight_attendant_one, flight_attendant_two):
+        pass
+    
+    def check_flight_number(self, flight_number):
+        all_voyages = self.logic_wrapper.get_all_voyages
+        for voy in all_voyages:
+            if flight_number.lower() == voy.flight_number.lower():
+                return True
+            else:
+                return False
 
     # def change_date(self, new_departure_time, new_arrival_time):
     #     self.departure_time = new_departure_time
