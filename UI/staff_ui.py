@@ -20,8 +20,7 @@ class Staff_UI:
         print("6. Breyta starfsmannaupplýsingum (nema nafni og kt)")
         print("7. Lausir starfsmenn")
         print("8. Uppteknir starfsmenn")
-        print("9. Sjá vinnuferðir starfsmanns (virkar ekki eyða seinna) ")
-        print("10. Bæta starfsmanni við vinnuferð")
+        print("9. Bæta starfsmanni við vinnuferð")
         print("b. Fara í aðalvalmynd")
         print("*" * 80)
 
@@ -181,20 +180,6 @@ class Staff_UI:
                     print("Villa í innslætti. Sniðmátið er YYYY-MM-DD")
 
             elif user_input.lower() == "9":
-                ssn = input("kennitala: ")
-
-                if "-" in ssn:
-                    ssn = ssn.replace("-", "")
-
-                all_voyages = self.logic_wrapper.get_voayges_of_employee(ssn)
-                if all_voyages:
-                    for voyage in all_voyages:
-                        print(voyage)
-                        print()
-                else:
-                    print("Starfsmaður ekki skráður í vinnuferð")
-
-            elif user_input.lower() == "10":
                 print("Þú valdir að bæta starfsmanni við vinnuferð")
                 ssn = input("Skráðu kennitölu starfsmanns: ")
 
