@@ -264,7 +264,10 @@ class Voyage_Logic:
                 voy.flight_service_manager=flight_service_manager
                 voy.flight_attendant_one=flight_attendant_one
                 voy.flight_attendant_two=flight_attendant_two
+        flight_number2=0
                 
+                
+
                           
 
     def check_flight_number(self, flight_number):
