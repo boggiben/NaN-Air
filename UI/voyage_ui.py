@@ -115,17 +115,20 @@ class Voyage_UI:
 
             elif user_input.lower() == "6":
                 print("Þú valdir að skrá starfsfólk í vinnuferð")
-                flight_number = input("Flugnúmer: ")
+                flight_number = input("Flugnúmer í brottför: ")
+                flight_number2 = input("Flugnúmer á heimleið: ")
                 flight_check = self.logic_wrapper.check_flight_number(flight_number)
-                if flight_check == True:
-                    print(f"bæta starfsfólki í flug {flight_number}")
+                flight_check2 = self.logic_wrapper.check_flight_number(flight_number2)
+                if flight_check and flight_check2 == True:
+                    print(f"bæta starfsfólki í flug {flight_number}:")
                     captain = input("kt. Flugstjóra: ")
                     copilot = input("kt. Flugmanns: ")
                     flight_service_manager = input("kt. Yfirflugþjóns: ")
                     flight_attendant_one = input("kt. flugþjóns 1: ")
                     flight_attendant_two = input("kt. flugþjóns 2: ")
                     self.logic_wrapper.add_staff_to_voyage(
-                        flight_number,
+                        flight_number, 
+                        flight_number2,
                         captain,
                         copilot,
                         flight_service_manager,
