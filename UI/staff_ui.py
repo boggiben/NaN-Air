@@ -107,7 +107,9 @@ class Staff_UI:
                                 print(voyage)
                                 print()
                         else:
-                            print("Starfsmaður er ekki skráður í vinnuferð")
+                            print(
+                                "Starfsmaður er ekki skráður í vinnuferð á þessum tíma"
+                            )
                     elif user_input == "b":
                         break
             elif user_input.lower() == "6":

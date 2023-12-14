@@ -115,17 +115,27 @@ class Voyage_UI:
 
             elif user_input.lower() == "6":
                 print("Þú valdir að skrá starfsfólk í vinnuferð")
-                flight_number = input("Flugnúmer: ")
+                flight_number = input("Flugnúmer í brottför: ")
+                flight_number2 = input("Flugnúmer á heimleið: ")
                 flight_check = self.logic_wrapper.check_flight_number(flight_number)
-                if flight_check == True:
-                    print(f"bæta starfsfólki í flug {flight_number}")
-                    captain = input("kt. Flugstjóra: ")
+                flight_check2 = self.logic_wrapper.check_flight_number(flight_number2)
+                if flight_check and flight_check2 == True:
+                    print(f"bæta starfsfólki í flug {flight_number}:")
+                    date = input("Dagsetning flugs (YYYY-MM-DD): ")
+                    while True:
+                        captain = input("kt. Flugstjóra: ")
+                        checker = self.logic_wrapper.is_employee_booked_on_date(captain, date)
+                        if checker == True:
+                            print ("starfsmaður er nú þegar bókaður")
+                        else: 
+                            break
                     copilot = input("kt. Flugmanns: ")
                     flight_service_manager = input("kt. Yfirflugþjóns: ")
                     flight_attendant_one = input("kt. flugþjóns 1: ")
                     flight_attendant_two = input("kt. flugþjóns 2: ")
                     self.logic_wrapper.add_staff_to_voyage(
-                        flight_number,
+                        flight_number, 
+                        flight_number2,
                         captain,
                         copilot,
                         flight_service_manager,
@@ -133,7 +143,8 @@ class Voyage_UI:
                         flight_attendant_two,
                     )
                 else:
-                    print("Flugið er ekki til")
+                    print ("!!!")
+                    print ("Flugið er ekki til")
 
             elif user_input == "b":
                 break
