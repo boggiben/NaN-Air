@@ -20,7 +20,7 @@ class Staff_UI:
         print("6. Breyta starfsmannaupplýsingum (nema nafni og kt)")
         print("7. Lausir starfsmenn")
         print("8. Uppteknir starfsmenn")
-        print("9. Sjá vinnuferðir starfsmanns (nota kt) ")
+        print("9. Sjá vinnuferðir starfsmanns (virkar ekki eyða seinna) ")
         print("10. Bæta starfsmanni við vinnuferð")
         print("b. Fara í aðalvalmynd")
         print("*" * 80)
@@ -90,13 +90,13 @@ class Staff_UI:
                 else:
                     print(emp)
                     print("\n")
-                    print("1. Prenta vinnuyfirlit starfsmanns.")
+                    print("1. Prenta viku vinnuyfirlit starfsmanns.")
                     print("b. Til baka.")
                     user_input = input()
                     if user_input == "1":
                         if "-" in ssn:
                             ssn = ssn.replace("-", "")
-                        start_date_input = input("enter start date!")
+                        start_date_input = input("byrjunardagsetning:")
 
                         all_voyages = self.logic_wrapper.get_voayges_of_employee(
                             ssn, start_date_input
