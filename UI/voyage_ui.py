@@ -129,10 +129,8 @@ class Voyage_UI:
                     date = datetime(int(year), int(month), int(day))
                     while True:
                         captain = input("kt. Flugstjóra: ")
-                        checker = self.logic_wrapper.is_employee_booked_on_date(
-                            captain, date
-                        )
-                        if checker == True:
+                        booked_staff = self.logic_wrapper.see_booked_employees(date)
+                        if captain in booked_staff:
                             print("starfsmaður er nú þegar bókaður")
                         else:
                             break
