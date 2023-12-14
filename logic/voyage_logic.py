@@ -284,17 +284,6 @@ class Voyage_Logic:
     def add_staff_to_voyage(self, flight_number, flight_number2, captain, copilot, flight_service_manager, flight_attendant_one, flight_attendant_two):
         pass
 
-    def add_staff_to_voyage(
-        self,
-        flight_number,
-        captain,
-        copilot,
-        flight_service_manager,
-        flight_attendant_one,
-        flight_attendant_two,
-    ):
-        pass
-
     def check_flight_number(self, flight_number):
         all_voyages = self.get_all_voyages()
         for voy in all_voyages:
