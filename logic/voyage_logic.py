@@ -284,9 +284,9 @@ class Voyage_Logic:
         pass
     
     def check_flight_number(self, flight_number):
-        all_voyages = self.logic_wrapper.get_all_voyages
+        all_voyages = self.get_all_voyages()
         for voy in all_voyages:
-            if flight_number.lower() == voy.flight_number.lower():
+            if flight_number == voy.flight_number:
                 return True
             else:
                 return False

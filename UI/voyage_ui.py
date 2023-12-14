@@ -126,6 +126,7 @@ class Voyage_UI:
                     flight_attendant_two=input("kt. flugþjóns 2: ")
                     self.logic_wrapper.add_staff_to_voyage(flight_number, captain, copilot, flight_service_manager, flight_attendant_one, flight_attendant_two)
                 else:
+                    print ("!!!")
                     print ("Flugið er ekki til")
                 
                 
