@@ -265,8 +265,7 @@ class Voyage_Logic:
                 voy.flight_attendant_one=flight_attendant_one
                 voy.flight_attendant_two=flight_attendant_two
                 
-                
-                
+                          
 
     def check_flight_number(self, flight_number):
         all_voyages = self.get_all_voyages()
