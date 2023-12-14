@@ -270,7 +270,7 @@ class Voyage_Logic:
         return phone
 
     def is_employee_booked_on_date(self, ssn, date):
-        all_voyages = self.data_wrapper.get_all_voyages()
+        all_voyages = self.get_all_voyages()
         for voyage in all_voyages:
             if (
                 ssn

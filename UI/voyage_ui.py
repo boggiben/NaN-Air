@@ -122,7 +122,13 @@ class Voyage_UI:
                 if flight_check and flight_check2 == True:
                     print(f"bæta starfsfólki í flug {flight_number}:")
                     date = input("Dagsetning flugs (YYYY-MM-DD): ")
-                    captain = input("kt. Flugstjóra: ")
+                    while True:
+                        captain = input("kt. Flugstjóra: ")
+                        checker = self.logic_wrapper.is_employee_booked_on_date(captain, date)
+                        if checker == True:
+                            print ("starfsmaður er nú þegar bókaður")
+                        else: 
+                            break
                     copilot = input("kt. Flugmanns: ")
                     flight_service_manager = input("kt. Yfirflugþjóns: ")
                     flight_attendant_one = input("kt. flugþjóns 1: ")
