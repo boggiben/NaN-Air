@@ -8,4 +8,4 @@ class Employee:
         self.role = role
 
     def __str__(self):
-        return f"name: {self.name}, mobile number: {self.gsm}, email: {self.email}, address: {self.address}, national id: {self.national_id}, role: {self.role}"
+        return f"Nafn: {self.name}, Farsími: {self.gsm}, Tölvupóstur: {self.email}, Heimilisfang: {self.address}, Kennitala: {self.national_id}, Staða: {self.role}"
