@@ -75,33 +75,38 @@ class Voyage_UI:
 
             elif user_input.lower() == "4":
                 print("Þú valdir að sjá vinnuferðir út frá viku")
-                voyage_date = input("Dagsetning: ")
-                year, month, day = voyage_date.split("-")
-                date = datetime(int(year), int(month), int(day))
+                try:
+                    voyage_date = input("Dagsetning: ")
+                    year, month, day = voyage_date.split("-")
+                    date = datetime(int(year), int(month), int(day))
 
-                voyages_by_week = self.logic_wrapper.get_voyage_by_week(date)
-                work_trip_number = 1
+                    voyages_by_week = self.logic_wrapper.get_voyage_by_week(date)
+                    work_trip_number = 1
 
-                for voyage1, voyage2 in voyages_by_week:
-                    voyage1_departure_time = datetime.strptime(
-                        voyage1.departure_time, "%Y-%m-%d %H:%M:%S"
+                    for voyage1, voyage2 in voyages_by_week:
+                        voyage1_departure_time = datetime.strptime(
+                            voyage1.departure_time, "%Y-%m-%d %H:%M:%S"
+                        )
+                        voyage2_departure_time = datetime.strptime(
+                            voyage2.departure_time, "%Y-%m-%d %H:%M:%S"
+                        )
+
+                        print(f"-----\nVinnuferð {work_trip_number}")
+                        # Print voyage details
+
+                        self.print_voyage_details(
+                            voyage1, print_crew=False, print_staffed=False
+                        )
+                        self.print_voyage_details(voyage1)
+
+                        work_trip_number += 1
+
+                    if work_trip_number == 1:
+                        print("Engin vinnuferð í þessari viku")
+                except ValueError:
+                    print(
+                        "Vitlaus innsláttur. Þú slóst mögulega inn dagsetningu í vitlausu sniði"
                     )
-                    voyage2_departure_time = datetime.strptime(
-                        voyage2.departure_time, "%Y-%m-%d %H:%M:%S"
-                    )
-
-                    print(f"-----\nVinnuferð {work_trip_number}")
-                    # Print voyage details
-
-                    self.print_voyage_details(
-                        voyage1, print_crew=False, print_staffed=False
-                    )
-                    self.print_voyage_details(voyage1)
-
-                    work_trip_number += 1
-
-                if work_trip_number == 1:
-                    print("Engin vinnuferð í þessari viku")
 
             elif user_input.lower() == "5":
                 print("Þú valdir að afrita skráningu á vinnuferð")
@@ -140,52 +145,32 @@ class Voyage_UI:
         voyage1.arrival = input("Til: ")
 
         # Ensuring correct format for departure time
-        departure_time_str = input("Brottfarartími (snið: YYYY-MM-DD HH:MM:SS): ")
-        departure_time = datetime.strptime(departure_time_str, "%Y-%m-%d %H:%M:%S")
-        voyage1.departure_time = departure_time
+        voy1_departure_time_str = input("Brottfarartími (snið: YYYY-MM-DD HH:MM:SS): ")
+        voy1_departure_time = datetime.strptime(
+            voy1_departure_time_str, "%Y-%m-%d %H:%M:%S"
+        )
+        voyage1.departure_time = voy1_departure_time
 
         # Arrival time for voyage1
-        voyage_1_arrival_time = input("Komutími (snið: YYYY-MM-DD HH:MM:SS): ")
-        arrival_time = datetime.strptime(voyage_1_arrival_time, "%Y-%m-%d %H:%M:%S")
-        voyage1.arrival_time = arrival_time
-
-        # Optional input. Value set to 0 if blank.
-        voyage1.aircraft_id = input("Aircraft ID fyrir fyrsta flug: ")
-        # voyage1.aircraft_id = voyage1_aircraft_input if voyage1_aircraft_input else "0"
-        print(voyage1.aircraft_id)
-
-        while True:
-            counter=0
-            voyage1_captain_input = input("Flugstjóri í vinnuferðinni: ").strip()
-            booked_employees = self.logic_wrapper.see_booked_employees(voyage1.departure_time)
-            for booked_employee in booked_employees:
-                if  voyage1_captain_input == booked_employee:
-                    counter+=1
-                    print ("Starfsmaðurinn sem þú reyndir að skrá er nú þegar bókaður í flug þennan dag")
-            if counter == 0:
-                break
-        voyage1.captain = voyage1_captain_input if voyage1_captain_input else "0"
-        print(voyage1.captain)
-
-        voyage1_copilot_input = input("Flugmaður í vinnuferðinni: ").strip()
-        voyage1.copilot = voyage1_copilot_input if voyage1_copilot_input else "0"
-        print(voyage1.copilot)
-
-        voyage1_fsm_input = input("Yfirflugþjón í vinnuferðinni: ").strip()
-        voyage1.flight_service_manager = voyage1_fsm_input if voyage1_fsm_input else "0"
-        print(voyage1.flight_service_manager)
-
-        voyage1_fa1_input = input("Flugþjónn í vinnuferðinni: ").strip()
-        voyage1.flight_attendant_one = voyage1_fa1_input if voyage1_fa1_input else "0"
-
-        voyage1_fa2_input = input("Flugþjónn í vinnuferðinni: ").strip()
-        voyage1.flight_attendant_two = voyage1_fa2_input if voyage1_fa2_input else "0"
-
-        voyage1.staffed = (
-            1
-            if all([voyage1_captain_input, voyage1_copilot_input, voyage1_fsm_input])
-            else 0
+        voy_1_arrival_time_str = input("Komutími (snið: YYYY-MM-DD HH:MM:SS): ")
+        voy_arrival_time = datetime.strptime(
+            voy_1_arrival_time_str, "%Y-%m-%d %H:%M:%S"
         )
+        voyage1.arrival_time = voy_arrival_time
+
+        # Flight crew
+        # voyage1.aircraft_id = input("Aircraft ID fyrir fyrsta flug: ")
+        # voyage1.captain = input("Flugstjóri:  ")
+        # voyage1.copilot = input("Flugmaður í vinnuferðinni: ")
+        # voyage1.flight_service_manager = input("Yfirflugþjónn í vinnuferðinni: ")
+        # voyage1.flight_attendant_one = input("Flugþjónn 1 í vinnuferðinni: ")
+        # voyage1.flight_attendant_two = input("Flugþjónn 2 í vinnuferðinni: ")
+
+        # voyage1.staffed = (
+        #     1
+        #     if all([voyage1_captain_input, voyage1_copilot_input, voyage1_fsm_input])
+        #     else 0
+        # )
 
         # Setting return trip (voyage2) based on the outbound trip (voyage1)
         voyage2.flight_number = input("Flugnúmer fyrir heimferð: ")
@@ -193,29 +178,32 @@ class Voyage_UI:
         voyage2.arrival = voyage1.departure
 
         # Setting departure time for voyage2
-        voyage2_departure_time_str = input(
-            "Brottfarartími fyrir heimferð (snið YYYY-MM-DD HH:MM:SS): "
+        voy2_departure_time_str = input("Brottfarartími (snið: YYYY-MM-DD HH:MM:SS): ")
+        voy2_departure_time = datetime.strptime(
+            voy2_departure_time_str, "%Y-%m-%d %H:%M:%S"
         )
-        voyage2_departure_time = datetime.strptime(
-            voyage2_departure_time_str, "%Y-%m-%d %H:%M:%S"
-        )
+        voyage2.departure_time = voy2_departure_time
 
-        arrival_time_str = input("Komutími (snið YYYY-MM-DD HH:MM:SS) fyrir heimferð")
+        voy2_arrival_time_str = input("Brottfarartími (snið: YYYY-MM-DD HH:MM:SS): ")
+        voy2_arrival_time = datetime.strptime(
+            voy2_arrival_time_str, "%Y-%m-%d %H:%M:%S"
+        )
+        voyage2.arrival_time = voy2_arrival_time
 
         # Additional input for the flight back (voyage2)
-        voyage2.aircraft_id = voyage1.aircraft_id
+        # voyage2.aircraft_id = voyage1.aircraft_id
 
-        # Essential flight crew
-        voyage2.captain = voyage1_captain_input if voyage1_captain_input else "0"
-        voyage2.copilot = voyage1_copilot_input if voyage1_copilot_input else "0"
-        voyage2.flight_service_manager = voyage1_fsm_input if voyage1_fsm_input else "0"
+        # # Essential flight crew
+        # voyage2.captain = voyage1.captain
+        # voyage2.copilot = voyage1.copilot
+        # voyage2.flight_service_manager = voyage1.flight_service_manager
+        # # Additional flight crew
 
-        # Additional flight crew
-        voyage2.flight_attendant_one = voyage1_fa1_input if voyage1_fa1_input else "0"
-        voyage2.flight_attendant_two = voyage1_fa2_input if voyage1_fa2_input else "0"
-        voyage2.staffed = (
-            1 if all([voyage2.captain, voyage2.copilot, voyage2.fsm]) else 0
-        )
+        # voyage2.flight_attendant_one = voyage1.flight_attendant_one
+        # voyage2.flight_attendant_two = voyage1.flight_attendant_two
+        # voyage2.staffed = (
+        #     1 if all([voyage2.captain, voyage2.copilot, voyage2.fsm]) else 0
+        # )
 
         # Setjum flugið í kerfið og sjáum hvort það hafi virkað
         result1 = self.logic_wrapper.add_new_voyage(voyage1)

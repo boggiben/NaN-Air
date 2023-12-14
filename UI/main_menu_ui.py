@@ -65,3 +65,4 @@ class MainMenu_UI:
                 break
             else:
                 print("Rangur innsláttur")
+
