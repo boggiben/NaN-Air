@@ -101,6 +101,7 @@ class Staff_UI:
                         if all_voyages:
                             for voyage in all_voyages:
                                 print(voyage)
+                                print()
                         else:
                             print("Starfsmaður er ekki skráður í vinnuferð")
                     elif user_input == "b":
@@ -178,6 +179,7 @@ class Staff_UI:
                 if all_voyages:
                     for voyage in all_voyages:
                         print(voyage)
+                        print()
                 else:
                     print("Starfsmaður ekki skráður í vinnuferð")
 
