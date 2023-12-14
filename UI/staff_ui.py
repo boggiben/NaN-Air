@@ -76,7 +76,7 @@ class Staff_UI:
                     print("Aðgerð tókst!")
 
             elif user_input.lower() == "5":
-                ssn = input("kennitala: ")
+                ssn = input("Sláðu inn kennitölu starfsmanns (með eða án bandstriks): ")
 
                 # Tökum við bæði kennitölu án og með bandstriki
                 if "-" in ssn:
@@ -86,7 +86,7 @@ class Staff_UI:
                 emp = self.logic_wrapper.get_employee_by_ssn(ssn)
 
                 if emp is None:
-                    print("Starfsmaður er ekki til")
+                    print("Starfsmaður er ekki til eða rangur innsláttur")
                 else:
                     print(emp)
                     print("\n")
@@ -96,7 +96,7 @@ class Staff_UI:
                     if user_input == "1":
                         if "-" in ssn:
                             ssn = ssn.replace("-", "")
-                        start_date_input = input("byrjunardagsetning:")
+                        start_date_input = input("Byrjunardagsetning: ")
 
                         all_voyages = self.logic_wrapper.get_voayges_of_employee(
                             ssn, start_date_input
@@ -213,7 +213,7 @@ class Staff_UI:
                 ):
                     print("Starfsmaður er þegar bókaður á þessum degi.")
                 else:
-                    success = self.logic_wrapper.staff_logic.add_staff_to_flight(
+                    success = self.logic_wrapper.add_staff_to_flight(
                         ssn, voyage_date
                     )
                     if success:
