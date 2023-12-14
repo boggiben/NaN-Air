@@ -126,14 +126,21 @@ class Staff_UI:
                     year, month, day = voyage_date.split("-")
                     date = datetime(int(year), int(month), int(day))
                     employees = self.logic_wrapper.see_unbooked_employees(date)
+                    booked_employees = self.logic_wrapper.see_booked_employees(date)
 
                     if not employees:
                         print("Engir lausir starfsmenn.")
                     else:
+                        
                         for employee in employees:
-                            name = self.logic_wrapper.see_booked_employees_name(employee)
-                            phone = self.logic_wrapper.see_booked_employees_phone(employee)
-                            print(f"{name}: sími: {phone}, kt.{employee}")
+                            counter=0
+                            for booked_employee in booked_employees:
+                                if booked_employee == employee:
+                                    counter+=1
+                            if counter == 0:
+                                name = self.logic_wrapper.see_booked_employees_name(employee)
+                                phone = self.logic_wrapper.see_booked_employees_phone(employee)
+                                print(f"{name}: sími: {phone}, kt.{employee}")
                 except ValueError:
                     print("Villa í innslætti. Sniðmátið er YYYY-MM-DD")
 
