@@ -289,8 +289,7 @@ class Voyage_Logic:
         for voy in all_voyages:
             if flight_number == voy.flight_number:
                 return True
-            else:
-                return False
+        return False
 
     # def change_date(self, new_departure_time, new_arrival_time):
     #     self.departure_time = new_departure_time
