@@ -157,6 +157,7 @@ class Voyage_UI:
             voy_1_arrival_time_str, "%Y-%m-%d %H:%M:%S"
         )
         voyage1.arrival_time = voy_arrival_time
+        voyage1.aircraft_id = input("Aircraft ID fyrir flugið út")
 
         # Flight crew
         # voyage1.aircraft_id = input("Aircraft ID fyrir fyrsta flug: ")
@@ -189,6 +190,7 @@ class Voyage_UI:
             voy2_arrival_time_str, "%Y-%m-%d %H:%M:%S"
         )
         voyage2.arrival_time = voy2_arrival_time
+        voyage2.aircraft_id = input("Aircraft ID fyrir flugið heim")
 
         # Additional input for the flight back (voyage2)
         # voyage2.aircraft_id = voyage1.aircraft_id
