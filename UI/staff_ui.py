@@ -79,8 +79,8 @@ class Staff_UI:
                 ssn = input("kennitala: ")
 
                 # Tökum við bæði kennitölu án og með bandstriki
-                if "-" not in ssn and len(ssn) == 10:
-                    ssn = ssn[:6] + "-" + ssn[6:]
+                if "-" in ssn:
+                    ssn = ssn.replace("-", "")
 
                 # print("upplýsingar")
                 emp = self.logic_wrapper.get_employee_by_ssn(ssn)
