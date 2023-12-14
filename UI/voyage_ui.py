@@ -135,65 +135,42 @@ class Voyage_UI:
         voyage1 = Voyage()
         voyage2 = Voyage()
 
-        flight_number = input("Settu inn flugnúmer: ")
-        voyage1.flight_number = flight_number
+        voyage1.flight_number = input("Settu inn flugnúmer: ")
         voyage1.departure = input("Frá: ")
         voyage1.arrival = input("Til: ")
 
-        # Það þarf að vera rétt snið á brottfarartíma.
-        while True:
-            departure_time_str = input("Brottfarartími (snið: YYYY-MM-DD HH:MM:SS): ")
-            try:
-                departure_time = datetime.strptime(
-                    departure_time_str, "%Y-%m-%d %H:%M:%S"
-                )
-                break
-            except ValueError:
-                print(
-                    "Vitlaust snið. Athugaðu að brottfarartími verður að vera í sniðmátinu YYYY-MM-DD HH:MM:SS."
-                )
-
+        # Ensuring correct format for departure time
+        departure_time_str = input("Brottfarartími (snið: YYYY-MM-DD HH:MM:SS): ")
+        departure_time = datetime.strptime(departure_time_str, "%Y-%m-%d %H:%M:%S")
         voyage1.departure_time = departure_time
 
-        # Setting arrival time for voyage1
-        while True:
-            arrival_time_str = input("Komutími (snið: YYYY-MM-DD HH:MM:SS): ")
-            try:
-                arrival_time = datetime.strptime(arrival_time_str, "%Y-%m-%d %H:%M:%S")
-                if departure_time < arrival_time:
-                    break
-                else:
-                    print("Villa: Komutími verður að vera eftir brottfarartíma.")
-            except ValueError:
-                print(
-                    "Vitlaust snið. Vinsamlegast sláðu inn dagsetningu og tíma í sniðinu YYYY-MM-DD HH:MM:SS."
-                )
-
+        # Arrival time for voyage1
+        voyage_1_arrival_time = input("Komutími (snið: YYYY-MM-DD HH:MM:SS): ")
+        arrival_time = datetime.strptime(voyage_1_arrival_time, "%Y-%m-%d %H:%M:%S")
         voyage1.arrival_time = arrival_time
 
-        # Additional validations and inputs
-        if departure_time >= voyage1.arrival_time:
-            print("Villa: Brottfarartími verður að vera fyrir komutíma í ferðinni út.")
-            return False
-
-        # Setting optional parameters with defaults
-        voyage1_aircraft_input = input("Aircraft ID fyrir fyrsta flug: ").strip()
-        voyage1.aircraft_id = voyage1_aircraft_input if voyage1_aircraft_input else "0"
+        # Optional input. Value set to 0 if blank.
+        voyage1.aircraft_id = input("Aircraft ID fyrir fyrsta flug: ")
+        # voyage1.aircraft_id = voyage1_aircraft_input if voyage1_aircraft_input else "0"
+        print(voyage1.aircraft_id)
 
         voyage1_captain_input = input("Flugstjóri í vinnuferðinni: ").strip()
         voyage1.captain = voyage1_captain_input if voyage1_captain_input else "0"
+        print(voyage1.captain)
 
         voyage1_copilot_input = input("Flugmaður í vinnuferðinni: ").strip()
         voyage1.copilot = voyage1_copilot_input if voyage1_copilot_input else "0"
+        print(voyage1.copilot)
 
         voyage1_fsm_input = input("Yfirflugþjón í vinnuferðinni: ").strip()
-        voyage1.fsm = voyage1_fsm_input if voyage1_fsm_input else "0"
+        voyage1.flight_service_manager = voyage1_fsm_input if voyage1_fsm_input else "0"
+        print(voyage1.flight_service_manager)
 
         voyage1_fa1_input = input("Flugþjónn í vinnuferðinni: ").strip()
-        voyage1.fa1 = voyage1_fa1_input if voyage1_fa1_input else "0"
+        voyage1.flight_attendant_one = voyage1_fa1_input if voyage1_fa1_input else "0"
 
         voyage1_fa2_input = input("Flugþjónn í vinnuferðinni: ").strip()
-        voyage1.fa2 = voyage1_fa2_input if voyage1_fa2_input else "0"
+        voyage1.flight_attendant_two = voyage1_fa2_input if voyage1_fa2_input else "0"
 
         voyage1.staffed = (
             1
@@ -206,62 +183,27 @@ class Voyage_UI:
         voyage2.departure = voyage1.arrival
         voyage2.arrival = voyage1.departure
 
-        # Heimferðin má ekki vera seinna en 20 tímum eftir flugið út.
-        max_arrival_time = departure_time + timedelta(hours=20)
-
         # Setting departure time for voyage2
-        while True:
-            voyage2_departure_time_str = input(
-                "Brottfarartími fyrir heimferð (snið YYYY-MM-DD HH:MM:SS): "
-            )
-            try:
-                voyage2_departure_time = datetime.strptime(
-                    voyage2_departure_time_str, "%Y-%m-%d %H:%M:%S"
-                )
-                if voyage1.arrival_time < voyage2_departure_time <= max_arrival_time:
-                    break
-                else:
-                    print(
-                        f"Flugið verður að fara eftir {voyage1.arrival_time} og fyrir {max_arrival_time}."
-                    )
-            except ValueError:
-                print(
-                    "Vitlaust sniðmát. Vinsamlegast settu inn dagsetningu í sniðmátinu YYYY-MM-DD HH:MM:SS."
-                )
+        voyage2_departure_time_str = input(
+            "Brottfarartími fyrir heimferð (snið YYYY-MM-DD HH:MM:SS): "
+        )
+        voyage2_departure_time = datetime.strptime(
+            voyage2_departure_time_str, "%Y-%m-%d %H:%M:%S"
+        )
 
-        voyage2.departure_time = voyage2_departure_time
+        arrival_time_str = input("Komutími (snið YYYY-MM-DD HH:MM:SS) fyrir heimferð")
 
-        while True:
-            arrival_time_str = input(
-                f"Komutími (snið YYYY-MM-DD HH:MM:SS) fyrir heimferð (ekki seinna en {max_arrival_time}): "
-            )
-            try:
-                voyage2.arrival_time = datetime.strptime(
-                    arrival_time_str, "%Y-%m-%d %H:%M:%S"
-                )
-                if departure_time < voyage2.arrival_time <= max_arrival_time:
-                    break
-                else:
-                    print(
-                        f"Flugið verður að vera milli {departure_time} og {max_arrival_time}."
-                    )
-            except ValueError:
-                print(
-                    "Vitlaust sniðmát. Vinsamlegast settu inn dagsetningu í sniðmátinu YYYY-MM-DD."
-                )
-
-        # Stillingar fyrir heimferðina (voyage2)
-        voyage2_aircraft_input = input("Aircraft ID fyrir heimferð: ")
-        voyage2.aircraft_id = voyage2_aircraft_input if voyage2_aircraft_input else "0"
+        # Additional input for the flight back (voyage2)
+        voyage2.aircraft_id = voyage1.aircraft_id
 
         # Essential flight crew
         voyage2.captain = voyage1_captain_input if voyage1_captain_input else "0"
         voyage2.copilot = voyage1_copilot_input if voyage1_copilot_input else "0"
-        voyage2.fsm = voyage1_fsm_input if voyage1_fsm_input else "0"
+        voyage2.flight_service_manager = voyage1_fsm_input if voyage1_fsm_input else "0"
 
         # Additional flight crew
-        voyage2.fa1 = voyage1_fa1_input if voyage1_fa1_input else "0"
-        voyage2.fa2 = voyage1_fa2_input if voyage1_fa2_input else "0"
+        voyage2.flight_attendant_one = voyage1_fa1_input if voyage1_fa1_input else "0"
+        voyage2.flight_attendant_two = voyage1_fa2_input if voyage1_fa2_input else "0"
         voyage2.staffed = (
             1 if all([voyage2.captain, voyage2.copilot, voyage2.fsm]) else 0
         )
