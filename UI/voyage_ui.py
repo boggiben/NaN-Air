@@ -43,9 +43,12 @@ class Voyage_UI:
 
             elif user_input.lower() == "2":
                 print("Þú valdir að skrá vinnuferð")
-                success = self.add_new_voyage_ui()
-                if success:
-                    print("Aðgerð tókst!")
+                try:
+                    success = self.add_new_voyage_ui()
+                    if success:
+                        print("Aðgerð tókst!")
+                except ValueError:
+                    print("Villa við innslátt. Mögulega rangt snið á dagsetningu")
 
             elif user_input.lower() == "3":
                 print("Þú valdir að sjá vinnuferðir út frá dagsetningu")
@@ -110,11 +113,11 @@ class Voyage_UI:
                     )
 
             elif user_input.lower() == "5":
-                print("Þú valdir að afrita skráningu á vinnuferð")
+                print("Þú valdir að afrita skráningu á vinnuferð (Óklárað)")
                 duplicate_voyage = input("Veldu vinnuferð sem þú vilt afrita")
 
             elif user_input.lower() == "6":
-                print("Þú valdir að skrá starfsfólk í vinnuferð")
+                print("Þú valdir að skrá starfsfólk í vinnuferð (Óklárað)")
                 flight_number = input("Flugnúmer í brottför: ")
                 flight_number2 = input("Flugnúmer á heimleið: ")
                 flight_check = self.logic_wrapper.check_flight_number(flight_number)
@@ -124,17 +127,19 @@ class Voyage_UI:
                     date = input("Dagsetning flugs (YYYY-MM-DD): ")
                     while True:
                         captain = input("kt. Flugstjóra: ")
-                        checker = self.logic_wrapper.is_employee_booked_on_date(captain, date)
+                        checker = self.logic_wrapper.is_employee_booked_on_date(
+                            captain, date
+                        )
                         if checker == True:
-                            print ("starfsmaður er nú þegar bókaður")
-                        else: 
+                            print("starfsmaður er nú þegar bókaður")
+                        else:
                             break
                     copilot = input("kt. Flugmanns: ")
                     flight_service_manager = input("kt. Yfirflugþjóns: ")
                     flight_attendant_one = input("kt. flugþjóns 1: ")
                     flight_attendant_two = input("kt. flugþjóns 2: ")
                     self.logic_wrapper.add_staff_to_voyage(
-                        flight_number, 
+                        flight_number,
                         flight_number2,
                         captain,
                         copilot,
@@ -143,8 +148,8 @@ class Voyage_UI:
                         flight_attendant_two,
                     )
                 else:
-                    print ("!!!")
-                    print ("Flugið er ekki til")
+                    print("!!!")
+                    print("Flugið er ekki til")
 
             elif user_input == "b":
                 break
