@@ -207,7 +207,7 @@ class Staff_UI:
                         ssn, voyage_date
                     )
                     if success:
-                        print("Starfsmaður hefur verið bættur við vinnuferð.")
+                        print("Starfsmanni hefur verið bætt við vinnuferð.")
                     else:
                         print("Villa við að bæta starfsmanni við vinnuferð.")
 
