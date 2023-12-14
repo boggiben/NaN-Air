@@ -58,20 +58,6 @@ class Voyage_Logic:
     def add_new_voyage(self, voyage):
         return self.data_wrapper.create_voyage(voyage)
 
-    # def get_voyage_by_date(self, voyage_date):
-    #     all_voyages = self.get_all_voyages()
-    #     voyages_list = []
-
-    #     for voyage in all_voyages:
-    #         date, time = voyage.departure_time.split()
-    #         year, month, day = date.split("-")
-    #         date = datetime(int(year), int(month), int(day))
-    #         # if voyage.departure == voyage_date:
-    #         if date == voyage_date:
-    #             voyages_list.append(voyage)
-
-    #     return voyages_list
-
     def get_voyage_by_date(self, voyage_date):
         all_voyages = self.get_all_voyages()
         voyages_for_date = []
@@ -269,21 +255,9 @@ class Voyage_Logic:
 
         return phone
 
-    def is_employee_booked_on_date(self, ssn, date):
+    def add_staff_to_voyage(self,flight_number,flight_number2,captain,copilot,flight_service_manager,flight_attendant_one,flight_attendant_two):
         all_voyages = self.get_all_voyages()
-        for voyage in all_voyages:
-            if (
-                ssn
-                in [voyage.captain, voyage.copilot, voyage.fsm, voyage.fa1, voyage.fa2]
-            ) and datetime.strptime(
-                voyage.departure_time, "%Y-%m-%d %H:%M:%S"
-            ).date() == date:
-                return True
-        return False
-    
-    def add_staff_to_voyage(self, flight_number, flight_number2, captain, copilot, flight_service_manager, flight_attendant_one, flight_attendant_two):
-        all_voyages = self.get_all_voyages()
-        
+
 
     def check_flight_number(self, flight_number):
         all_voyages = self.get_all_voyages()
@@ -291,8 +265,3 @@ class Voyage_Logic:
             if flight_number == voy.flight_number:
                 return True
         return False
-
-    # def change_date(self, new_departure_time, new_arrival_time):
-    #     self.departure_time = new_departure_time
-    #     self.arrival_time = new_arrival_time
-    #     return self
