@@ -244,17 +244,17 @@ class Voyage_Logic:
 
         return phone
 
-    # def is_employee_booked_on_date(self, employee_national_id, date):
-    #     all_voyages = self.get_all_voyages()
-    #     for voyage in all_voyages:
-    #         if (
-    #             employee_national_id
-    #             in [voyage.captain, voyage.copilot, voyage.fsm, voyage.fa1, voyage.fa2]
-    #         ) and datetime.strptime(
-    #             voyage.departure_time, "%Y-%m-%d %H:%M:%S"
-    #         ).date() == date:
-    #             return True
-    #     return False
+    def is_employee_booked_on_date(self, ssn, date):
+        all_voyages = self.data_wrapper.get_all_voyages()
+        for voyage in all_voyages:
+            if (
+                ssn
+                in [voyage.captain, voyage.copilot, voyage.fsm, voyage.fa1, voyage.fa2]
+            ) and datetime.strptime(
+                voyage.departure_time, "%Y-%m-%d %H:%M:%S"
+            ).date() == date:
+                return True
+        return False
 
     # def change_date(self, new_departure_time, new_arrival_time):
     #     self.departure_time = new_departure_time

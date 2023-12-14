@@ -1,9 +1,9 @@
 from data.data_wrapper import DataWrapper
 from logic.destination_logic import DestinationLogic
 from logic.staff_logic import Staff_Logic
+from logic.voyage_logic import Voyage_Logic
 
 # from logic.flight_logic import FlightLogic
-from logic.voyage_logic import Voyage_Logic
 
 
 class LogicWrapper:
@@ -85,6 +85,12 @@ class LogicWrapper:
 
     def see_booked_employees_phone(self, employee):
         return self.voyage_logic.see_booked_employees_phone(employee)
+
+    def is_employee_booked_on_date(self, ssn, voyage_date):
+        return self.voyage_logic.is_employee_booked_on_date(ssn, voyage_date)
+
+    def add_staff_to_flight(self, employee, voyage_date):
+        return self.staff_logic.add_staff_to_flight(employee, voyage_date)
 
     # def change_date(self, new_departure_time, new_arrival_time):
     #     return self.voyage_logic.change_date(self, new_departure_time, new_arrival_time)

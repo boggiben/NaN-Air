@@ -20,7 +20,8 @@ class Staff_UI:
         print("6. Breyta starfsmannaupplýsingum (nema nafni og kt)")
         print("7. Lausir starfsmenn")
         print("8. Uppteknir starfsmenn")
-        print("9. sjá vinnuferðir starfsmanns (nota kt) ")
+        print("9. Sjá vinnuferðir starfsmanns (nota kt) ")
+        print("10. Bæta starfsmanni við vinnuferð")
         print("b. Fara í aðalvalmynd")
         print("*" * 80)
 
@@ -124,14 +125,17 @@ class Staff_UI:
                     year, month, day = voyage_date.split("-")
                     date = datetime(int(year), int(month), int(day))
                     employees = self.logic_wrapper.see_unbooked_employees(date)
-                    
 
                     if not employees:
                         print("Engir lausir starfsmenn.")
                     else:
                         for employee in employees:
-                            name = self.logic_wrapper.see_booked_employees_name(employee)
-                            phone = self.logic_wrapper.see_booked_employees_phone(employee)
+                            name = self.logic_wrapper.see_booked_employees_name(
+                                employee
+                            )
+                            phone = self.logic_wrapper.see_booked_employees_phone(
+                                employee
+                            )
                             print(f"{name}: sími: {phone}, kt.{employee}")
                 except ValueError:
                     print("Villa í innslætti. Sniðmátið er YYYY-MM-DD")
@@ -143,16 +147,23 @@ class Staff_UI:
                     year, month, day = voyage_date.split("-")
                     date = datetime(int(year), int(month), int(day))
                     employees = self.logic_wrapper.see_booked_employees(date)
-                    destination = self.logic_wrapper.see_booked_employees_departure(date)
-                    
+                    destination = self.logic_wrapper.see_booked_employees_departure(
+                        date
+                    )
 
                     if not employees:
                         print("Engir bókaðir starfsmenn.")
                     else:
                         for employee in employees:
-                            name = self.logic_wrapper.see_booked_employees_name(employee)
-                            phone = self.logic_wrapper.see_booked_employees_phone(employee)
-                            print(f"{destination}: {name}: sími: {phone}, kt.{employee}")
+                            name = self.logic_wrapper.see_booked_employees_name(
+                                employee
+                            )
+                            phone = self.logic_wrapper.see_booked_employees_phone(
+                                employee
+                            )
+                            print(
+                                f"{destination}: {name}: sími: {phone}, kt.{employee}"
+                            )
                 except ValueError:
                     print("Villa í innslætti. Sniðmátið er YYYY-MM-DD")
                 # veit ekki hvort það sé of mikið að gerast í UI
@@ -169,6 +180,34 @@ class Staff_UI:
                         print(voyage)
                 else:
                     print("Starfsmaður ekki skráður í vinnuferð")
+
+            elif user_input.lower() == "10":
+                print("Þú valdir að bæta starfsmanni við vinnuferð")
+                ssn = input("Skráðu kennitölu starfsmanns: ")
+
+                if "-" in ssn:
+                    ssn = ssn.replace("-", "")
+
+                voyage_date_str = input("Skráðu dagsetningu vinnuferðar (YYYY-MM-DD): ")
+                try:
+                    voyage_date = datetime.strptime(voyage_date_str, "%Y-%m-%d")
+                except ValueError:
+                    print("Villa í innslætti. Sniðmátið er YYYY-MM-DD.")
+                    continue
+
+                # Check if the employee is booked date
+                if self.logic_wrapper.voyage_logic.is_employee_booked_on_date(
+                    ssn, voyage_date
+                ):
+                    print("Starfsmaður er þegar bókaður á þessum degi.")
+                else:
+                    success = self.logic_wrapper.staff_logic.add_staff_to_flight(
+                        ssn, voyage_date
+                    )
+                    if success:
+                        print("Starfsmaður hefur verið bættur við vinnuferð.")
+                    else:
+                        print("Villa við að bæta starfsmanni við vinnuferð.")
 
             elif user_input.lower() == "b":
                 break
@@ -221,3 +260,15 @@ class Staff_UI:
             print("Starfsmannaupplýsingar uppfærðar.")
         else:
             print("Uppfærsla á upplýsingum mistókst!")
+
+    def add_staff_to_voyage_ui(self):
+        employee_id = input("Skráðu kennitölu starfsmanns: ")
+        voyage_date_str = input("Skráðu inn dagsetningu vinnuferðar (YYYY-MM-DD): ")
+        voyage_date = datetime.strptime(voyage_date_str, "%Y-%m-%d")
+
+        if self.logic_wrapper.voyage_logic.is_employee_booked_on_date(
+            employee_id, voyage_date
+        ):
+            print("Starfsmaður er skráður í vinnuferð á þessum degi")
+        else:
+            print("Aðgerð tókst. Starfsmanni hefur verið bætt við vinnuferð!")
