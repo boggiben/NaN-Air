@@ -19,9 +19,9 @@ class Voyage_Data:
                 "aircraft_id",
                 "captain",
                 "copilot",
-                "flight_service_manager",
-                "flight_attendant_one",
-                "flight_attendant_two",
+                "fsm",
+                "fa1",
+                "fa2",
                 "staffed",
                 # Add other necessary fields if they are part of the Voyage object
             ]
@@ -35,11 +35,12 @@ class Voyage_Data:
                     "departure_time": voyage.departure_time,
                     "arrival_time": voyage.arrival_time,
                     "aircraft_id": voyage.aircraft_id,
-                    # "captain": voyage.captain,
-                    # "copilot": voyage.copilot,
-                    # "fsm": voyage.fsm,
-                    # "fa1": voyage.fa1,
-                    # "fa2": voyage.fa2,
+                    "captain": voyage.captain,
+                    "copilot": voyage.copilot,
+                    "fsm": voyage.flight_service_manager,
+                    "fa1": voyage.flight_attendant_one,
+                    "fa2": voyage.flight_attendant_two,
+                    "staffed": voyage.staffed,
                     # Add other necessary fields if they are part of the Voyage object
                 }
             )

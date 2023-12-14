@@ -42,13 +42,11 @@ class Voyage_UI:
                     work_trip_number += 1
 
             elif user_input.lower() == "2":
-                print("Þú valdir að skrá vinnuferð")
-                try:
-                    success = self.add_new_voyage_ui()
-                    if success:
-                        print("Aðgerð tókst!")
-                except ValueError:
-                    print("Villa við innslátt. Mögulega rangt snið á dagsetningu")
+                print("Þú valdir að skrá vinnuferð")   
+                success = self.add_new_voyage_ui()
+                if success:
+                    print("Aðgerð tókst!")
+    
 
             elif user_input.lower() == "3":
                 print("Þú valdir að sjá vinnuferðir út frá dagsetningu")
@@ -225,11 +223,12 @@ class Voyage_UI:
 
         # Flight crew
         # voyage1.aircraft_id = input("Aircraft ID fyrir fyrsta flug: ")
-        # voyage1.captain = input("Flugstjóri:  ")
-        # voyage1.copilot = input("Flugmaður í vinnuferðinni: ")
-        # voyage1.flight_service_manager = input("Yfirflugþjónn í vinnuferðinni: ")
-        # voyage1.flight_attendant_one = input("Flugþjónn 1 í vinnuferðinni: ")
-        # voyage1.flight_attendant_two = input("Flugþjónn 2 í vinnuferðinni: ")
+        voyage1.captain = input("Flugstjóri:  ")
+        voyage1.copilot = input("Flugmaður í vinnuferðinni: ")
+        voyage1.flight_service_manager = input("Yfirflugþjónn í vinnuferðinni: ")
+        voyage1.flight_attendant_one = input("Flugþjónn 1 í vinnuferðinni: ")
+        voyage1.flight_attendant_two = input("Flugþjónn 2 í vinnuferðinni: ")
+        voyage1.staffed = input("1 ef flugið er mannað, 0 ef flugið er ómannað")
 
         # voyage1.staffed = (
         #     1
@@ -260,13 +259,14 @@ class Voyage_UI:
         # voyage2.aircraft_id = voyage1.aircraft_id
 
         # # Essential flight crew
-        # voyage2.captain = voyage1.captain
-        # voyage2.copilot = voyage1.copilot
-        # voyage2.flight_service_manager = voyage1.flight_service_manager
+        voyage2.captain = voyage1.captain
+        voyage2.copilot = voyage1.copilot
+        voyage2.flight_service_manager = voyage1.flight_service_manager
         # # Additional flight crew
 
-        # voyage2.flight_attendant_one = voyage1.flight_attendant_one
-        # voyage2.flight_attendant_two = voyage1.flight_attendant_two
+        voyage2.flight_attendant_one = voyage1.flight_attendant_one
+        voyage2.flight_attendant_two = voyage1.flight_attendant_two
+        voyage2.staffed = voyage1.staffed
         # voyage2.staffed = (
         #     1 if all([voyage2.captain, voyage2.copilot, voyage2.fsm]) else 0
         # )
