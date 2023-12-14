@@ -75,33 +75,38 @@ class Voyage_UI:
 
             elif user_input.lower() == "4":
                 print("Þú valdir að sjá vinnuferðir út frá viku")
-                voyage_date = input("Dagsetning: ")
-                year, month, day = voyage_date.split("-")
-                date = datetime(int(year), int(month), int(day))
+                try:
+                    voyage_date = input("Dagsetning: ")
+                    year, month, day = voyage_date.split("-")
+                    date = datetime(int(year), int(month), int(day))
 
-                voyages_by_week = self.logic_wrapper.get_voyage_by_week(date)
-                work_trip_number = 1
+                    voyages_by_week = self.logic_wrapper.get_voyage_by_week(date)
+                    work_trip_number = 1
 
-                for voyage1, voyage2 in voyages_by_week:
-                    voyage1_departure_time = datetime.strptime(
-                        voyage1.departure_time, "%Y-%m-%d %H:%M:%S"
+                    for voyage1, voyage2 in voyages_by_week:
+                        voyage1_departure_time = datetime.strptime(
+                            voyage1.departure_time, "%Y-%m-%d %H:%M:%S"
+                        )
+                        voyage2_departure_time = datetime.strptime(
+                            voyage2.departure_time, "%Y-%m-%d %H:%M:%S"
+                        )
+
+                        print(f"-----\nVinnuferð {work_trip_number}")
+                        # Print voyage details
+
+                        self.print_voyage_details(
+                            voyage1, print_crew=False, print_staffed=False
+                        )
+                        self.print_voyage_details(voyage1)
+
+                        work_trip_number += 1
+
+                    if work_trip_number == 1:
+                        print("Engin vinnuferð í þessari viku")
+                except ValueError:
+                    print(
+                        "Vitlaus innsláttur. Þú slóst mögulega inn dagsetningu í vitlausu sniði"
                     )
-                    voyage2_departure_time = datetime.strptime(
-                        voyage2.departure_time, "%Y-%m-%d %H:%M:%S"
-                    )
-
-                    print(f"-----\nVinnuferð {work_trip_number}")
-                    # Print voyage details
-
-                    self.print_voyage_details(
-                        voyage1, print_crew=False, print_staffed=False
-                    )
-                    self.print_voyage_details(voyage1)
-
-                    work_trip_number += 1
-
-                if work_trip_number == 1:
-                    print("Engin vinnuferð í þessari viku")
 
             elif user_input.lower() == "5":
                 print("Þú valdir að afrita skráningu á vinnuferð")
