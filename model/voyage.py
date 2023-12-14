@@ -28,4 +28,4 @@ class Voyage:
         self.staffed = staffed
 
     def __str__(self):
-        return f"flight number: {self.flight_number}, departure from: {self.departure}, arrival at:: {self.arrival}, departure time: {self.departure_time}, arrival time: {self.arrival_time}, aircraft id: {self.aircraft_id}, captain: {self.captain}, copilot: {self.copilot}, flight service manager: {self.fsm}, flight attendant 1: {self.fa1}, flight attendant 2: {self.fa2}"
+        return f"Flugnúmer: {self.flight_number}, Flug frá: {self.departure}, Flug til: {self.arrival}, Brottfaratími: {self.departure_time}, Komu tími: {self.arrival_time}, Flugvél: {self.aircraft_id}, Flugstjóri: {self.captain}, Flugmaður: {self.copilot}, Yfirflugþjónn: {self.fsm}, Flugþjónn 1: {self.fa1}, Flugþjónn 2: {self.fa2}"
