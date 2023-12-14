@@ -282,7 +282,8 @@ class Voyage_Logic:
         return False
     
     def add_staff_to_voyage(self, flight_number, flight_number2, captain, copilot, flight_service_manager, flight_attendant_one, flight_attendant_two):
-        pass
+        all_voyages = self.get_all_voyages()
+        
 
     def check_flight_number(self, flight_number):
         all_voyages = self.get_all_voyages()
