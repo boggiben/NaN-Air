@@ -97,5 +97,9 @@ class LogicWrapper:
     
     def check_flight_number(self, flight_number):
         return self.voyage_logic.check_flight_number(flight_number)
-    # def change_date(self, new_departure_time, new_arrival_time):
-    #     return self.voyage_logic.change_date(self, new_departure_time, new_arrival_time)
+
+    def modify_voyage(self, voyage):
+        return self.voyage_logic.modify_voyage(voyage)
+    
+    def update_voyage(self, voyage):
+        return self.voyage_logic.update_voyage(voyage)

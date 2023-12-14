@@ -174,23 +174,11 @@ class Voyage_UI:
                     print("!!!")
                     print("Flugið er ekki til")
 
+            elif user_input.lower() == "7":
+                result = self.modify_voyage_ui()
+
             elif user_input == "b":
                 break
-
-    # def add_new_voyage_ui(self):
-    #     voyage1 = Voyage()
-    #     voyage2 = Voyage()
-    #     flight_number = input("Flugnúmer: ")
-    #     new_voyage.flight_number = flight_number
-    #     departure = input("Frá: ")
-    #     new_voyage.departure = departure
-    #     arrival = input("Til: ")
-    #     new_voyage.arrival = arrival
-    #     departure_time = input("Brottfarartími: ")
-    #     new_voyage.departure_time = departure_txime
-    #     arrival_time = input("Komutími: ")
-    #     new_voyage.arrival_time = arrival_time
-    #     return self.logic_wrapper.add_new_voyage(new_voyage)
 
     def input(prompt, default=0):
         """Get input with a default value if blank."""
@@ -207,7 +195,9 @@ class Voyage_UI:
         voyage1.arrival = input("Til: ")
 
         # Ensuring correct format for departure time
-        voy1_departure_time_str = input("Brottfarartími (snið: YYYY-MM-DD HH:MM:SS): ")
+        voy1_date_input = input("Sláðu inn dagsetningu (í sniðinu YYYY-MM-DD): ")
+        voy1_time_input = input("Sláðu inn brottafartíma (í sniðnu HH:MM:SS)")
+        voy1_departure_time_str = voy1_date_input + " " + voy1_time_input
         voy1_departure_time = datetime.strptime(
             voy1_departure_time_str, "%Y-%m-%d %H:%M:%S"
         )
@@ -222,19 +212,12 @@ class Voyage_UI:
         voyage1.aircraft_id = input("Aircraft ID fyrir flugið út: ")
 
         # Flight crew
-        # voyage1.aircraft_id = input("Aircraft ID fyrir fyrsta flug: ")
         voyage1.captain = input("Flugstjóri:  ")
         voyage1.copilot = input("Flugmaður í vinnuferðinni: ")
         voyage1.flight_service_manager = input("Yfirflugþjónn í vinnuferðinni: ")
         voyage1.flight_attendant_one = input("Flugþjónn 1 í vinnuferðinni: ")
         voyage1.flight_attendant_two = input("Flugþjónn 2 í vinnuferðinni: ")
         voyage1.staffed = input("1 ef flugið er mannað, 0 ef flugið er ómannað")
-
-        # voyage1.staffed = (
-        #     1
-        #     if all([voyage1_captain_input, voyage1_copilot_input, voyage1_fsm_input])
-        #     else 0
-        # )
 
         # Setting return trip (voyage2) based on the outbound trip (voyage1)
         voyage2.flight_number = input("Flugnúmer fyrir heimferð: ")
@@ -256,8 +239,6 @@ class Voyage_UI:
         voyage2.aircraft_id = voyage1.aircraft_id
 
         # Additional input for the flight back (voyage2)
-        # voyage2.aircraft_id = voyage1.aircraft_id
-
         # # Essential flight crew
         voyage2.captain = voyage1.captain
         voyage2.copilot = voyage1.copilot
@@ -267,9 +248,7 @@ class Voyage_UI:
         voyage2.flight_attendant_one = voyage1.flight_attendant_one
         voyage2.flight_attendant_two = voyage1.flight_attendant_two
         voyage2.staffed = voyage1.staffed
-        # voyage2.staffed = (
-        #     1 if all([voyage2.captain, voyage2.copilot, voyage2.fsm]) else 0
-        # )
+
 
         # Setjum flugið í kerfið og sjáum hvort það hafi virkað
         result1 = self.logic_wrapper.add_new_voyage(voyage1)
@@ -300,3 +279,42 @@ class Voyage_UI:
             print(
                 "Mönnun:", "Fullmönnuð" if voyage.staffed == "1" else "Ekki fullmönnuð"
             )
+
+    def modify_voyage_ui(self):
+        voy1_flight_number = input("Skrá flugnúmer brottfarar til að breytinga vinnuferð: ")
+        voy2_flight_number = input("Skrá flugnúmer heim til að breytinga vinnuferð: ")
+
+        voyage1 = self.logic_wrapper.check_flight_number(voy1_flight_number)
+        voyage2 = self.logic_wrapper.check_flight_number(voy2_flight_number)
+        
+        if voyage1 is None or voyage2 is None:
+            print("Enginn vinnuferð er með þetta flugnúmer")
+            return
+
+        print("Upplýsingar um flugstjóra, flugmann, yfirflugþjón, flugþjón 1 og flugþjón 2 verða uppfærðar fyrir báðar ferðir.")
+        print(f"Núverandi upplýsingar fyrir fyrri ferð: {voyage1}")
+        print(f"Núverandi upplýsingar fyrir seinni ferð: {voyage2}")
+
+        new_captain = input("Nýr flugstjóri: ") or voyage1.captain
+        new_copilot = input("Nýr flugmaður: ") or voyage1.copilot
+        new_flight_service_manager = input("Nýr yfirflugþjónn: ") or voyage1.fsm
+        new_fa1 = input("Nýr flugþjónn 1: ") or voyage1.fa1
+        new_fa2 = input("Nýr flugþjónn 2: ") or voyage1.fa2
+        new_staffed = input("Er vinnuferðin mönnuð? '1' = JÁ, '0' = NEI: ")
+
+        # Apply changes to both voyages
+        updated_voyages = []
+        for voyage in [voyage1, voyage2]:
+            voyage.captain = new_captain
+            voyage.copilot = new_copilot
+            voyage.fsm = new_flight_service_manager
+            voyage.fa1 = new_fa1
+            voyage.fa2 = new_fa2
+            voyage.staffed = new_staffed
+            updated_voyages.append(voyage)
+
+        # Update voyages using a new method in logic_wrapper
+        if all(self.logic_wrapper.update_voyage(voy) for voy in updated_voyages):
+            print("Upplýsingar fyrir vinnuferð uppfærðar.")
+        else:
+            print("Uppfærsla á upplýsingum mistókst!")

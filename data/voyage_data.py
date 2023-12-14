@@ -86,11 +86,56 @@ class Voyage_Data:
                 }
             )
             return True
+    
 
-    # def read_all_customers(self):
-    #     ret_list = []
-    #     with open(self.file_name, newline='', encoding="utf-8") as csvfile:
-    #         reader = csv.DictReader(csvfile)
-    #         for row in reader:
-    #             ret_list.append(Customer(row["name"], row["birth_year"]))
-    #     return ret_list
+    def update_voyage(self, updated_voyage):
+        voyages = self.read_all_voyages()
+        for i, voyage in enumerate(voyages):
+            if voyage.flight_number == updated_voyage.flight_number:
+                voyages[i] = updated_voyage
+                self.write_all_voyages(voyages)
+                return True
+        return False
+
+        # Write updated voyages back to the file
+        self.write_all_voyages(voyages)
+
+
+    def write_all_voyages(self, voyages):
+        with open(self.file_name, "w", newline="", encoding="utf-8") as csvfile:
+            fieldnames = [
+                "flight_number",
+                "departure",
+                "arrival",
+                "departure_time",
+                "arrival_time",
+                "aircraft_id",
+                "captain",
+                "copilot",
+                "fsm",
+                "fa1",
+                "fa2",
+                "staffed",
+                # Add other necessary fields if they are part of the Voyage object
+            ]
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer.writeheader()
+
+            for voyage in voyages:
+                writer.writerow(
+                    {
+                        "flight_number": voyage.flight_number,
+                        "departure": voyage.departure,
+                        "arrival": voyage.arrival,
+                        "departure_time": voyage.departure_time,
+                        "arrival_time": voyage.arrival_time,
+                        "aircraft_id": voyage.aircraft_id,
+                        "captain": voyage.captain,
+                        "copilot": voyage.copilot,
+                        "fsm": voyage.fsm,
+                        "fa1": voyage.fa1,
+                        "fa2": voyage.fa2,
+                        "staffed": voyage.staffed,
+                        # Add other necessary fields if they are part of the Voyage object
+                    }
+                )

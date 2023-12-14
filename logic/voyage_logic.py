@@ -267,12 +267,31 @@ class Voyage_Logic:
         flight_number2=0
                 
                 
-
-                          
-
     def check_flight_number(self, flight_number):
         all_voyages = self.get_all_voyages()
-        for voy in all_voyages:
-            if flight_number == voy.flight_number:
-                return True
+        for voyage in all_voyages:
+            if flight_number == voyage.flight_number:
+                return voyage
         return False
+    
+    # def modify_voyage(self, voyage):
+    #     voyages = self.get_all_voyages()
+    #     updated = False
+    #     for i, voy in enumerate(voyages):
+    #         if voy.flight_number == voyage.flight_number:
+    #             voyages[i] = voyage
+    #             updated = True
+    #             break
+
+    #     if updated:
+    #         return self.data_wrapper.add_staff_to_flight(voyages)
+    #     else:
+    #         return False
+
+    def modify_voyage(self, voyage):
+        # Update the voyage
+        return self.data_wrapper.update_voyage(voyage)
+
+    def update_voyage(self, voyage):
+        """Updates a single voyage"""
+        return self.data_wrapper.update_voyage(voyage)
