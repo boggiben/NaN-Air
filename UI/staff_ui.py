@@ -177,7 +177,6 @@ class Staff_UI:
                             )
                 except ValueError:
                     print("Villa í innslætti. Sniðmátið er YYYY-MM-DD")
-                # veit ekki hvort það sé of mikið að gerast í UI
 
             elif user_input.lower() == "9":
                 ssn = input("kennitala: ")
@@ -213,9 +212,7 @@ class Staff_UI:
                 ):
                     print("Starfsmaður er þegar bókaður á þessum degi.")
                 else:
-                    success = self.logic_wrapper.add_staff_to_flight(
-                        ssn, voyage_date
-                    )
+                    success = self.logic_wrapper.add_staff_to_flight(ssn, voyage_date)
                     if success:
                         print("Starfsmanni hefur verið bætt við vinnuferð.")
                     else:
