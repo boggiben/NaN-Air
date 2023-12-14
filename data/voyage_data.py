@@ -34,6 +34,12 @@ class Voyage_Data:
                     "arrival": voyage.arrival,
                     "departure_time": voyage.departure_time,
                     "arrival_time": voyage.arrival_time,
+                    "aircraft_id": voyage.aircraft_id,
+                    # "captain": voyage.captain,
+                    # "copilot": voyage.copilot,
+                    # "fsm": voyage.fsm,
+                    # "fa1": voyage.fa1,
+                    # "fa2": voyage.fa2,
                     # Add other necessary fields if they are part of the Voyage object
                 }
             )
