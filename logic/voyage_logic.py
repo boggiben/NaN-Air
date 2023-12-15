@@ -311,7 +311,7 @@ class Voyage_Logic:
             return False
 
         updated_voyages = []
-        for voyage in [voyage1, voyage2]:
+        for voyage in [voyage1, voyage2]:   
             voyage.captain = new_captain
             voyage.copilot = new_copilot
             voyage.fsm = new_flight_service_manager
