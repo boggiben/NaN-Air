@@ -295,3 +295,22 @@ class Voyage_Logic:
     def update_voyage(self, voyage):
         """Updates a single voyage"""
         return self.data_wrapper.update_voyage(voyage)
+
+    def combine_flights_voyage(self, voyage1_flight_number, voyage2_flight_number, new_captain, new_copilot, new_flight_service_manager, new_fa1, new_fa2, new_staffed):
+        voyage1 = self.check_flight_number(voyage1_flight_number)
+        voyage2 = self.check_flight_number(voyage2_flight_number)
+
+        if not voyage1 or not voyage2:
+            return False
+
+        updated_voyages = []
+        for voyage in [voyage1, voyage2]:
+            voyage.captain = new_captain
+            voyage.copilot = new_copilot
+            voyage.fsm = new_flight_service_manager
+            voyage.fa1 = new_fa1
+            voyage.fa2 = new_fa2
+            voyage.staffed = new_staffed
+            updated_voyages.append(voyage)
+
+        return all(self.data_wrapper.update_voyage(voyage) for voyage in updated_voyages)

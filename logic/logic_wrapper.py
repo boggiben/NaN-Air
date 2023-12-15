@@ -103,3 +103,6 @@ class LogicWrapper:
     
     def update_voyage(self, voyage):
         return self.voyage_logic.update_voyage(voyage)
+
+    def combine_flights_voyage(self, voyage1_flight_number, voyage2_flight_number, new_captain, new_copilot, new_flight_service_manager, new_fa1, new_fa2, new_staffed):
+        return self.voyage_logic.combine_flights_voyage(voyage1_flight_number, voyage2_flight_number, new_captain, new_copilot, new_flight_service_manager, new_fa1, new_fa2, new_staffed)

@@ -281,11 +281,11 @@ class Voyage_UI:
             )
 
     def modify_voyage_ui(self):
-        voy1_flight_number = input("Skrá flugnúmer brottfarar til að breytinga vinnuferð: ")
-        voy2_flight_number = input("Skrá flugnúmer heim til að breytinga vinnuferð: ")
+        voyage1_flight_number = input("Skrá flugnúmer brottfarar til að breytinga vinnuferð: ")
+        voyage2_flight_number = input("Skrá flugnúmer heim til að breytinga vinnuferð: ")
 
-        voyage1 = self.logic_wrapper.check_flight_number(voy1_flight_number)
-        voyage2 = self.logic_wrapper.check_flight_number(voy2_flight_number)
+        voyage1 = self.logic_wrapper.check_flight_number(voyage1_flight_number)
+        voyage2 = self.logic_wrapper.check_flight_number(voyage2_flight_number)
         
         if voyage1 is None or voyage2 is None:
             print("Enginn vinnuferð er með þetta flugnúmer")
@@ -302,19 +302,7 @@ class Voyage_UI:
         new_fa2 = input("Nýr flugþjónn 2: ") or voyage1.fa2
         new_staffed = input("Er vinnuferðin mönnuð? '1' = JÁ, '0' = NEI: ")
 
-        # Apply changes to both voyages
-        updated_voyages = []
-        for voyage in [voyage1, voyage2]:
-            voyage.captain = new_captain
-            voyage.copilot = new_copilot
-            voyage.fsm = new_flight_service_manager
-            voyage.fa1 = new_fa1
-            voyage.fa2 = new_fa2
-            voyage.staffed = new_staffed
-            updated_voyages.append(voyage)
-
-        # Update voyages using a new method in logic_wrapper
-        if all(self.logic_wrapper.update_voyage(voy) for voy in updated_voyages):
+        if self.logic_wrapper.combine_flights_voyage(voyage1_flight_number, voyage2_flight_number, new_captain, new_copilot, new_flight_service_manager, new_fa1, new_fa2, new_staffed):
             print("Upplýsingar fyrir vinnuferð uppfærðar.")
         else:
             print("Uppfærsla á upplýsingum mistókst!")
