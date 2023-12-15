@@ -147,9 +147,7 @@ class Voyage_UI:
         voyage1.arrival = input("Til: ")
 
         # Ensuring correct format for departure time
-        voy1_date_input = input("Sláðu inn dagsetningu (í sniðinu YYYY-MM-DD): ")
-        voy1_time_input = input("Sláðu inn brottafartíma (í sniðnu HH:MM:SS)")
-        voy1_departure_time_str = voy1_date_input + " " + voy1_time_input
+        voy1_departure_time_str = input("Brottfarartími (snið: YYYY-MM-DD HH:MM:SS): ")
         voy1_departure_time = datetime.strptime(
             voy1_departure_time_str, "%Y-%m-%d %H:%M:%S"
         )
