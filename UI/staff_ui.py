@@ -20,7 +20,6 @@ class Staff_UI:
         print("6. Breyta starfsmannaupplýsingum (nema nafni og kt)")
         print("7. Lausir starfsmenn")
         print("8. Uppteknir starfsmenn")
-        print("9. Bæta starfsmanni við vinnuferð")
         print("b. Fara í aðalvalmynd")
         print("*" * 80)
 
