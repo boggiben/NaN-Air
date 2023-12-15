@@ -113,6 +113,7 @@ class Voyage_UI:
             elif user_input.lower() == "5":
                 print("Þú valdir að afrita skráningu á vinnuferð (Óklárað)")
                 duplicate_voyage = input("Veldu vinnuferð sem þú vilt afrita")
+                
 
             elif user_input.lower() == "6":
                 print("Þú valdir að skrá starfsfólk í vinnuferð (Óklárað)")
