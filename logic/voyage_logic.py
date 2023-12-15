@@ -344,6 +344,13 @@ class Voyage_Logic:
         model_voyage.departure_time=new_departure_time
         model_voyage.arrival_time=new_arrival_time
         model_voyage.aircraft_id=aircraft_id
+        model_voyage.captain=""
+        model_voyage.copilot=""
+        model_voyage.flight_service_manager=""
+        model_voyage.flight_attendant_one=""
+        model_voyage.flight_attendant_two=""
+        model_voyage.staffed=""
+        
         return model_voyage
         
         
