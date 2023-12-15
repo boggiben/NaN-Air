@@ -121,7 +121,7 @@ class Voyage_UI:
                 flight_check = self.logic_wrapper.check_flight_number(flight_number)
                 flight_check2 = self.logic_wrapper.check_flight_number(flight_number2)
                 if flight_check and flight_check2 == True:
-                    print(f"bæta starfsfólki í flug {flight_number}:")
+                    print(f"Bæta starfsfólki í flug {flight_number}:")
                     voyage_date = input("Dagsetning flugs (YYYY-MM-DD): ")
                     year, month, day = voyage_date.split("-")
                     date = datetime(int(year), int(month), int(day))
@@ -129,14 +129,14 @@ class Voyage_UI:
                         captain = input("kt. Flugstjóra: ")
                         booked_staff = self.logic_wrapper.see_booked_employees(date)
                         if captain in booked_staff:
-                            print("starfsmaður er nú þegar bókaður")
+                            print("Starfsmaður er nú þegar bókaður")
                         else:
                             break
                     while True:
                         copilot = input("kt. Flugmanns: ")
                         booked_staff = self.logic_wrapper.see_booked_employees(date)
                         if copilot in booked_staff:
-                            print("starfsmaður er nú þegar bókaður")
+                            print("Starfsmaður er nú þegar bókaður")
                         else:
                             break
                     while True:
