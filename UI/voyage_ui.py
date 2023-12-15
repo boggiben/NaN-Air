@@ -114,9 +114,12 @@ class Voyage_UI:
                 print("Þú valdir að afrita skráningu á vinnuferð (Óklárað)")
                 voyage1 = input("Veldu flugnúmer á brottfararflugi sem þú vilt endurtaka: ")
                 voyage2 = input("Veldu flugnúmer á heimkomuflugi sem þú vilt endurtaka: ")
-                new_date = input("Dagsetning endurtakningar(YYYY-MM-DD): ")
-                self.logic_wrapper.duplicate_voyage(voyage1, new_date)
-                self.logic_wrapper.duplicate_voyage(voyage2, new_date)
+                new_date = input("Dagsetning endurtakningar brottför(YYYY-MM-DD): ")
+                model_voyage1=self.logic_wrapper.duplicate_voyage(voyage1, new_date)
+                new_date2 = input("Dagsetning endurtakningar heimkoma(YYYY-MM-DD): ")
+                model_voyage2=self.logic_wrapper.duplicate_voyage(voyage2, new_date2)
+                self.logic_wrapper.add_new_voyage(model_voyage1)
+                self.logic_wrapper.add_new_voyage(model_voyage2)
                 
 
             elif user_input.lower() == "6":

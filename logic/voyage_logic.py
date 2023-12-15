@@ -329,7 +329,7 @@ class Voyage_Logic:
                 flight_number=voy.flight_number
                 departure=voy.departure
                 arrival=voy.arrival
-                departure_time=voy.voy1_departure_time
+                departure_time=voy.departure_time
                 arrival_time=voy.arrival_time
                 aircraft_id=voy.aircraft_id
         name=flight_number[:-4]
@@ -338,7 +338,13 @@ class Voyage_Logic:
         new_departure_time=f"{new_date}{departure_time[10:]}"
         new_arrival_time=f"{new_date}{arrival_time[10:]}"
         model_voyage=Voyage()
-        
+        model_voyage.flight_number=new_flight_number
+        model_voyage.departure=departure
+        model_voyage.arrival=arrival
+        model_voyage.departure_time=new_departure_time
+        model_voyage.arrival_time=new_arrival_time
+        model_voyage.aircraft_id=aircraft_id
+        return model_voyage
         
         
         
