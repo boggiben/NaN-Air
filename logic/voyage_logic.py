@@ -327,4 +327,18 @@ class Voyage_Logic:
         for voy in all_voyages:
             if voyage == voy.flight_number:
                 flight_number=voy.flight_number
-                
+                departure=voy.departure
+                arrival=voy.arrival
+                departure_time=voy.voy1_departure_time
+                arrival_time=voy.arrival_time
+                aircraft_id=voy.aircraft_id
+        name=flight_number[:-4]
+        numbers=int(flight_number[7:])+10
+        new_flight_number=f"{name}{numbers}"
+        new_departure_time=f"{new_date}{departure_time[10:]}"
+        new_arrival_time=f"{new_date}{arrival_time[10:]}"
+        model_voyage=Voyage()
+        
+        
+        
+        
