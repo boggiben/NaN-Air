@@ -29,8 +29,8 @@ class Staff_Logic:
 
         return None
 
-    def add_new_flight(self, plane, employee):
-        pass
+    #def add_new_flight(self, plane, employee):
+    #    pass
 
     def add_new_staff(self, employee):
         return self.data_wrapper.create_staff(employee)
@@ -52,11 +52,11 @@ class Staff_Logic:
         else:
             return False
 
-    def get_all_flights(self):
-        pass
+    #def get_all_flights(self):
+    #    pass
 
-    def get_flights_by_week(self):
-        pass
+    #def get_flights_by_week(self):
+    #    pass
 
     def see_booked_employees(self):
         return self.data_wrapper.see_booked_staff()

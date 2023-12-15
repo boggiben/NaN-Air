@@ -231,8 +231,8 @@ class Voyage_Logic:
             return None
         return voyages_that_employee_works_in
 
-    def see_voyage_plan(self, ssn):
-        pass
+    #def see_voyage_plan(self, ssn):
+    #    pass
 
     def see_booked_employees_name(self, employee):
         all_staff = self.data_wrapper.get_all_staff()
