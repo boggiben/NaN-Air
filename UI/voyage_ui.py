@@ -167,7 +167,7 @@ class Voyage_UI:
         voyage1.flight_service_manager = input("Yfirflugþjónn í vinnuferðinni: ")
         voyage1.flight_attendant_one = input("Flugþjónn 1 í vinnuferðinni: ")
         voyage1.flight_attendant_two = input("Flugþjónn 2 í vinnuferðinni: ")
-        voyage1.staffed = input("1 ef flugið er mannað, 0 ef flugið er ómannað")
+        voyage1.staffed = input("1 ef flugið er mannað, 0 ef flugið er ómannað: ")
 
         # Setting return trip (voyage2) based on the outbound trip (voyage1)
         voyage2.flight_number = input("Flugnúmer fyrir heimferð: ")
