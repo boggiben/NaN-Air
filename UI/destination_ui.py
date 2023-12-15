@@ -40,7 +40,7 @@ class Destination_UI:
         print(f"{'Áfangastaðir':^120}")
         print("*" * 120)
         print(
-            f"{'Country':<20} {'Airport':<20} {'Flight Duration':<20} {'Flight Distance km':<20} {'Contact Name':<20} {'Contact Number':<20}"
+            f"{'Land':<20} {'Flugvöllur':<20} {'Flugtími':<20} {'Fjarlægð km':<20} {'Tengiliður':<20} {'Númer tengiliðs':<20}"
         )
         for dest in destinations:
             print(
