@@ -33,7 +33,7 @@ class FlightUI:
         print(f"{'Flugferðir':^100}")
         print("*" * 120)
         print(
-            f"{'Flight Number':<20} {'Departing From':<20} {'Arriving at':<20} {'Departure Location':<20} {'Arrival Location':<20}"
+            f"{'Flugnúmer':<20} {'Brottför frá':<20} {'Koma til':<20} {'Tími brottfarar':<20} {'Tími komu':<20}"
         )
         for flight in all_flights:
             print(
