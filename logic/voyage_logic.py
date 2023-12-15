@@ -297,6 +297,8 @@ class Voyage_Logic:
         return self.data_wrapper.update_voyage(voyage)
 
     def combine_flights_voyage(self, voyage1_flight_number, voyage2_flight_number, new_captain, new_copilot, new_flight_service_manager, new_fa1, new_fa2, new_staffed):
+        """This function takes in parameters from voyage_ui via the logic_wrapper, puts updated_voyages into a list so we can update the flight crew for both legs
+        of the flight, which is one work trip"""
         voyage1 = self.check_flight_number(voyage1_flight_number)
         voyage2 = self.check_flight_number(voyage2_flight_number)
 
