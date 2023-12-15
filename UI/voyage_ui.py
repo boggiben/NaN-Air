@@ -162,11 +162,11 @@ class Voyage_UI:
         voyage1.aircraft_id = input("Aircraft ID fyrir flugið út: ")
 
         # Flight crew
-        voyage1.captain = input("Flugstjóri:  ")
-        voyage1.copilot = input("Flugmaður í vinnuferðinni: ")
-        voyage1.flight_service_manager = input("Yfirflugþjónn í vinnuferðinni: ")
-        voyage1.flight_attendant_one = input("Flugþjónn 1 í vinnuferðinni: ")
-        voyage1.flight_attendant_two = input("Flugþjónn 2 í vinnuferðinni: ")
+        voyage1.captain = input("Flugstjóri: (Ýttu á Enter til að skila auðu)")
+        voyage1.copilot = input("Flugmaður í vinnuferðinni: (Ýttu á Enter til að skila auðu) ")
+        voyage1.flight_service_manager = input("Yfirflugþjónn í vinnuferðinni: (Ýttu á Enter til að skila auðu) ")
+        voyage1.flight_attendant_one = input("Flugþjónn 1 í vinnuferðinni: (Ýttu á Enter til að skila auðu) ")
+        voyage1.flight_attendant_two = input("Flugþjónn 2 í vinnuferðinni: (Ýttu á Enter til að skila auðu) ")
         voyage1.staffed = input("1 ef flugið er mannað, 0 ef flugið er ómannað: ")
 
         # Setting return trip (voyage2) based on the outbound trip (voyage1)
