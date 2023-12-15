@@ -255,16 +255,16 @@ class Voyage_Logic:
 
         return phone
 
-    def add_staff_to_voyage(self,flight_number,flight_number2,captain,copilot,flight_service_manager,flight_attendant_one="ENGINN",flight_attendant_two="ENGINN"):
-        all_voyages = self.get_all_voyages()
-        for voy in all_voyages:
-            if flight_number == voy.flight_number:
-                voy.captain=captain
-                voy.copilot=copilot
-                voy.flight_service_manager=flight_service_manager
-                voy.flight_attendant_one=flight_attendant_one
-                voy.flight_attendant_two=flight_attendant_two
-        flight_number2=0
+    # def add_staff_to_voyage(self,flight_number,flight_number2,captain,copilot,flight_service_manager,flight_attendant_one="ENGINN",flight_attendant_two="ENGINN"):
+    #     all_voyages = self.get_all_voyages()
+    #     for voy in all_voyages:
+    #         if flight_number == voy.flight_number:
+    #             voy.captain=captain
+    #             voy.copilot=copilot
+    #             voy.flight_service_manager=flight_service_manager
+    #             voy.flight_attendant_one=flight_attendant_one
+    #             voy.flight_attendant_two=flight_attendant_two
+    #     flight_number2=0
                 
                 
     def check_flight_number(self, flight_number):
@@ -321,3 +321,10 @@ class Voyage_Logic:
             updated_voyages.append(voyage)
 
         return all(self.update_voyage(voyage) for voyage in updated_voyages)
+    
+    def duplicate_voyage(self, voyage, new_date):
+        all_voyages = self.get_all_voyages()
+        for voy in all_voyages:
+            if voyage == voy.flight_number:
+                flight_number=voy.flight_number
+                

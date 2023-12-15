@@ -112,7 +112,12 @@ class Voyage_UI:
 
             elif user_input.lower() == "5":
                 print("Þú valdir að afrita skráningu á vinnuferð (Óklárað)")
-                duplicate_voyage = input("Veldu vinnuferð sem þú vilt afrita")
+                voyage1 = input("Veldu flugnúmer á brottfararflugi sem þú vilt endurtaka: ")
+                voyage2 = input("Veldu flugnúmer á heimkomuflugi sem þú vilt endurtaka: ")
+                new_date = input("Dagsetning endurtakningar(YYYY-MM-DD): ")
+                self.logic_wrapper.duplicate_voyage(voyage1, new_date)
+                self.logic_wrapper.duplicate_voyage(voyage2, new_date)
+                
 
             elif user_input.lower() == "6":
                 result = self.modify_voyage_ui()
