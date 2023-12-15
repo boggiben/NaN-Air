@@ -47,6 +47,9 @@ class DataWrapper:
     def modify_staff(self, employee):
         return self.staff_data.modify_staff(employee)
 
+    def write_all_staff(self, employee):
+        return self.staff_data.write_all_staff(employee)
+
     def see_booked_staff(self):
         return self.staff_data.see_booked_employees()
 
