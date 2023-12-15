@@ -7,9 +7,12 @@ class FlightUI:
         self.logic_wrapper = logic_connection
 
     def flight_menu(self):
-        print("Flugferðir")
+        print("\n")
+        print(f'{"Flugferðir":>45}')
+        print("*" * 80)
         print("1. Sjá allar flugferðir")
         print("b. Til baka")
+        print("*" * 80)
 
     def input_flight(
         self,
@@ -30,7 +33,8 @@ class FlightUI:
         print(f"{'Flugferðir':^100}")
         print("*" * 120)
         print(
-            f"{'Flight Number':<20} {'Departing From':<20} {'Arriving at':<20} {'Departure Location':<20} {'Arrival Location':<20}")
+            f"{'Flight Number':<20} {'Departing From':<20} {'Arriving at':<20} {'Departure Location':<20} {'Arrival Location':<20}"
+        )
         for flight in all_flights:
             print(
                 f"{flight.flight_nr:<20} {flight.dep_from:<20} {flight.arr_at:<20} {flight.departure:<20} {flight.arrival:<20}"
