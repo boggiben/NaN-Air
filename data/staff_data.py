@@ -1,8 +1,6 @@
 import csv
 from model.employee import Employee
 
-# from model.staff import Staff
-
 
 class Staff_Data:
     def __init__(self):

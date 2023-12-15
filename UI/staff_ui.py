@@ -74,14 +74,14 @@ class Staff_UI:
                     print("Aðgerð tókst!")
 
             elif user_input.lower() == "5":
-                ssn = input("Skráðu kenntiölu starfsmanns til breytingar: ")
+                ssn = input("Skráðu kennitölu starfsmanns sem þú vilt finna: ")
                 if "-" in ssn:
                     ssn = ssn.replace("-", "")
                 # Tökum við bæði kennitölu án og með bandstriki
 
                 while len(ssn) != 10:
                     print("Vitlaus lengd á kennitölu. Reyndu aftur")
-                    ssn = input("Skráðu kenntiölu starfsmanns til breytingar: ")
+                    ssn = input("Skráðu kennitölu starfsmanns til breytingar: ")
                     if "-" in ssn:
                         ssn = ssn.replace("-", "")
 
@@ -110,7 +110,7 @@ class Staff_UI:
                         )
                         all_voyages
                         if all_voyages:
-                            for voyage in all_voyages:  # prints like the csv file
+                            for voyage in all_voyages:
                                 print(voyage)
                                 print()
                         else:
@@ -198,6 +198,7 @@ class Staff_UI:
                 print("Rangur innsláttur. Reyndu aftur.")
 
     def add_new_staff_ui(self):
+        """Einfalt fall til að bæta við nýjum starfsmanni"""
         new_employee = Employee()
         name = input("Nafn: ")
         new_employee.name = name
@@ -214,7 +215,8 @@ class Staff_UI:
         return self.logic_wrapper.add_new_staff(new_employee)
 
     def modify_staff_ui(self, employee):
-        # Birtum núverandi upplýsingar og um biðjum svo um að fá nýjar upplýsingar frá notanda
+        """Birtum núverandi upplýsingar og um biðjum svo um að fá nýjar upplýsingar frá notanda"""
+
         print(f"Núverandi upplýsingar: {employee}")
 
         new_address = (
@@ -245,6 +247,7 @@ class Staff_UI:
             print("Uppfærsla á upplýsingum mistókst!")
 
     def add_staff_to_voyage_ui(self):
+        """Fall sem við notum til að bæta starfsmanni við vinnuferð"""
         employee_id = input("Skráðu kennitölu starfsmanns: ")
         voyage_date_str = input("Skráðu inn dagsetningu vinnuferðar (YYYY-MM-DD): ")
         voyage_date = datetime.strptime(voyage_date_str, "%Y-%m-%d")

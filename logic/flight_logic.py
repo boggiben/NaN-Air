@@ -8,4 +8,5 @@ class FlightLogic:
         
     def get_all_flights():
         pass
-    #Ekkert logic í flight.
+    
+    

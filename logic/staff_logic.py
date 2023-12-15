@@ -21,6 +21,7 @@ class Staff_Logic:
         return self.data_wrapper.get_all_flight_attendants()
 
     def get_employee_by_ssn(self, ssn):
+        """Fall sem við notum til að fletta starfsmann upp út frá kennitölu."""
         all_employees = self.get_all_staff()
 
         for emp in all_employees:
@@ -29,9 +30,6 @@ class Staff_Logic:
 
         return None
 
-    #def add_new_flight(self, plane, employee):
-    #    pass
-
     def add_new_staff(self, employee):
         return self.data_wrapper.create_staff(employee)
 
@@ -39,6 +37,7 @@ class Staff_Logic:
         return self.data_wrapper.add_staff_to_flight(employee)
 
     def modify_staff(self, employee):
+        """Fall sem við notum til að breyta starfsmannaupplýsingum"""
         employees = self.get_all_staff()
         updated = False
         for i, emp in enumerate(employees):
@@ -52,18 +51,5 @@ class Staff_Logic:
         else:
             return False
 
-    #def get_all_flights(self):
-    #    pass
-
-    #def get_flights_by_week(self):
-    #    pass
-
     def see_booked_employees(self):
         return self.data_wrapper.see_booked_staff()
-
-    # def add_staff_to_flight(self, employee, voyage_date):
-    #     if self.data_wrapperr.is_employee_booked_on_date(
-    #         employee.national_id, voyage_date
-    #     ):
-    #         return False
-    #     return self.data_wrapper.add_staff_to_flight(employee)

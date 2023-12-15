@@ -118,4 +118,37 @@ Markmiðum dagsins náð.
 
 
 # Dagur 10 - Föstudagur 8. des
+**Mæting**: Árni, Bjartur, Borgar, Stígur, Sverrir, Viktor
+
+**Markmið**:
+
+**Niðurstaða**: Unnum að heiman, sumir farnir til Amsterdam og aðrir veikir.
+
+
+# Dagur 11 - Mánudagur 11. Des
+**Mæting**: Árni, Bjartur, Borgar, Stígur, Sverrir, Viktor
+**Markmið**: Halda áfram að vinna í A-kröfum.
+**Niðurstaða:** Unnum að heiman, sumir á leiðinni til landsins
+
+
+# Dagur 12 - Þriðjudagur 12. des
+**Mæting**: Bjartur, Stígur, Sverrir, Viktor
+**Niðurstaða:** Mættum frá 9-15, unnum í kóðanum og reyndum að klára A kröfurnar.
+
+ 
+# Dagur 13 - Miðvikudagur 13. des
+**Mæting:** Bjartur, Stígur, Sverrir, Viktor
+**Markmið:** Klára að kóða. Byrjar að uppfæra hönnunarskýrslu.
+**Niðurstaða:** Mættum frá 10-15, unnum við að klára fáu A kröfurnar sem eftir eru.
+
+# Dagur 14  - Fimmtudagur 14. des
+**Mæting:** Bjartur, Stígur, Sverrir, Viktor
+**Markmið:** Klára A-kröfur. Fínpússa kóða.
+**Niðurstaða:** Mættum frá 9-18 og fórum að vinna í kóðanum, kláruðum öll nema eitt fall sem við vorum samt byrjaðir að vinna í. Byrjuðum aðeins að vinna í uppfærðri hönnunarskýrslu.
+
+# Dagur 15 - Föstudagur 15. des
+**Mæting:** Bjartur, Borgar, Stígur, Viktor.
+**Markmið:** Fínpússa kóðann. Gera myndband.
+**Niðurstaða:** Mættum frá 9-19, unnum við að klára seinasta fallið í kóðanum, uppfærðum hönnunarskýrsluna og fínpússuðum kóðann, löguðum villur sem komu upp og komum í veg fyrir það að forritið krassi ef það skyldi koma innsláttarvilla.
+
 

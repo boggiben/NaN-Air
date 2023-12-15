@@ -214,6 +214,7 @@ class Voyage_UI:
         return True
 
     def print_voyage_details(self, voyage, print_crew=True, print_staffed=True):
+        """Fall sem við notum til að forðast endurtekt á kóða við prentun vinnuferða"""
         departure_time = datetime.strptime(voyage.departure_time, "%Y-%m-%d %H:%M:%S")
         arrival_time = datetime.strptime(voyage.arrival_time, "%Y-%m-%d %H:%M:%S")
 
@@ -232,6 +233,7 @@ class Voyage_UI:
             
 
     def modify_voyage_ui(self):
+        """Notum þetta fall til að fá inntak og skrá starfsfólk á vinnuferð"""
         voyage1_flight_number = input("Skrá flugnúmer brottfarar til að breytinga vinnuferð: ")
         voyage2_flight_number = input("Skrá flugnúmer heim til að breytinga vinnuferð: ")
         voyage_date = input("Dagsetning flugs (YYYY-MM-DD): ")

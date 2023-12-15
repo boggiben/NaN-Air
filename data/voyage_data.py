@@ -1,9 +1,6 @@
 import csv
 from model.voyage import Voyage
 
-# from model.staff import Staff
-
-
 class Voyage_Data:
     def __init__(self):
         self.file_name = "files/past_flights.csv"
@@ -87,20 +84,6 @@ class Voyage_Data:
             )
             return True
     
-
-    # def update_voyage(self, updated_voyage):
-    #     voyages = self.read_all_voyages()
-    #     for i, voyage in enumerate(voyages):
-    #         if voyage.flight_number == updated_voyage.flight_number:
-    #             voyages[i] = updated_voyage
-    #             self.write_all_voyages(voyages)
-    #             return True
-    #     return False
-
-    #     # Write updated voyages back to the file
-    #     self.write_all_voyages(voyages)
-
-
     def write_all_voyages(self, voyages):
         with open(self.file_name, "w", newline="", encoding="utf-8") as csvfile:
             fieldnames = [

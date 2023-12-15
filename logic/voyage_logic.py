@@ -20,8 +20,7 @@ class Voyage_Logic:
         return self.data_wrapper.get_all_voyages()
 
     def list_all_voyages(self):
-        """This function lists all voyages in a neat format. One voyage is a roundtrip, with at least one captain,
-        one copilot and one flight service manager"""
+        """Fall sem listar allar vinnuferir í þægilegu sniði. Ein vinnuferð eru tvær flugferðir fram og til baka."""
 
         all_voyages = self.get_all_voyages()  # Retrieve all voyages
         voyages_list = []
@@ -59,6 +58,7 @@ class Voyage_Logic:
         return self.data_wrapper.create_voyage(voyage)
 
     def get_voyage_by_date(self, voyage_date):
+        """Fall sem við notum til að finna vinnuferðir út frá dagsetningu"""
         all_voyages = self.get_all_voyages()
         voyages_for_date = []
         voyages_by_date = set()
@@ -93,6 +93,7 @@ class Voyage_Logic:
         return voyages_for_date
 
     def get_voyage_by_week(self, start_date):
+        """Fall sem við notum til að finna vinnuferðir út frá viku"""
         end_date = start_date + timedelta(days=7)
         paired_voyages = set()
         grouped_voyages_weekly = []
@@ -126,6 +127,7 @@ class Voyage_Logic:
         return grouped_voyages_weekly
 
     def see_booked_employees(self, voyage_date):
+        """Fall sem við notum til að kanna hvort starfsmenn séu bókaðir í vinnuferðir"""
         all_voyages = self.get_all_voyages()
         employee_list = []
         # voyage_date = datetime.strptime(voyage_date, '%Y-%m-%d')
@@ -154,6 +156,7 @@ class Voyage_Logic:
         return unique_list
 
     def see_unbooked_employees(self, voyage_date):
+        """Fall sem við notum til að safna starfsmönnum í lista og kanna hvort þeir séu lausir"""
         all_voyages = self.get_all_voyages()
         employee_list = []
         # voyage_date = datetime.strptime(voyage_date, '%Y-%m-%d')
@@ -193,6 +196,7 @@ class Voyage_Logic:
             return arrival
 
     def get_voayges_of_employee(self, ssn, start_date_input):
+        """Fall sem við notum til að finna vinnuferðir starfsmanns"""
         all_voyages = self.list_all_voyages()
         voyages_that_employee_works_in = []
         try:
@@ -231,9 +235,6 @@ class Voyage_Logic:
             return None
         return voyages_that_employee_works_in
 
-    #def see_voyage_plan(self, ssn):
-    #    pass
-
     def see_booked_employees_name(self, employee):
         all_staff = self.data_wrapper.get_all_staff()
         name = ""
@@ -254,17 +255,6 @@ class Voyage_Logic:
                 phone = str(staff.gsm)
 
         return phone
-
-    # def add_staff_to_voyage(self,flight_number,flight_number2,captain,copilot,flight_service_manager,flight_attendant_one="ENGINN",flight_attendant_two="ENGINN"):
-    #     all_voyages = self.get_all_voyages()
-    #     for voy in all_voyages:
-    #         if flight_number == voy.flight_number:
-    #             voy.captain=captain
-    #             voy.copilot=copilot
-    #             voy.flight_service_manager=flight_service_manager
-    #             voy.flight_attendant_one=flight_attendant_one
-    #             voy.flight_attendant_two=flight_attendant_two
-    #     flight_number2=0
                 
                 
     def check_flight_number(self, flight_number):
@@ -274,20 +264,6 @@ class Voyage_Logic:
                 return voyage
         return False
     
-    # def modify_voyage(self, voyage):
-    #     voyages = self.get_all_voyages()
-    #     updated = False
-    #     for i, voy in enumerate(voyages):
-    #         if voy.flight_number == voyage.flight_number:
-    #             voyages[i] = voyage
-    #             updated = True
-    #             break
-
-    #     if updated:
-    #         return self.data_wrapper.add_staff_to_flight(voyages)
-    #     else:
-    #         return False
-
     def modify_voyage(self, voyage):
         # Update the voyage
         return self.data_wrapper.update_voyage(voyage)
@@ -302,8 +278,7 @@ class Voyage_Logic:
         return False
 
     def combine_flights_voyage(self, voyage1_flight_number, voyage2_flight_number, new_captain, new_copilot, new_flight_service_manager, new_fa1, new_fa2, new_staffed):
-        """This function takes in parameters from voyage_ui via the logic_wrapper, puts updated_voyages into a list so we can update the flight crew for both legs
-        of the flight, which is one work trip"""
+        """Fall sem tekur inn sameinar tvö flug í eina vinnuferð, til að auðvelda skráningu á tveimur flugum saman í vinnuferðarskjal"""
         voyage1 = self.check_flight_number(voyage1_flight_number)
         voyage2 = self.check_flight_number(voyage2_flight_number)
 
@@ -323,6 +298,7 @@ class Voyage_Logic:
         return all(self.update_voyage(voyage) for voyage in updated_voyages)
     
     def duplicate_voyage(self, voyage, new_date):
+        """Notum þetta fall til að afrita vinnuferðir"""
         all_voyages = self.get_all_voyages()
         for voy in all_voyages:
             if voyage == voy.flight_number:
