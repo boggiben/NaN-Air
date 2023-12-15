@@ -75,6 +75,9 @@ class Staff_UI:
 
             elif user_input.lower() == "5":
                 ssn = input("Sláðu inn kennitölu starfsmanns (með eða án bandstriks): ")
+                while len(ssn) != 10:
+                    print("Vitlaus lengd á kennitölu. Reyndu aftur")
+                    ssn = input("Skráðu kenntiölu starfsmanns til breytingar: ")
 
                 # Tökum við bæði kennitölu án og með bandstriki
                 if "-" in ssn:
@@ -119,8 +122,6 @@ class Staff_UI:
                 # Tökum við bæði kennitölu án og með bandstriki
                 if "-" in ssn:
                     ssn = ssn.replace("-", "")
-
-                
 
                 employee = self.logic_wrapper.get_employee_by_ssn(ssn)
                 if employee is None:
